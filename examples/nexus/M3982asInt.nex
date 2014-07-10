@@ -1,0 +1,145 @@
+#NEXUS
+[!This data set was downloaded from TreeBASE, a relational database of phylogenetic knowledge. TreeBASE has been supported by the NSF, Harvard University, Yale University, SDSC and UC Davis. Please do not remove this acknowledgment from the Nexus file.
+
+
+Generated on July 04, 2014; 0:06 GMT
+
+TreeBASE (cc) 1994-2008
+
+Study reference:
+Jackman T., Larson A., De queiroz K., & Losos J. 1999. Phylogenetic relationships
+and tempo of early diversification in Anolis lizards. Systematic Biology, 48(2):
+254-285.
+
+TreeBASE Study URI:  http://purl.org/phylo/treebase/phylows/study/TB2:S603]
+
+BEGIN TAXA;
+        TITLE  combined;
+        DIMENSIONS NTAX=55;
+        TAXLABELS
+            Anolis_acutus
+            Anolis_aeneus
+            Anolis_agassizi
+            Anolis_ahli
+            Anolis_aliniger
+            Anolis_alutaceus
+            Anolis_angusticeps
+            Anolis_bahorucoensis
+            Anolis_barahonae
+            Anolis_bartschi
+            Anolis_bimaculatus
+            Anolis_brevirostris
+            Anolis_carolinensis
+            Anolis_christophei
+            Anolis_coelestinus
+            Anolis_cristatellus
+            Anolis_cuvieri
+            Anolis_distichus
+            Anolis_equestris
+            Anolis_etheridgei
+            Anolis_garmani
+            Anolis_grahami
+            Anolis_humilis
+            Anolis_insolitus
+            Anolis_krugi
+            Anolis_limifrons
+            Anolis_lineatopus
+            Anolis_lineatus
+            Anolis_loysiana
+            Anolis_luciae
+            Anolis_lucius
+            Anolis_luteogularis
+            Anolis_marcanoi
+            Anolis_maynardi
+            Anolis_microtus
+            Anolis_occultus
+            Anolis_olssoni
+            Anolis_ophiolepis
+            Anolis_paternus
+            Anolis_pumilis
+            Anolis_richardi
+            Anolis_sagrei
+            Anolis_sheplani
+            Anolis_strahmi
+            Anolis_stratulus
+            Anolis_valencienni
+            Anolis_vanidicus
+            Anolis_vermiculatus
+            Anolis_wattsi
+            Chamaeleolis_chamaeleonides
+            Chamaeleolis_guamuhaya
+            Chamaelinorops_barbouri
+            Diplolaemus_darwinii
+            Phenacosaurus_nicefori
+            Polychrus_acutirostris
+            ;
+END;
+
+BEGIN CHARACTERS;
+[! TreeBASE Matrix URI: http://purl.org/phylo/treebase/phylows/matrix/TB2:M3982]
+
+	TITLE Appendix_1;
+	LINK TAXA = combined;
+	DIMENSIONS NCHAR=16;
+	FORMAT DATATYPE=integer SYMBOLS= "0 1 2 3 4 5 6 7 8 9" MISSING=? GAP= -;
+MATRIX
+[                                       10        20  ]
+[                                        .         .  ]
+Anolis_acutus                   0021021134507100
+Anolis_aeneus                   0000011134306100
+Anolis_agassizi                 0000011134306100
+Anolis_ahli                     002104113??08211
+Anolis_aliniger                 00?0041134407110
+Anolis_alutaceus                002104113?407110
+Anolis_angusticeps              002104113?408110
+Anolis_bahorucoensis            0121011134407110
+Anolis_barahonae                0021021133307100
+Anolis_bartschi                 0021041134507110
+Anolis_bimaculatus              0021031134507100
+Anolis_brevirostris             00210?1134507100
+Anolis_carolinensis             0021041134407110
+Anolis_christophei              00?1041134507110
+Anolis_coelestinus              00?0041134406110
+Anolis_cristatellus             01211?1144508?01
+Anolis_cuvieri                  0021021133307100
+Anolis_distichus                0021011133507100
+Anolis_equestris                0021011133?07110
+Anolis_etheridgei               0121?41136?07110
+Anolis_garmani                  0121041133407210
+Anolis_grahami                  0121041133?07210
+Anolis_humilis                  001104114?508210
+Anolis_insolitus                11?1041?3??17110
+Anolis_krugi                    012131114?508101
+Anolis_limifrons                0011041134407210
+Anolis_lineatopus               0121041133407210
+Anolis_lineatus                 0021041133408210
+Anolis_loysiana                 002104113?408110
+Anolis_luciae                   0000011134306100
+Anolis_lucius                   0021041134507110
+Anolis_luteogularis             0021011133?07110
+Anolis_marcanoi                 102124113?508100
+Anolis_maynardi                 0021041134407110
+Anolis_microtus                 ?000011133?0310?
+Anolis_occultus                 000004114?203110
+Anolis_olssoni                  1021041135407110
+Anolis_ophiolepis               102104113?508210
+Anolis_paternus                 0021041135408110
+Anolis_pumilis                  1011041135508110
+Anolis_richardi                 000001113?306100
+Anolis_sagrei                   1021041134608211
+Anolis_sheplani                 01?1041134?11110
+Anolis_strahmi                  1021241133508100
+Anolis_stratulus                00210?1134507100
+Anolis_valencienni              0021041133408210
+Anolis_vanidicus                01010411354?7110
+Anolis_vermiculatus             0121041133?07110
+Anolis_wattsi                   00210?1134507110
+Chamaeleolis_chamaeleonides     0021410033?12100
+Chamaeleolis_guamuhaya          0021410033?12100
+Chamaelinorops_barbouri         100?041135?14310
+Diplolaemus_darwinii            000000013020501?
+Phenacosaurus_nicefori          000?01114??11100
+Polychrus_acutirostris          1000000101?1?100
+;
+END;
+
