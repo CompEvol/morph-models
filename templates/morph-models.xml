@@ -1,1 +1,63 @@
-<beast/>
+<beast version='2.0'
+       namespace='beast.app.beauti:beast.core:beast.evolution.branchratemodel:beast.evolution.speciation:beast.evolution.Tree.t:coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood:beast.evolution:beast.math.distributions'>
+
+<mergewith point='aux-partitions-panels'>
+		<alignmentProvider id="Add MK Morphological Data" spec='MorphModelAlignmentProvider' template='@MKTrait'/>
+
+        <subtemplate id='MKTrait' class='beast.evolution.alignment.FilteredAlignment' mainid='$(n)'>
+<![CDATA[
+			<distribution id="morphTreeLikelihood.$(n)" spec='TreeLikelihood' useJava="true" tag="location" tree='@Tree.t:$(n)'> 
+				<data spec="beast.evolution.alignment.FilteredAlignment" id='$(n)'>
+					<userDataType spec='beast.evolution.datatype.StandardDataType' id='morphDataType.$(n)' />
+				</data>
+				<siteModel spec='SiteModel' id="morphSiteModel.s:$(n)" gammaCategoryCount='1'>
+				        <proportionInvariant spec='parameter.RealParameter' id='proportionInvariant.s:$(n)' value='0.0' lower='0' upper='1' estimate='false'/>
+				        <mutationRate        spec='parameter.RealParameter' id='mutationRate.s:$(n)' value='1.0'        estimate='false'/>
+				        <shape               spec='parameter.RealParameter' id='gammaShape.s:$(n)' value='1.0'         estimate='false'/>
+                    <!-- could be replaced by MK subst model -->
+					<substModel spec="GeneralSubstitutionModel" id="morphSubstModel.s:$(n)">
+					    <frequencies id='morphFreqs.s:$(n)' spec='Frequencies'>
+					            <frequencies id='morphfrequencies.s:$(n)' spec='parameter.RealParameter' value='.25 .25 .25 .25'/>
+					    </frequencies>
+					    <rates id='relativemorphRates.s:$(n)' spec='parameter.RealParameter' value='1.' dimension='6'/>
+					</substModel>
+				</siteModel>
+				<branchRateModel id="StrictClockModel.c:$(n)" spec="beast.evolution.branchratemodel.StrictClockModel">
+					<parameter id="morphClockRate.c:$(n)" name="clock.rate" value="1.0"/>
+				</branchRateModel>
+			</distribution>
+
+
+		<distribution  id='morphclockPrior.c:$(n)' x="@morphClockRate.c:$(n)" spec='beast.math.distributions.Prior'>
+			<distr spec='beast.math.distributions.Gamma' alpha="0.001" beta="1000." offset="0.0"/>
+		</distribution>
+		<distribution  id='relativemorphRatesPrior.s:$(n)' x="@relativemorphRates.s:$(n)" spec='beast.math.distributions.Prior'>
+			<distr spec='beast.math.distributions.Gamma' alpha="1." beta="1." offset="0.0"/>
+		</distribution>
+
+
+        <operator id='morphrateScaler.s:$(n)' spec='ScaleOperator' scaleFactor="0.99" weight="30" parameter="@relativemorphRates.s:$(n)" scaleAllIndependently="true"/>
+
+	 	<operator id='morphMuScaler.c:$(n)' spec='ScaleOperator' scaleFactor="0.9" weight="3" parameter="@morphClockRate.c:$(n)"/>  
+]]>
+
+         <connect srcID='morphTreeLikelihood.$(n)'              targetID='likelihood' inputName='distribution' if="isInitializing"/>
+
+         <connect srcID='morphclockPrior.c:$(n)'                    targetID='prior' inputName='distribution' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(morphClockRate.c:$(n)) and morphClockRate.c:$(n)/estimate=true'/>
+         <connect srcID='relativemorphRatesPrior.s:$(n)'            targetID='prior' inputName='distribution' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(relativemorphRates.s:$(n)) and relativemorphRates.s:$(n)/estimate=true'/>
+
+         <connect srcID='relativemorphRates.s:$(n)'                 targetID='state' inputName='stateNode' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(relativemorphRates.s:$(n)) and relativemorphRates.s:$(n)/estimate=true'/>
+         <connect srcID='morphClockRate.c:$(n)'                   targetID='state' inputName='stateNode' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(morphClockRate.c:$(n)) and morphClockRate.c:$(n)/estimate=true'/>
+
+         <connect srcID='morphrateScaler.s:$(n)'                    targetID='mcmc' inputName='operator' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(relativemorphRates.s:$(n)) and relativemorphRates.s:$(n)/estimate=true'>Scales subst model rates of morphological characters on partition $(n)</connect>
+         <connect srcID='morphMuScaler.c:$(n)'                      targetID='mcmc' inputName='operator' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(morphClockRate.c:$(n)) and morphClockRate.c:$(n)/estimate=true'>Scales migration rate of morphological characters on partition $(n)</connect>
+         <connect srcID='BSSVSoperator.c:$(n)'                    targetID='mcmc' inputName='operator' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(rateIndicator.s:$(n)) and rateIndicator.s:$(n)/estimate=true'>Flips indicator bits of morphological characters on partition $(n)</connect>
+
+         <connect srcID='relativemorphRates.s:$(n)'                 targetID='tracelog' inputName='log' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(relativemorphRates.s:$(n)) and relativemorphRates.s:$(n)/estimate=true'/>
+         <connect srcID='morphClockRate.c:$(n)'                   targetID='tracelog' inputName='log' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(morphClockRate.c:$(n)) and morphClockRate.c:$(n)/estimate=true'/>
+
+	</subtemplate>
+
+</mergewith>
+</beast>
+
