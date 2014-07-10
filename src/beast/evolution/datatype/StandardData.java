@@ -93,7 +93,7 @@ public class StandardData extends DataType.Base {
 
     @Override
     public String getTypeDescription() {
-        return "morphology";
+        return "standard";
     }
 
     @Override
