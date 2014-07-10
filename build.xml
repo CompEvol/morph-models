@@ -1,0 +1,199 @@
+<!-- Build MM. It is also used by Hudson MM project. JUnit test is available for this build. -->
+<project basedir="." default="addon" name="BUILD_MM">
+	<description>
+	    Build MM. 
+            Also used by Hudson MM project. 
+	    JUnit test is available for this build.
+	    $Id: build_MM.xml $
+	</description>
+
+	<!-- set global properties for this build -->
+	<property name="srcMM" location="src" />
+	<property name="buildMM" location="build" />
+	<property name="libMM" location="lib" />
+	<property name="release_dir" value="release" />
+	<property name="distMM" location="${buildMM}/dist" />
+	<property name="beast2path" location="../beast2" />
+	<property name="libBeast2" location="${beast2path}/lib" />
+	<property name="srcBeast2" location="${beast2path}/src" />
+	<property name="beast2classpath" location="${beast2path}/build" />
+	<property name="Add_on_dir" value="${release_dir}/add-on" />
+	<property name="version" value="1.0.0" />
+
+    <import file="${beast2path}/build.xml" />
+
+	<property name="main_class_BEAST" value="beast.app.BeastMCMC" />
+	<property name="report" value="${buildMM}/junitreport"/>
+
+	<path id="classpath">
+        <pathelement path="${buildMM}"/>
+		<fileset dir="${libBeast2}" includes="junit-4.8.2.jar"/>
+        <pathelement path="${beast2classpath}"/>
+	</path>
+
+	<!-- start -->
+	<target name="initMM">
+		<echo message="${ant.project.name}: ${ant.file}" />
+	</target>
+
+	<target name="cleanMM">
+    	<delete dir="${buildMM}" />
+	</target>
+
+	<!-- clean previous build, and then compile Java source code, and Juint test -->
+	<target name="build_all_MM" depends="cleanMM,compile-allMM,junitMM"
+        description="Clean and Build all run-time stuff">
+	</target>
+
+	<!-- clean previous build, compile Java source code, and Junit test, and make the beast.jar and beauti.jar -->
+	<target name="build_jar_all_MM" depends="cleanMM,compile-allMM,junitMM,dist_all_MM"
+        description="Clean and Build all run-time stuff">
+	</target>
+
+
+	<!-- No JUnit Test, clean previous build, compile Java source code, and make the MM.jar and beauti.jar -->
+	<target name="build_jar_all_MM_NoJUnitTest" depends="cleanMM,compile-allMM,dist_all_MM"
+        description="Clean and Build all run-time stuff">
+	</target>
+
+	<!-- compile Java source code -->
+	<target name="compile-allMM" depends="initMM,compile-all">
+
+
+	    <!-- Capture the path as a delimited property using the refid attribute -->
+	    <property name="myclasspath" refid="classpath"/>
+	    <!-- Emit the property to the ant console -->
+	    <echo message="Classpath = ${myclasspath}"/>
+
+		<mkdir dir="${buildMM}" />
+
+		<!-- Compile the java code from ${srcMM} into ${buildMM} /bin -->
+		<javac srcdir="${srcMM}" destdir="${buildMM}" classpathref="classpath" 
+		       fork="true"
+		       memoryinitialsize="256m"
+		       memorymaximumsize="256m"
+			   source="1.8"
+		       target="1.8">
+			<include name="beast/**/**" />
+			<!-- compile JUnit test classes -->
+			<include name="test/beast/**" />
+		</javac>
+		<echo message="Successfully compiled." />
+	</target>
+
+	<!-- make the beast.jar and beauti.jar -->
+	<target name="dist_all_MM" depends="compile-allMM" description="create MM jar">
+		<!-- Create the distribution directory -->
+		<mkdir dir="${distMM}" />
+
+		<!-- Put everything in ${buildMM} into the beast.jar file -->
+		<jar jarfile="${distMM}/MM.jar">
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Main-Class" value="${main_class_BEAST}" />
+			</manifest>
+			<fileset dir="${buildMM}">
+				<include name="beast/**/*.class" />
+			</fileset>
+			<fileset dir="${beast2classpath}">
+				<include name="beast/**/*.class" />
+				<include name="beast/**/*.properties" />
+				<include name="beast/**/*.png" />
+				<include name="beagle/**/*.class" />
+				<include name="org/**/*.class" />
+			</fileset>
+		</jar>
+		<jar jarfile="${distMM}/MM.src.jar">
+			<fileset dir="${srcMM}">
+				<include name="beast/**/*.java" />
+				<include name="beast/**/*.png" />
+				<include name="beast/**/*.xsl" />
+			</fileset>
+        </jar>
+		<jar jarfile="${distMM}/MM.addon.jar">
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+			</manifest>
+			<fileset dir="${buildMM}">
+				<include name="beast/**/*.class" />
+				<include name="util/**/*.class" />
+				<include name="**/*.properties" />
+			</fileset>
+		</jar>
+	</target>
+
+	<!-- run beast.jar -->
+	<target name="run_MM">
+		<java jar="${distMM}/MM.jar" fork="true" />
+	</target>
+
+	
+	<!-- JUnit test -->
+	<target name="junitMM">
+		<mkdir dir="${report}" />
+		<junit printsummary="yes"> <!--showoutput='yes'-->
+			<classpath>
+				<path refid="classpath" />
+				<path location="${buildMM}" />
+			</classpath>
+
+			<formatter type="xml" />
+
+			<batchtest fork="yes" todir="${report}">
+				<fileset dir="${srcMM}">
+                    <include name="test/**/*Test.java"/>                                         
+				</fileset>
+				<fileset dir="${srcBeast2}">
+                    <include name="test/beast/integration/**/*Test.java"/>                                         
+                    <exclude name="test/beast/integration/**/ResumeTest.java"/>                                         
+				</fileset>
+			</batchtest>
+		</junit>
+		<echo message="JUnit test finished." />
+	</target>
+    
+    <target name="junitreport">
+		<junitreport todir="${report}">
+			<fileset dir="${report}" includes="*.xml"/>
+			<report format="frames" todir="${report}"/>
+		</junitreport>
+		<echo message="JUnit test report finished." />
+	</target>
+
+
+	<target name="addon"
+	        depends="build_jar_all_MM_NoJUnitTest"
+	        description="release BEAST 2 add-on version of MM">
+
+		<delete dir="${Add_on_dir}" />
+		<!-- Create the release directory -->
+		<mkdir dir="${Add_on_dir}" />
+		<mkdir dir="${Add_on_dir}/lib" />
+		<mkdir dir="${Add_on_dir}/examples" />
+		<mkdir dir="${Add_on_dir}/templates" />
+
+		<copy todir="${Add_on_dir}">
+			<fileset file="version.xml"/>
+		</copy>
+		<copy todir="${Add_on_dir}/examples">
+			<fileset dir="examples" />
+		</copy>
+		<copy todir="${Add_on_dir}/lib">
+			<fileset dir="${distMM}" includes="MM.addon.jar" />
+		</copy>
+		<copy todir="${Add_on_dir}">
+			<fileset dir="${distMM}" includes="MM.src.jar" />
+		</copy>
+		<copy todir="${Add_on_dir}/templates">
+			<fileset file="templates/*.xml" />
+		</copy>
+
+		<jar jarfile="${distMM}/MM.addon.v${version}.zip">
+			<fileset dir="${Add_on_dir}">
+				<include name="**/*" />
+			</fileset>
+        </jar>
+		<echo message="Add-on version v${version} release is finished." />
+	</target>
+
+</project>
