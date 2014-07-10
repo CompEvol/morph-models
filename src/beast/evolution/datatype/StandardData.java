@@ -16,7 +16,8 @@ public class StandardData extends DataType.Base {
     public Input<String> listOfAmbiguitiesInput = new Input<String>("ambiguities", "all possible ambiguities presented " +
             "as space separated sets of ordered elements. Elements are digits 0..9.");
     public Input<List<CharStateLabels>> charStateLabelsInput= new Input<List<CharStateLabels>>("charstatelabels",
-            "morphological character description");
+            "list of morphological character descriptions. Position in the list corresponds to the position of the" +
+                    "character in the alignment");
 
     private String[] ambiguities;
     private ArrayList<String> codeMapping;
@@ -108,7 +109,7 @@ public class StandardData extends DataType.Base {
         return (char)('0'+state);
     }
 
-    @Description("An instance of this class contains the description of a character")
+    @Description("A class to store the description of a character")
     public class CharStateLabels {
         private int nrOfStates;
         private String description;
