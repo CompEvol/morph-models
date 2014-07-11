@@ -2,7 +2,7 @@
        namespace='beast.app.beauti:beast.core:beast.evolution.branchratemodel:beast.evolution.speciation:beast.evolution.Tree.t:coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood:beast.evolution:beast.math.distributions'>
 
 <mergewith point='aux-partitions-panels'>
-		<alignmentProvider id="Add MK Morphological Data" spec='MorphModelAlignmentProvider' template='@MKTrait'/>
+		<alignmentProvider id="Add MK Morphological Data" spec='BeautiMorphModelAlignmentProvider' template='@MKTrait'/>
 
         <subtemplate id='MKTrait' class='beast.evolution.alignment.FilteredAlignment' mainid='$(n)'>
 <![CDATA[

@@ -24,7 +24,7 @@ import beast.evolution.datatype.UserDataType;
 
 
 @Description("Class for creating new partitions for morphological data to be edited by AlignmentListInputEditor")
-public class MorphModelAlignmentProvider extends BeautiAlignmentProvider {
+public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 	
 
 	@Override
