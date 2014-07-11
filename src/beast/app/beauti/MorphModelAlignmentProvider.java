@@ -3,16 +3,25 @@ package beast.app.beauti;
 import beast.core.Description;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 import beast.app.beauti.BeautiAlignmentProvider;
 import beast.app.beauti.BeautiDoc;
 import beast.app.draw.ExtensionFileFilter;
 import beast.core.BEASTInterface;
 import beast.evolution.alignment.Alignment;
+import beast.evolution.alignment.FilteredAlignment;
+import beast.evolution.datatype.DataType;
 import beast.evolution.datatype.StandardData;
+import beast.evolution.datatype.UserDataType;
 
 
 @Description("Class for creating new partitions for morphological data to be edited by AlignmentListInputEditor")
@@ -33,13 +42,113 @@ public class MorphModelAlignmentProvider extends BeautiAlignmentProvider {
 
 			File[] files = fileChooser.getSelectedFiles();
 			
-			// TODO insert code to split up alignment into FilteredAlignemnts here
+			// split alignments into filtered alignments -- one for each state space size
+            List<BEASTInterface> alignments = getAlignments(doc, files);
+            List<BEASTInterface> filteredAlignments = new ArrayList<>();
+    		try {
+            for (BEASTInterface o : alignments) {
+            	if (o instanceof Alignment) {
+					processAlignment((Alignment) o, filteredAlignments);
+            	}
+            }
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "Soemthing went wrong converting the alignment: " + e.getMessage());
+				e.printStackTrace();
+				return null;
+			}
+            // TODO: create treelikelihood for each state space
 
-            return getAlignments(doc, files);
+            // TODO: link trees and clock models
+            
+            return filteredAlignments;
 		}
 		return null;
 	}
 	
+	// split an alignment into filtered alignments -- one for each state space size
+	// add them to filteredAlignments
+	private void processAlignment(Alignment alignment, List<BEASTInterface> filteredAlignments) throws Exception {
+		Map<Integer, List<Integer>> stateSpaceMap = new HashMap<Integer, List<Integer>>();
+		
+		// distinguish between StandardData and others
+		if (alignment.getDataType() instanceof StandardData) {
+			// determine state space size by interogating StandardData data-type 
+			StandardData dataType = (StandardData) alignment.getDataType();
+			for (int i = 0; i < alignment.getSiteCount(); i++) {
+				int nrOfStates = dataType.charStateLabelsInput.get().get(i).getNrOfStates();
+				if (!stateSpaceMap.containsKey(nrOfStates)) {
+					stateSpaceMap.put(nrOfStates, new ArrayList<Integer>());
+				}
+				stateSpaceMap.get(nrOfStates).add(i);
+			}
+		} else {
+			// determine state space size by counting different nr of states for a 
+			for (int i = 0; i < alignment.getSiteCount(); i++) {
+				int [] pattern = alignment.getPattern(alignment.getPatternIndex(i));
+				Set<Integer> states = new HashSet<Integer>();
+				for (int k : pattern) {
+					if (!alignment.getDataType().isAmbiguousState(k)) {
+						states.add(k);
+					}
+				}
+				int nrOfStates = states.size();
+				if (!stateSpaceMap.containsKey(nrOfStates)) {
+					stateSpaceMap.put(nrOfStates, new ArrayList<Integer>());
+				}
+				stateSpaceMap.get(nrOfStates).add(i);
+			}
+		}
+		
+		// create filtered alignments
+		for (Integer nrOfStates : stateSpaceMap.keySet()) {
+			String ID = alignment.getID() + nrOfStates;
+			
+			// create fileter range
+			// currently, just creates a singleton for each entry.
+			// The entries are sorted (by construction of the list)
+			// TODO: beautify range when there are consecutive sites involved 
+			StringBuilder range = new StringBuilder();
+			for (Integer site : stateSpaceMap.get(nrOfStates)) {
+				range.append(site + ",");
+			}
+			range.deleteCharAt(range.length() - 1);
+			
+			// create data type
+			DataType dataType;
+			if (alignment.getDataType() instanceof StandardData) {
+				// determine state space size by interogating StandardData data-type 
+				StandardData base = (StandardData) alignment.getDataType();
+				dataType = new StandardData();
+				((StandardData) dataType).initByName("statecount", nrOfStates,
+						"base", base); // TODO inmlement base input in StandardData
+			} else {
+				// TODO deal with ambiguous codes
+				StringBuilder codeMap = new StringBuilder();
+				for (int i = 0; i < nrOfStates; i++) {
+					codeMap.append(i +" = " + i + ", ");
+				} 
+				codeMap.append("? =");
+				for (int i = 0; i < nrOfStates; i++) {
+					codeMap.append(" " + i);
+				}				
+				UserDataType userDataType = new UserDataType();
+				userDataType.initByName("states", nrOfStates,
+						"codelength", 1,
+						"codeMap", codeMap);
+				dataType = userDataType;
+			}
+			
+			
+            final FilteredAlignment fAlignment = new FilteredAlignment();
+            fAlignment.setID(ID);
+            fAlignment.initByName("alignment", alignment,
+            		"range", range.toString(),
+            		"userDataTYpe", dataType
+            		);
+            filteredAlignments.add(fAlignment);
+		}
+	}
+
 	@Override
 	int matches(Alignment alignment) {
 		if (alignment.userDataTypeInput.get() != null && 
