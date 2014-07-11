@@ -18,7 +18,6 @@ import beast.app.beauti.BeautiDoc;
 import beast.app.draw.ExtensionFileFilter;
 import beast.core.BEASTInterface;
 import beast.evolution.alignment.Alignment;
-import beast.evolution.alignment.FilteredAlignment;
 import beast.evolution.datatype.DataType;
 import beast.evolution.datatype.StandardData;
 import beast.evolution.datatype.UserDataType;
@@ -44,11 +43,11 @@ public class MorphModelAlignmentProvider extends BeautiAlignmentProvider {
 			
 			// split alignments into filtered alignments -- one for each state space size
             List<BEASTInterface> alignments = getAlignments(doc, files);
-            List<BEASTInterface> filteredAlignments = new ArrayList<>();
+    		List<BEASTInterface> filteredAlignments = new ArrayList<BEASTInterface>();
     		try {
             for (BEASTInterface o : alignments) {
             	if (o instanceof Alignment) {
-					processAlignment((Alignment) o, filteredAlignments);
+					processAlignment((Alignment) o, filteredAlignments, doc);
             	}
             }
 			} catch (Exception e) {
@@ -56,9 +55,6 @@ public class MorphModelAlignmentProvider extends BeautiAlignmentProvider {
 				e.printStackTrace();
 				return null;
 			}
-            // TODO: create treelikelihood for each state space
-
-            // TODO: link trees and clock models
             
             return filteredAlignments;
 		}
@@ -67,7 +63,7 @@ public class MorphModelAlignmentProvider extends BeautiAlignmentProvider {
 	
 	// split an alignment into filtered alignments -- one for each state space size
 	// add them to filteredAlignments
-	private void processAlignment(Alignment alignment, List<BEASTInterface> filteredAlignments) throws Exception {
+	private void processAlignment(Alignment alignment, List<BEASTInterface> filteredAlignments, BeautiDoc doc) throws Exception {
 		Map<Integer, List<Integer>> stateSpaceMap = new HashMap<Integer, List<Integer>>();
 		
 		// distinguish between StandardData and others
@@ -98,6 +94,9 @@ public class MorphModelAlignmentProvider extends BeautiAlignmentProvider {
 				stateSpaceMap.get(nrOfStates).add(i);
 			}
 		}
+		
+		String tree = alignment.getID();
+		String clock = alignment.getID();
 		
 		// create filtered alignments
 		for (Integer nrOfStates : stateSpaceMap.keySet()) {
@@ -138,8 +137,12 @@ public class MorphModelAlignmentProvider extends BeautiAlignmentProvider {
 				dataType = userDataType;
 			}
 			
-			
-            final FilteredAlignment fAlignment = new FilteredAlignment();
+            // link trees and clock models
+			String name = alignment.getID() + nrOfStates;
+			PartitionContext context = new PartitionContext(name, name, clock, tree);
+
+            // create treelikelihood for each state space
+			Alignment fAlignment = (Alignment) doc.addAlignmentWithSubnet(context, template.get());
             fAlignment.setID(ID);
             fAlignment.initByName("alignment", alignment,
             		"range", range.toString(),
@@ -147,6 +150,7 @@ public class MorphModelAlignmentProvider extends BeautiAlignmentProvider {
             		);
             filteredAlignments.add(fAlignment);
 		}
+	
 	}
 
 	@Override
