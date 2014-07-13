@@ -71,6 +71,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 			// determine state space size by interogating StandardData data-type 
 			StandardData dataType = (StandardData) alignment.getDataType();
 			for (int i = 0; i < alignment.getSiteCount(); i++) {
+				// TODO: this assumes there is a charStateLabel for this site -- deal with the case there is not such charStateLabel 
 				int nrOfStates = dataType.charStateLabelsInput.get().get(i).getNrOfStates();
 				if (!stateSpaceMap.containsKey(nrOfStates)) {
 					stateSpaceMap.put(nrOfStates, new ArrayList<Integer>());
