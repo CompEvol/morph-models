@@ -51,7 +51,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
             	}
             }
 			} catch (Exception e) {
-				JOptionPane.showMessageDialog(null, "Soemthing went wrong converting the alignment: " + e.getMessage());
+				JOptionPane.showMessageDialog(null, "Something went wrong converting the alignment: " + e.getMessage());
 				e.printStackTrace();
 				return null;
 			}
@@ -72,7 +72,12 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 			StandardData dataType = (StandardData) alignment.getDataType();
 			for (int i = 0; i < alignment.getSiteCount(); i++) {
 				// TODO: this assumes there is a charStateLabel for this site -- deal with the case there is not such charStateLabel 
-				int nrOfStates = dataType.charStateLabelsInput.get().get(i).getNrOfStates();
+				int nrOfStates = 0;
+				if (dataType.charStateLabelsInput.get().size() > i) {
+					nrOfStates = dataType.charStateLabelsInput.get().get(i).getNrOfStates();
+				} else {
+					nrOfStates = calcNumberOfStates(alignment, i);
+				}
 				if (!stateSpaceMap.containsKey(nrOfStates)) {
 					stateSpaceMap.put(nrOfStates, new ArrayList<Integer>());
 				}
@@ -81,14 +86,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 		} else {
 			// determine state space size by counting different nr of states for a 
 			for (int i = 0; i < alignment.getSiteCount(); i++) {
-				int [] pattern = alignment.getPattern(alignment.getPatternIndex(i));
-				Set<Integer> states = new HashSet<Integer>();
-				for (int k : pattern) {
-					if (!alignment.getDataType().isAmbiguousState(k)) {
-						states.add(k);
-					}
-				}
-				int nrOfStates = states.size();
+				int nrOfStates = calcNumberOfStates(alignment, i);
 				if (!stateSpaceMap.containsKey(nrOfStates)) {
 					stateSpaceMap.put(nrOfStates, new ArrayList<Integer>());
 				}
@@ -152,6 +150,21 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
             filteredAlignments.add(fAlignment);
 		}
 	
+	}
+
+	/** calculate number of states for a site by determining the set of unique
+	 * characters at that site. 
+	 */
+	private int calcNumberOfStates(Alignment alignment, int site) {
+		int [] pattern = alignment.getPattern(alignment.getPatternIndex(site));
+		Set<Integer> states = new HashSet<Integer>();
+		for (int k : pattern) {
+			if (!alignment.getDataType().isAmbiguousState(k)) {
+				states.add(k);
+			}
+		}
+		int nrOfStates = states.size();
+		return nrOfStates;
 	}
 
 	@Override
