@@ -4,7 +4,12 @@
 <mergewith point='aux-partitions-panels'>
 		<alignmentProvider id="Add MK Morphological Data" spec='BeautiMorphModelAlignmentProvider' template='@MKTrait'/>
 
-        <subtemplate id='MKTrait' class='beast.evolution.alignment.FilteredAlignment' mainid='$(n)'>
+        <subtemplate id='MKTrait' class='beast.evolution.alignment.FilteredAlignment' mainid='$(n)'
+        suppressInputs = 'beast.evolution.substitutionmodel.LewisMK.stateNumber,
+			beast.evolution.substitutionmodel.LewisMK.datatype,
+			beast.evolution.substitutionmodel.LewisMK.frequencies'
+
+>
 <![CDATA[
 
             <!-- tree and its properties -->
@@ -27,13 +32,8 @@
 				        <proportionInvariant spec='parameter.RealParameter' id='proportionInvariant.s:$(n)' value='0.0' lower='0' upper='1' estimate='false'/>
 				        <mutationRate        spec='parameter.RealParameter' id='mutationRate.s:$(n)' value='1.0'        estimate='false'/>
 				        <shape               spec='parameter.RealParameter' id='gammaShape.s:$(n)' value='1.0'         estimate='false'/>
-                    <!-- could be replaced by MK subst model -->
-					<substModel spec="GeneralSubstitutionModel" id="morphSubstModel.s:$(n)">
-					    <frequencies id='morphFreqs.s:$(n)' spec='Frequencies'>
-					            <frequencies id='morphfrequencies.s:$(n)' spec='parameter.RealParameter' value='.25 .25 .25 .25'/>
-					    </frequencies>
-					    <rates id='relativemorphRates.s:$(n)' spec='parameter.RealParameter' value='1.' dimension='12'/>
-					</substModel>
+                    <!-- MK subst model -->
+					<substModel spec="LewisMK" id="LewisMK.s:$(n)" datatype='@morphDataType.$(n)'/>
 				</siteModel>
 				<branchRateModel id="StrictClockModel.c:$(n)" spec="beast.evolution.branchratemodel.StrictClockModel">
 					<parameter id="morphClockRate.c:$(n)" name="clock.rate" value="1.0"/>
@@ -47,9 +47,6 @@
 
 		<distribution  id='morphclockPrior.c:$(n)' x="@morphClockRate.c:$(n)" spec='beast.math.distributions.Prior'>
 			<distr spec='beast.math.distributions.Gamma' alpha="0.001" beta="1000." offset="0.0"/>
-		</distribution>
-		<distribution  id='relativemorphRatesPrior.s:$(n)' x="@relativemorphRates.s:$(n)" spec='beast.math.distributions.Prior'>
-			<distr spec='beast.math.distributions.Gamma' alpha="1." beta="1." offset="0.0"/>
 		</distribution>
         <prior spec='beast.math.distributions.Prior' id='YuleBirthRatePrior.t:$(n)' x='@birthRate.t:$(n)'>
 			<distr spec="beast.math.distributions.Uniform" lower='0' upper='Infinity'/>
@@ -66,7 +63,6 @@
         <operator id='wide.t:$(n)' spec='Exchange' isNarrow='false' weight="3" tree="@Tree.t:$(n)"/>
         <operator id='WilsonBalding.t:$(n)' spec='WilsonBalding' weight="3" tree="@Tree.t:$(n)"/>
 
-        <operator id='morphrateScaler.s:$(n)' spec='ScaleOperator' scaleFactor="0.99" weight="30" parameter="@relativemorphRates.s:$(n)" scaleAllIndependently="true"/>
 
 	 	<operator id='morphMuScaler.c:$(n)' spec='ScaleOperator' scaleFactor="0.9" weight="3" parameter="@morphClockRate.c:$(n)"/>  
 ]]>
@@ -78,19 +74,15 @@
 		<connect srcID='RandomTree.t:$(n)'                targetID='mcmc' inputName='init'   if='inposterior(Tree.t:$(n))'/>
 
 		<connect srcID='morphclockPrior.c:$(n)'           targetID='prior' inputName='distribution' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(morphClockRate.c:$(n)) and morphClockRate.c:$(n)/estimate=true'/>
-		<connect srcID='relativemorphRatesPrior.s:$(n)'   targetID='prior' inputName='distribution' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(relativemorphRates.s:$(n)) and relativemorphRates.s:$(n)/estimate=true'/>
 		<connect srcID='YuleBirthRatePrior.t:$(n)'        targetID='prior' inputName='distribution' if='inposterior(YuleModel.t:$(n)) and inposterior(Tree.t:$(n)) and birthRate.t:$(n)/estimate=true'>Prior on Yule birth rate for partition s:$(n)</connect>
 
 		<connect srcID='birthRate.t:$(n)'                 targetID='state' inputName='stateNode' if='inposterior(YuleModel.t:$(n)) and inposterior(Tree.t:$(n)) and birthRate.t:$(n)/estimate=true'/>
-		<connect srcID='relativemorphRates.s:$(n)'        targetID='state' inputName='stateNode' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(relativemorphRates.s:$(n)) and relativemorphRates.s:$(n)/estimate=true'/>
 		<connect srcID='morphClockRate.c:$(n)'            targetID='state' inputName='stateNode' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(morphClockRate.c:$(n)) and morphClockRate.c:$(n)/estimate=true'/>
 
-		<connect srcID='morphrateScaler.s:$(n)'           targetID='mcmc' inputName='operator' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(relativemorphRates.s:$(n)) and relativemorphRates.s:$(n)/estimate=true'>Scales subst model rates of morphological characters on partition $(n)</connect>
 		<connect srcID='morphMuScaler.c:$(n)'             targetID='mcmc' inputName='operator' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(morphClockRate.c:$(n)) and morphClockRate.c:$(n)/estimate=true'>Scales migration rate of morphological characters on partition $(n)</connect>
 		<connect srcID='BSSVSoperator.c:$(n)'             targetID='mcmc' inputName='operator' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(rateIndicator.s:$(n)) and rateIndicator.s:$(n)/estimate=true'>Flips indicator bits of morphological characters on partition $(n)</connect>
 		<connect srcID='YuleBirthRateScaler.t:$(n)'       targetID='mcmc' inputName='operator' if='inposterior(birthRate.t:$(n)) and birthRate.t:$(n)/estimate=true'>Scales birth rate of Yule prior for partition t:$(n)</connect>
 
-		<connect srcID='relativemorphRates.s:$(n)'        targetID='tracelog' inputName='log' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(relativemorphRates.s:$(n)) and relativemorphRates.s:$(n)/estimate=true'/>
 		<connect srcID='morphClockRate.c:$(n)'            targetID='tracelog' inputName='log' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(morphClockRate.c:$(n)) and morphClockRate.c:$(n)/estimate=true'/>
 		<connect srcID='YuleModel.t:$(n)'                 targetID='tracelog' inputName='log' if='inposterior(YuleModel.t:$(n)) and inposterior(Tree.t:$(n)) and Tree.t:$(n)/estimate=true'/>
 		<connect srcID='birthRate.t:$(n)'                 targetID='tracelog' inputName='log' if='inposterior(YuleModel.t:$(n)) and birthRate.t:$(n)/estimate=true'/>
@@ -108,5 +100,16 @@
 	</subtemplate>
 
 </mergewith>
+
+<mergewith point='substModelTemplates'>
+
+    <!-- LewisMK substitution model -->
+    <subtemplate id='LewisMK' class='beast.evolution.substitutionmodel.LewisMK' mainid='LewisMK.s:$(n)'>
+<![CDATA[
+    <plugin spec='LewisMK' id='LewisMK.s:$(n)'/>
+]]>
+    </subtemplate>
+</mergewith>
+
 </beast>
 

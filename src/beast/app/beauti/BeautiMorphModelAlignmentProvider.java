@@ -215,14 +215,11 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 			// create treelikelihood for each state space
 			try {
 				doc.addAlignmentWithSubnet(context, template.get());
-				
-				// ensure dimension of subst model is correctly set up
-				// TODO: implement MK model that knows how to detect the nr of states by itself.
-				GeneralSubstitutionModel smodel = (GeneralSubstitutionModel) doc.pluginmap.get("morphSubstModel.s:" + name);
-				((RealParameter) smodel.ratesInput.get()).setDimension(nrOfStates * (nrOfStates - 1)/2);
-				smodel.frequenciesInput.get().frequenciesInput.get().setDimension(nrOfStates);
-				SiteModelInterface.Base sitemodel = (SiteModelInterface.Base) doc.pluginmap.get("morphSiteModel.s:" + name);
-				sitemodel.substModelInput.setValue(smodel, sitemodel);
+//				GeneralSubstitutionModel smodel = (GeneralSubstitutionModel) doc.pluginmap.get("morphSubstModel.s:" + name);
+//				((RealParameter) smodel.ratesInput.get()).setDimension(nrOfStates * (nrOfStates - 1)/2);
+//				smodel.frequenciesInput.get().frequenciesInput.get().setDimension(nrOfStates);
+//				SiteModelInterface.Base sitemodel = (SiteModelInterface.Base) doc.pluginmap.get("morphSiteModel.s:" + name);
+//				sitemodel.substModelInput.setValue(smodel, sitemodel);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

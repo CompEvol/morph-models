@@ -1,10 +1,11 @@
 package beast.evolution.substitutionmodel;
 
+import beast.core.Citation;
+import beast.core.Description;
 import beast.core.Input;
-import beast.core.parameter.RealParameter;
+import beast.core.Input.Validate;
 import beast.evolution.datatype.Binary;
 import beast.evolution.datatype.DataType;
-import beast.evolution.datatype.Nucleotide;
 import beast.evolution.datatype.StandardData;
 import beast.evolution.tree.Node;
 
@@ -13,17 +14,23 @@ import java.util.Arrays;
 /**
  * @author Alexandra Gavryushkina
  */
+@Description("LewisML subtitution model: equal rates, equal frequencies")
+@Citation("Lewis, Paul O. A likelihood approach to estimating phylogeny from discrete morphological character data. Systematic biology 50.6 (2001): 913-925.")
 public class LewisMK extends SubstitutionModel.Base  {
 
-    public Input<Integer> nrOfStatesInput = new Input<Integer>("stateNumber", "the number of character states", Input.Validate.REQUIRED);
+    public Input<Integer> nrOfStatesInput = new Input<Integer>("stateNumber", "the number of character states");
 
+    public Input<DataType> dataTypeInput = new Input<DataType>("datatype", "datatype, used to determine the number of states", Validate.XOR, nrOfStatesInput);
+    
     public LewisMK() {
         // this is added to avoid a parsing error inherited from superclass because frequencies are not provided.
         frequenciesInput.setRule(Input.Validate.OPTIONAL);
         try {
             // this call will be made twice when constructed from XML
             // but this ensures that the object is validly constructed for testing purposes.
-            initAndValidate();
+        	// RRB: for testing you should call initAndValidate() independently
+        	// At this stage, the inputs are not valid, hence initAndValidate fails.
+            // initAndValidate();
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("initAndValidate() call failed when constructing LewisMK()");
@@ -35,8 +42,11 @@ public class LewisMK extends SubstitutionModel.Base  {
 
     @Override
     public void initAndValidate() throws Exception {
-
-        nrOfStates = nrOfStatesInput.get();
+    	if (nrOfStatesInput.get() != null) {
+    		nrOfStates = nrOfStatesInput.get();
+    	} else {
+    		nrOfStates = dataTypeInput.get().getStateCount();
+    	}
 
 //        double[] eval = new double[]{0.0, -1.3333333333333333, -1.3333333333333333, -1.3333333333333333};
 //        double[] evec = new double[]{1.0, 2.0, 0.0, 0.5, 1.0, -2.0, 0.5, 0.0, 1.0, 2.0, 0.0, -0.5, 1.0, -2.0, -0.5, 0.0};
@@ -75,7 +85,7 @@ public class LewisMK extends SubstitutionModel.Base  {
         if (dataType instanceof StandardData || dataType instanceof Binary) {
             return true;
         }
-        throw new Exception("Can only handle nucleotide data");
+        throw new Exception("Can only handle StandardData and binary data");
     }
 
 }
