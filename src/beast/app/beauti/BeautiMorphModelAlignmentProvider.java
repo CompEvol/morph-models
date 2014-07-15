@@ -18,14 +18,14 @@ import beast.app.beauti.BeautiDoc;
 import beast.app.draw.ExtensionFileFilter;
 import beast.core.BEASTInterface;
 import beast.evolution.alignment.Alignment;
+import beast.evolution.alignment.FilteredAlignment;
 import beast.evolution.datatype.DataType;
 import beast.evolution.datatype.StandardData;
 import beast.evolution.datatype.UserDataType;
-
+import beast.util.NexusParser;
 
 @Description("Class for creating new partitions for morphological data to be edited by AlignmentListInputEditor")
 public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
-	
 
 	@Override
 	List<BEASTInterface> getAlignments(BeautiDoc doc) {
@@ -40,42 +40,102 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 		if (rval == JFileChooser.APPROVE_OPTION) {
 
 			File[] files = fileChooser.getSelectedFiles();
-			
-			// split alignments into filtered alignments -- one for each state space size
-            List<BEASTInterface> alignments = getAlignments(doc, files);
-    		List<BEASTInterface> filteredAlignments = new ArrayList<BEASTInterface>();
-    		try {
-            for (BEASTInterface o : alignments) {
-            	if (o instanceof Alignment) {
-					processAlignment((Alignment) o, filteredAlignments, doc);
-            	}
-            }
+
+			// split alignments into filtered alignments -- one for each state
+			// space size
+			List<BEASTInterface> alignments = getAlignments(doc, files);
+			List<BEASTInterface> filteredAlignments = new ArrayList<BEASTInterface>();
+			try {
+				for (BEASTInterface o : alignments) {
+					if (o instanceof Alignment) {
+						processAlignment((Alignment) o, filteredAlignments, doc);
+					}
+				}
 			} catch (Exception e) {
 				JOptionPane.showMessageDialog(null, "Something went wrong converting the alignment: " + e.getMessage());
 				e.printStackTrace();
 				return null;
 			}
-            
-            return filteredAlignments;
+
+			return filteredAlignments;
 		}
 		return null;
 	}
-	
-	// split an alignment into filtered alignments -- one for each state space size
+
+	@Override
+	public List<BEASTInterface> getAlignments(BeautiDoc doc, File[] files) {
+		List<BEASTInterface> selectedPlugins = new ArrayList<BEASTInterface>();
+		for (File file : files) {
+			String fileName = file.getName();
+			// if (sFileName.lastIndexOf('/') > 0) {
+			// Beauti.g_sDir = sFileName.substring(0,
+			// sFileName.lastIndexOf('/'));
+			// }
+			if (fileName.toLowerCase().endsWith(".nex") || fileName.toLowerCase().endsWith(".nxs") || fileName.toLowerCase().endsWith(".nexus")) {
+				NexusParser parser = new NexusParser();
+				try {
+					parser.parseFile(file);
+					if (parser.filteredAlignments.size() > 0) {
+						/**
+						 * sanity check: make sure the filters do not overlap
+						 **/
+						int[] used = new int[parser.m_alignment.getSiteCount()];
+						Set<Integer> overlap = new HashSet<Integer>();
+						int partitionNr = 1;
+						for (Alignment data : parser.filteredAlignments) {
+							int[] indices = ((FilteredAlignment) data).indices();
+							for (int i : indices) {
+								if (used[i] > 0) {
+									overlap.add(used[i] * 10000 + partitionNr);
+								} else {
+									used[i] = partitionNr;
+								}
+							}
+							partitionNr++;
+						}
+						if (overlap.size() > 0) {
+							String overlaps = "<html>Warning: The following partitions overlap:<br/>";
+							for (int i : overlap) {
+								overlaps += parser.filteredAlignments.get(i / 10000 - 1).getID() + " overlaps with "
+										+ parser.filteredAlignments.get(i % 10000 - 1).getID() + "<br/>";
+							}
+							overlaps += "The first thing you might want to do is delete some of these partitions.</html>";
+							JOptionPane.showMessageDialog(null, overlaps);
+						}
+						/** add alignments **/
+						for (Alignment data : parser.filteredAlignments) {
+							selectedPlugins.add(data);
+						}
+					} else {
+						selectedPlugins.add(parser.m_alignment);
+					}
+				} catch (Exception ex) {
+					ex.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Loading of " + fileName + " failed: " + ex.getMessage());
+					return null;
+				}
+			}
+		}
+		return selectedPlugins;
+	}
+
+	// split an alignment into filtered alignments -- one for each state space
+	// size
 	// add them to filteredAlignments
-	private void processAlignment(Alignment alignment, List<BEASTInterface> filteredAlignments, BeautiDoc doc) throws Exception {
+	public void processAlignment(Alignment alignment, List<BEASTInterface> filteredAlignments, BeautiDoc doc) throws Exception {
 		Map<Integer, List<Integer>> stateSpaceMap = new HashMap<Integer, List<Integer>>();
-		
+
 		// distinguish between StandardData and others
 		if (alignment.getDataType() instanceof StandardData) {
-			// determine state space size by interogating StandardData data-type 
+			// determine state space size by interogating StandardData data-type
 			StandardData dataType = (StandardData) alignment.getDataType();
 			for (int i = 0; i < alignment.getSiteCount(); i++) {
-				// TODO: this assumes there is a charStateLabel for this site -- deal with the case there is not such charStateLabel 
 				int nrOfStates = 0;
 				if (dataType.charStateLabelsInput.get().size() > i) {
+					// this assumes there is a charStateLabel for this site
 					nrOfStates = dataType.charStateLabelsInput.get().get(i).getNrOfStates();
 				} else {
+					// deal with the case there is no charStateLabel
 					nrOfStates = calcNumberOfStates(alignment, i);
 				}
 				if (!stateSpaceMap.containsKey(nrOfStates)) {
@@ -84,7 +144,8 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 				stateSpaceMap.get(nrOfStates).add(i);
 			}
 		} else {
-			// determine state space size by counting different nr of states for a 
+			// determine state space size by counting different nr of states for
+			// a
 			for (int i = 0; i < alignment.getSiteCount(); i++) {
 				int nrOfStates = calcNumberOfStates(alignment, i);
 				if (!stateSpaceMap.containsKey(nrOfStates)) {
@@ -93,70 +154,74 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 				stateSpaceMap.get(nrOfStates).add(i);
 			}
 		}
-		
+
 		String tree = alignment.getID();
 		String clock = alignment.getID();
-		
+
 		// create filtered alignments
 		for (Integer nrOfStates : stateSpaceMap.keySet()) {
 			String ID = alignment.getID() + nrOfStates;
-			
+
 			// create fileter range
 			// currently, just creates a singleton for each entry.
 			// The entries are sorted (by construction of the list)
-			// TODO: beautify range when there are consecutive sites involved 
+			// TODO: beautify range when there are consecutive sites involved
 			StringBuilder range = new StringBuilder();
 			for (Integer site : stateSpaceMap.get(nrOfStates)) {
 				range.append(site + ",");
 			}
 			range.deleteCharAt(range.length() - 1);
-			
+
 			// create data type
-			DataType dataType;
+			DataType.Base dataType;
 			if (alignment.getDataType() instanceof StandardData) {
-				// determine state space size by interogating StandardData data-type 
+				// determine state space size by interogating StandardData
+				// data-type
 				StandardData base = (StandardData) alignment.getDataType();
 				dataType = new StandardData();
-				((StandardData) dataType).initByName("statecount", nrOfStates,
-						"base", base); // TODO inmlement base input in StandardData
+				((StandardData) dataType).initByName("nrOfStates", nrOfStates);
+				// "base", base); // TODO inmlement base input in StandardData
 			} else {
 				// TODO deal with ambiguous codes
 				StringBuilder codeMap = new StringBuilder();
 				for (int i = 0; i < nrOfStates; i++) {
-					codeMap.append(i +" = " + i + ", ");
-				} 
+					codeMap.append(i + " = " + i + ", ");
+				}
 				codeMap.append("? =");
 				for (int i = 0; i < nrOfStates; i++) {
 					codeMap.append(" " + i);
-				}				
+				}
 				UserDataType userDataType = new UserDataType();
-				userDataType.initByName("states", nrOfStates,
-						"codelength", 1,
-						"codeMap", codeMap);
+				userDataType.initByName("states", nrOfStates, "codelength", 1, "codeMap", codeMap);
 				dataType = userDataType;
 			}
-			
-            // link trees and clock models
+
+			// link trees and clock models
 			String name = alignment.getID() + nrOfStates;
+			dataType.setID("morphDataType." + name);
+			doc.addPlugin(dataType);
 			PartitionContext context = new PartitionContext(name, name, clock, tree);
 
-            // create treelikelihood for each state space
-			Alignment fAlignment = (Alignment) doc.addAlignmentWithSubnet(context, template.get());
-            fAlignment.setID(ID);
-            fAlignment.initByName("alignment", alignment,
-            		"range", range.toString(),
-            		"userDataTYpe", dataType
-            		);
-            filteredAlignments.add(fAlignment);
+			// create treelikelihood for each state space
+			Alignment fAlignment = null;
+			try {
+				fAlignment = (Alignment) doc.addAlignmentWithSubnet(context, template.get());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			fAlignment.setID(ID);
+			fAlignment.initByName("alignment", alignment, "range", range.toString(), "userDataTYpe", dataType);
+			filteredAlignments.add(fAlignment);
 		}
-	
+
 	}
 
-	/** calculate number of states for a site by determining the set of unique
-	 * characters at that site. 
+	/**
+	 * calculate number of states for a site by determining the set of unique
+	 * characters at that site.
 	 */
 	private int calcNumberOfStates(Alignment alignment, int site) {
-		int [] pattern = alignment.getPattern(alignment.getPatternIndex(site));
+		int[] pattern = alignment.getPattern(alignment.getPatternIndex(site));
 		Set<Integer> states = new HashSet<Integer>();
 		for (int k : pattern) {
 			if (!alignment.getDataType().isAmbiguousState(k)) {
@@ -169,16 +234,14 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 
 	@Override
 	int matches(Alignment alignment) {
-		if (alignment.userDataTypeInput.get() != null && 
-				alignment.userDataTypeInput.get() instanceof StandardData ) {
-				return 10;
+		if (alignment.userDataTypeInput.get() != null && alignment.userDataTypeInput.get() instanceof StandardData) {
+			return 10;
 		}
 		return 0;
 	}
-	
-	
-//	@Override
-//	void editAlignment(Alignment alignment, BeautiDoc doc) {
-//	}
+
+	// @Override
+	// void editAlignment(Alignment alignment, BeautiDoc doc) {
+	// }
 
 }
