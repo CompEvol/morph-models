@@ -168,7 +168,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 			// TODO: beautify range when there are consecutive sites involved
 			StringBuilder range = new StringBuilder();
 			for (Integer site : stateSpaceMap.get(nrOfStates)) {
-				range.append(site + ",");
+				range.append((site + 1)+ ",");
 			}
 			range.deleteCharAt(range.length() - 1);
 
@@ -196,10 +196,16 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 				dataType = userDataType;
 			}
 
-			// link trees and clock models
 			String name = alignment.getID() + nrOfStates;
 			dataType.setID("morphDataType." + name);
 			doc.addPlugin(dataType);
+			FilteredAlignment data = new FilteredAlignment();
+			data.initByName("data", alignment, "filter", range.toString(), "userDataType", dataType);
+			data.setID(ID);
+			doc.addPlugin(data);
+			
+			
+			// link trees and clock models
 			PartitionContext context = new PartitionContext(name, name, clock, tree);
 
 			// create treelikelihood for each state space
@@ -209,8 +215,6 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			fAlignment.setID(ID);
-			fAlignment.initByName("alignment", alignment, "range", range.toString(), "userDataTYpe", dataType);
 			filteredAlignments.add(fAlignment);
 		}
 
