@@ -66,26 +66,4 @@ public class BeautiMorphModelAlignmentProividerTest extends BeautiBase {
 //		robot().pressKey(KeyEvent.VK_ESCAPE);
 //	}
 	
-	
-//	@Test
-//	public void testMorphModel() throws Exception {
-//		NexusParser parser = new NexusParser();
-//		parser.parseFile(new File("examples/nexus/M3982.nex"));
-//		Alignment alignment = parser.m_alignment;
-//		
-//		// create BeautiDoc and beauti configuration
-//		BeautiDoc doc = new BeautiDoc();
-//		doc.beautiConfig = new BeautiConfig();
-//		doc.beautiConfig.initAndValidate();
-//		
-//		List<BEASTInterface> filteredAlignments = new ArrayList<BEASTInterface>();
-//
-//		BeautiMorphModelAlignmentProvider provider = new BeautiMorphModelAlignmentProvider();
-//		XMLParser xmlparser = new XMLParser();
-//		Object o = xmlparser.parseFile(new File("templates/morph-models.xml"));
-//		BeautiSubTemplate subtemplate = (BeautiSubTemplate) o;
-//		provider.template.setValue(subtemplate, provider);
-//		
-//		provider.processAlignment(alignment, filteredAlignments, doc);
-//	}
 }
