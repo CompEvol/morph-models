@@ -17,11 +17,14 @@ import beast.app.beauti.BeautiAlignmentProvider;
 import beast.app.beauti.BeautiDoc;
 import beast.app.draw.ExtensionFileFilter;
 import beast.core.BEASTInterface;
+import beast.core.parameter.RealParameter;
 import beast.evolution.alignment.Alignment;
 import beast.evolution.alignment.FilteredAlignment;
 import beast.evolution.datatype.DataType;
 import beast.evolution.datatype.StandardData;
 import beast.evolution.datatype.UserDataType;
+import beast.evolution.sitemodel.SiteModelInterface;
+import beast.evolution.substitutionmodel.GeneralSubstitutionModel;
 import beast.util.NexusParser;
 
 @Description("Class for creating new partitions for morphological data to be edited by AlignmentListInputEditor")
@@ -179,7 +182,8 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 				// data-type
 				StandardData base = (StandardData) alignment.getDataType();
 				dataType = new StandardData();
-				((StandardData) dataType).initByName("nrOfStates", nrOfStates);
+				((StandardData) dataType).initByName("nrOfStates", nrOfStates, 
+						"ambiguities", base.listOfAmbiguitiesInput.get());
 				// "base", base); // TODO inmlement base input in StandardData
 			} else {
 				// TODO deal with ambiguous codes
@@ -209,13 +213,21 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 			PartitionContext context = new PartitionContext(name, name, clock, tree);
 
 			// create treelikelihood for each state space
-			Alignment fAlignment = null;
 			try {
-				fAlignment = (Alignment) doc.addAlignmentWithSubnet(context, template.get());
+				doc.addAlignmentWithSubnet(context, template.get());
+				
+				// ensure dimension of subst model is correctly set up
+				// TODO: implement MK model that knows how to detect the nr of states by itself.
+				GeneralSubstitutionModel smodel = (GeneralSubstitutionModel) doc.pluginmap.get("morphSubstModel.s:" + name);
+				((RealParameter) smodel.ratesInput.get()).setDimension(nrOfStates * (nrOfStates - 1)/2);
+				smodel.frequenciesInput.get().frequenciesInput.get().setDimension(nrOfStates);
+				SiteModelInterface.Base sitemodel = (SiteModelInterface.Base) doc.pluginmap.get("morphSiteModel.s:" + name);
+				sitemodel.substModelInput.setValue(smodel, sitemodel);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			filteredAlignments.add(fAlignment);
+			
+			filteredAlignments.add(data);
 		}
 
 	}
@@ -239,7 +251,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 	@Override
 	int matches(Alignment alignment) {
 		if (alignment.userDataTypeInput.get() != null && alignment.userDataTypeInput.get() instanceof StandardData) {
-			return 10;
+			return 20;
 		}
 		return 0;
 	}

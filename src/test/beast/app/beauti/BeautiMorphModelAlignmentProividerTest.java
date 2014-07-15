@@ -4,22 +4,11 @@ import static org.fest.swing.finder.JFileChooserFinder.findFileChooser;
 
 import java.awt.event.KeyEvent;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.fest.swing.fixture.JFileChooserFixture;
 import org.fest.swing.fixture.JOptionPaneFixture;
 import org.fest.swing.fixture.JTabbedPaneFixture;
 import org.junit.Test;
-
-import beast.app.beauti.BeautiConfig;
-import beast.app.beauti.BeautiDoc;
-import beast.app.beauti.BeautiMorphModelAlignmentProvider;
-import beast.app.beauti.BeautiSubTemplate;
-import beast.core.BEASTInterface;
-import beast.evolution.alignment.Alignment;
-import beast.util.NexusParser;
-import beast.util.XMLParser;
 
 public class BeautiMorphModelAlignmentProividerTest extends BeautiBase {
 	

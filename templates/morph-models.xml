@@ -40,12 +40,23 @@
 				</branchRateModel>
 			</distribution>
 
+        <!-- default tree prior -->
+        <plugin spec='YuleModel' id="YuleModel.t:$(n)" tree='@Tree.t:$(n)'>
+            <parameter name='birthDiffRate' id="birthRate.t:$(n)" value='1.0' estimate='true'/>
+        </plugin>
+
 		<distribution  id='morphclockPrior.c:$(n)' x="@morphClockRate.c:$(n)" spec='beast.math.distributions.Prior'>
 			<distr spec='beast.math.distributions.Gamma' alpha="0.001" beta="1000." offset="0.0"/>
 		</distribution>
 		<distribution  id='relativemorphRatesPrior.s:$(n)' x="@relativemorphRates.s:$(n)" spec='beast.math.distributions.Prior'>
 			<distr spec='beast.math.distributions.Gamma' alpha="1." beta="1." offset="0.0"/>
 		</distribution>
+        <prior spec='beast.math.distributions.Prior' id='YuleBirthRatePrior.t:$(n)' x='@birthRate.t:$(n)'>
+			<distr spec="beast.math.distributions.Uniform" lower='0' upper='Infinity'/>
+		</prior>
+
+	    <operator id='YuleBirthRateScaler.t:$(n)' spec='ScaleOperator' scaleFactor="0.75" weight="3" parameter="@birthRate.t:$(n)"/>
+
 
         <operator id='treeScaler.t:$(n)' spec='ScaleOperator' scaleFactor="0.5" weight="3" tree="@Tree.t:$(n)"/>
         <operator id='treeRootScaler.t:$(n)' spec='ScaleOperator' scaleFactor="0.5" weight="3" tree="@Tree.t:$(n)" rootOnly='true'/>
@@ -60,32 +71,39 @@
 	 	<operator id='morphMuScaler.c:$(n)' spec='ScaleOperator' scaleFactor="0.9" weight="3" parameter="@morphClockRate.c:$(n)"/>  
 ]]>
 
-         <connect srcID='morphTreeLikelihood.$(n)'              targetID='likelihood' inputName='distribution' if="isInitializing"/>
+		<connect srcID='morphTreeLikelihood.$(n)'         targetID='likelihood' inputName='distribution' if="isInitializing"/>
+		<connect srcID='YuleModel.t:$(n)'                 targetID='prior' inputName='distribution' if="isInitializing"/>
 
-            <connect srcID='treelog.t:$(n)'                 targetID='mcmc' inputName='logger' if='inposterior(Tree.t:$(n)) and Tree.t:$(n)/estimate=true'/>
-            <connect srcID='RandomTree.t:$(n)'                targetID='mcmc' inputName='init'   if='inposterior(Tree.t:$(n))'/>
+		<connect srcID='treelog.t:$(n)'                   targetID='mcmc' inputName='logger' if='inposterior(Tree.t:$(n)) and Tree.t:$(n)/estimate=true'/>
+		<connect srcID='RandomTree.t:$(n)'                targetID='mcmc' inputName='init'   if='inposterior(Tree.t:$(n))'/>
 
-         <connect srcID='morphclockPrior.c:$(n)'                    targetID='prior' inputName='distribution' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(morphClockRate.c:$(n)) and morphClockRate.c:$(n)/estimate=true'/>
-         <connect srcID='relativemorphRatesPrior.s:$(n)'            targetID='prior' inputName='distribution' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(relativemorphRates.s:$(n)) and relativemorphRates.s:$(n)/estimate=true'/>
+		<connect srcID='morphclockPrior.c:$(n)'           targetID='prior' inputName='distribution' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(morphClockRate.c:$(n)) and morphClockRate.c:$(n)/estimate=true'/>
+		<connect srcID='relativemorphRatesPrior.s:$(n)'   targetID='prior' inputName='distribution' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(relativemorphRates.s:$(n)) and relativemorphRates.s:$(n)/estimate=true'/>
+		<connect srcID='YuleBirthRatePrior.t:$(n)'        targetID='prior' inputName='distribution' if='inposterior(YuleModel.t:$(n)) and inposterior(Tree.t:$(n)) and birthRate.t:$(n)/estimate=true'>Prior on Yule birth rate for partition s:$(n)</connect>
 
-         <connect srcID='relativemorphRates.s:$(n)'                 targetID='state' inputName='stateNode' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(relativemorphRates.s:$(n)) and relativemorphRates.s:$(n)/estimate=true'/>
-         <connect srcID='morphClockRate.c:$(n)'                   targetID='state' inputName='stateNode' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(morphClockRate.c:$(n)) and morphClockRate.c:$(n)/estimate=true'/>
+		<connect srcID='birthRate.t:$(n)'                 targetID='state' inputName='stateNode' if='inposterior(YuleModel.t:$(n)) and inposterior(Tree.t:$(n)) and birthRate.t:$(n)/estimate=true'/>
+		<connect srcID='relativemorphRates.s:$(n)'        targetID='state' inputName='stateNode' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(relativemorphRates.s:$(n)) and relativemorphRates.s:$(n)/estimate=true'/>
+		<connect srcID='morphClockRate.c:$(n)'            targetID='state' inputName='stateNode' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(morphClockRate.c:$(n)) and morphClockRate.c:$(n)/estimate=true'/>
 
-         <connect srcID='morphrateScaler.s:$(n)'                    targetID='mcmc' inputName='operator' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(relativemorphRates.s:$(n)) and relativemorphRates.s:$(n)/estimate=true'>Scales subst model rates of morphological characters on partition $(n)</connect>
-         <connect srcID='morphMuScaler.c:$(n)'                      targetID='mcmc' inputName='operator' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(morphClockRate.c:$(n)) and morphClockRate.c:$(n)/estimate=true'>Scales migration rate of morphological characters on partition $(n)</connect>
-         <connect srcID='BSSVSoperator.c:$(n)'                    targetID='mcmc' inputName='operator' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(rateIndicator.s:$(n)) and rateIndicator.s:$(n)/estimate=true'>Flips indicator bits of morphological characters on partition $(n)</connect>
+		<connect srcID='morphrateScaler.s:$(n)'           targetID='mcmc' inputName='operator' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(relativemorphRates.s:$(n)) and relativemorphRates.s:$(n)/estimate=true'>Scales subst model rates of morphological characters on partition $(n)</connect>
+		<connect srcID='morphMuScaler.c:$(n)'             targetID='mcmc' inputName='operator' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(morphClockRate.c:$(n)) and morphClockRate.c:$(n)/estimate=true'>Scales migration rate of morphological characters on partition $(n)</connect>
+		<connect srcID='BSSVSoperator.c:$(n)'             targetID='mcmc' inputName='operator' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(rateIndicator.s:$(n)) and rateIndicator.s:$(n)/estimate=true'>Flips indicator bits of morphological characters on partition $(n)</connect>
+		<connect srcID='YuleBirthRateScaler.t:$(n)'       targetID='mcmc' inputName='operator' if='inposterior(birthRate.t:$(n)) and birthRate.t:$(n)/estimate=true'>Scales birth rate of Yule prior for partition t:$(n)</connect>
 
-         <connect srcID='relativemorphRates.s:$(n)'                 targetID='tracelog' inputName='log' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(relativemorphRates.s:$(n)) and relativemorphRates.s:$(n)/estimate=true'/>
-         <connect srcID='morphClockRate.c:$(n)'                   targetID='tracelog' inputName='log' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(morphClockRate.c:$(n)) and morphClockRate.c:$(n)/estimate=true'/>
+		<connect srcID='relativemorphRates.s:$(n)'        targetID='tracelog' inputName='log' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(relativemorphRates.s:$(n)) and relativemorphRates.s:$(n)/estimate=true'/>
+		<connect srcID='morphClockRate.c:$(n)'            targetID='tracelog' inputName='log' if='inposterior(morphTreeLikelihood.$(n)) and inlikelihood(morphClockRate.c:$(n)) and morphClockRate.c:$(n)/estimate=true'/>
+		<connect srcID='YuleModel.t:$(n)'                 targetID='tracelog' inputName='log' if='inposterior(YuleModel.t:$(n)) and inposterior(Tree.t:$(n)) and Tree.t:$(n)/estimate=true'/>
+		<connect srcID='birthRate.t:$(n)'                 targetID='tracelog' inputName='log' if='inposterior(YuleModel.t:$(n)) and birthRate.t:$(n)/estimate=true'/>
 
-            <connect srcID='treeScaler.t:$(n)'                targetID='mcmc' inputName='operator' if='inposterior(Tree.t:$(n)) and Tree.t:$(n)/estimate=true'>Scales all internal nodes for tree t:$(n)</connect>
-            <connect srcID='treeRootScaler.t:$(n)'            targetID='mcmc' inputName='operator' if='inposterior(Tree.t:$(n)) and Tree.t:$(n)/estimate=true'>Scales root node for tree t:$(n)</connect>
-            <connect srcID='UniformOperator.t:$(n)'           targetID='mcmc' inputName='operator' if='inposterior(Tree.t:$(n)) and Tree.t:$(n)/estimate=true'>Draws new internal node heights uniformally for tree t:$(n)</connect>
-            <connect srcID='SubtreeSlide.t:$(n)'              targetID='mcmc' inputName='operator' if='inposterior(Tree.t:$(n)) and Tree.t:$(n)/estimate=true'>Performs subtree slide rearrangement of tree t:$(n)</connect>
-            <connect srcID='narrow.t:$(n)'                    targetID='mcmc' inputName='operator' if='inposterior(Tree.t:$(n)) and Tree.t:$(n)/estimate=true'>Narrow exchange performs local rearrangement of tree t:$(n)</connect>
-            <connect srcID='wide.t:$(n)'                      targetID='mcmc' inputName='operator' if='inposterior(Tree.t:$(n)) and Tree.t:$(n)/estimate=true'>Wide exchange performs global rearrangement of tree t:$(n)</connect>
-            <connect srcID='WilsonBalding.t:$(n)'             targetID='mcmc' inputName='operator' if='inposterior(Tree.t:$(n)) and Tree.t:$(n)/estimate=true'>Performs Wilson-Balding global rearrangement of tree t:$(n)</connect>
-            <connect srcID='strictClockUpDownOperator.c:$(n)' targetID='mcmc' inputName='operator' if='nooperator(FixMeanRatesOperator) and inlikelihood(clockRate.c:$(n)) and inlikelihood(Tree.t:$(n)) and Tree.t:$(n)/estimate=true and clockRate.c:$(n)/estimate=true'>Scale up substitution rate c:$(n) and scale down tree t:($n) </connect>
+
+		<connect srcID='treeScaler.t:$(n)'                targetID='mcmc' inputName='operator' if='inposterior(Tree.t:$(n)) and Tree.t:$(n)/estimate=true'>Scales all internal nodes for tree t:$(n)</connect>
+		<connect srcID='treeRootScaler.t:$(n)'            targetID='mcmc' inputName='operator' if='inposterior(Tree.t:$(n)) and Tree.t:$(n)/estimate=true'>Scales root node for tree t:$(n)</connect>
+		<connect srcID='UniformOperator.t:$(n)'           targetID='mcmc' inputName='operator' if='inposterior(Tree.t:$(n)) and Tree.t:$(n)/estimate=true'>Draws new internal node heights uniformally for tree t:$(n)</connect>
+		<connect srcID='SubtreeSlide.t:$(n)'              targetID='mcmc' inputName='operator' if='inposterior(Tree.t:$(n)) and Tree.t:$(n)/estimate=true'>Performs subtree slide rearrangement of tree t:$(n)</connect>
+		<connect srcID='narrow.t:$(n)'                    targetID='mcmc' inputName='operator' if='inposterior(Tree.t:$(n)) and Tree.t:$(n)/estimate=true'>Narrow exchange performs local rearrangement of tree t:$(n)</connect>
+		<connect srcID='wide.t:$(n)'                      targetID='mcmc' inputName='operator' if='inposterior(Tree.t:$(n)) and Tree.t:$(n)/estimate=true'>Wide exchange performs global rearrangement of tree t:$(n)</connect>
+		<connect srcID='WilsonBalding.t:$(n)'             targetID='mcmc' inputName='operator' if='inposterior(Tree.t:$(n)) and Tree.t:$(n)/estimate=true'>Performs Wilson-Balding global rearrangement of tree t:$(n)</connect>
+		<connect srcID='strictClockUpDownOperator.c:$(n)' targetID='mcmc' inputName='operator' if='nooperator(FixMeanRatesOperator) and inlikelihood(clockRate.c:$(n)) and inlikelihood(Tree.t:$(n)) and Tree.t:$(n)/estimate=true and clockRate.c:$(n)/estimate=true'>Scale up substitution rate c:$(n) and scale down tree t:($n) </connect>
 
 	</subtemplate>
 
