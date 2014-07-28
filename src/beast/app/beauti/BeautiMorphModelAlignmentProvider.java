@@ -136,7 +136,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 				int nrOfStates = 0;
 				if (dataType.charStateLabelsInput.get().size() > i) {
 					// this assumes there is a charStateLabel for this site
-					nrOfStates = dataType.charStateLabelsInput.get().get(i).getNrOfStates();
+					nrOfStates = dataType.charStateLabelsInput.get().get(i).getStateCount();
 				} else {
 					// deal with the case there is no charStateLabel
 					nrOfStates = calcNumberOfStates(alignment, i);

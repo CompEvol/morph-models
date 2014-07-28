@@ -54,7 +54,7 @@ public class LewisMK extends SubstitutionModel.Base  {
 //
 //        eigenDecomposition = new EigenDecomposition(evec, ivec, eval);
         frequencies = new double[nrOfStates];
-        Arrays.fill(frequencies, (1/nrOfStates));
+        Arrays.fill(frequencies, (1.0/nrOfStates));
     }
 
     @Override
