@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><beast beautitemplate='Standard' beautistatus='' namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" version="2.0">
+
+
+    <data
+dataType="standard"
+id="M3982">
+                        <sequence id="seq_Anolis_acutus" taxon="Anolis_acutus" totalcount="2" value="0021021134507100"/>
+                        <sequence id="seq_Anolis_aeneus" taxon="Anolis_aeneus" totalcount="2" value="0000011134306100"/>
+                        <sequence id="seq_Anolis_agassizi" taxon="Anolis_agassizi" totalcount="2" value="0000011134306100"/>
+                        <sequence id="seq_Anolis_ahli" taxon="Anolis_ahli" totalcount="2" value="002104113{34}{56}08211"/>
+                        <sequence id="seq_Anolis_aliniger" taxon="Anolis_aliniger" totalcount="2" value="00{12}0041134407110"/>
+                        <sequence id="seq_Anolis_alutaceus" taxon="Anolis_alutaceus" totalcount="2" value="002104113{56}407110"/>
+                        <sequence id="seq_Anolis_angusticeps" taxon="Anolis_angusticeps" totalcount="2" value="002104113{45}408110"/>
+                        <sequence id="seq_Anolis_bahorucoensis" taxon="Anolis_bahorucoensis" totalcount="2" value="0121011134407110"/>
+                        <sequence id="seq_Anolis_barahonae" taxon="Anolis_barahonae" totalcount="2" value="0021021133307100"/>
+                        <sequence id="seq_Anolis_bartschi" taxon="Anolis_bartschi" totalcount="2" value="0021041134507110"/>
+                        <sequence id="seq_Anolis_bimaculatus" taxon="Anolis_bimaculatus" totalcount="2" value="0021031134507100"/>
+                        <sequence id="seq_Anolis_brevirostris" taxon="Anolis_brevirostris" totalcount="2" value="00210{12}1134507100"/>
+                        <sequence id="seq_Anolis_carolinensis" taxon="Anolis_carolinensis" totalcount="2" value="0021041134407110"/>
+                        <sequence id="seq_Anolis_christophei" taxon="Anolis_christophei" totalcount="2" value="00{12}1041134507110"/>
+                        <sequence id="seq_Anolis_coelestinus" taxon="Anolis_coelestinus" totalcount="2" value="00?0041134406110"/>
+                        <sequence id="seq_Anolis_cristatellus" taxon="Anolis_cristatellus" totalcount="2" value="01211{12}1144508{12}01"/>
+                        <sequence id="seq_Anolis_cuvieri" taxon="Anolis_cuvieri" totalcount="2" value="0021021133307100"/>
+                        <sequence id="seq_Anolis_distichus" taxon="Anolis_distichus" totalcount="2" value="0021011133507100"/>
+                        <sequence id="seq_Anolis_equestris" taxon="Anolis_equestris" totalcount="2" value="0021011133{12}07110"/>
+                        <sequence id="seq_Anolis_etheridgei" taxon="Anolis_etheridgei" totalcount="2" value="0121?41136{34}07110"/>
+                        <sequence id="seq_Anolis_garmani" taxon="Anolis_garmani" totalcount="2" value="0121041133407210"/>
+                        <sequence id="seq_Anolis_grahami" taxon="Anolis_grahami" totalcount="2" value="0121041133{45}07210"/>
+                        <sequence id="seq_Anolis_humilis" taxon="Anolis_humilis" totalcount="2" value="001104114{34}508210"/>
+                        <sequence id="seq_Anolis_insolitus" taxon="Anolis_insolitus" totalcount="2" value="11{12}1041?3{45}?17110"/>
+                        <sequence id="seq_Anolis_krugi" taxon="Anolis_krugi" totalcount="2" value="012131114{34}508101"/>
+                        <sequence id="seq_Anolis_limifrons" taxon="Anolis_limifrons" totalcount="2" value="0011041134407210"/>
+                        <sequence id="seq_Anolis_lineatopus" taxon="Anolis_lineatopus" totalcount="2" value="0121041133407210"/>
+                        <sequence id="seq_Anolis_lineatus" taxon="Anolis_lineatus" totalcount="2" value="0021041133408210"/>
+                        <sequence id="seq_Anolis_loysiana" taxon="Anolis_loysiana" totalcount="2" value="002104113{45}408110"/>
+                        <sequence id="seq_Anolis_luciae" taxon="Anolis_luciae" totalcount="2" value="0000011134306100"/>
+                        <sequence id="seq_Anolis_lucius" taxon="Anolis_lucius" totalcount="2" value="0021041134507110"/>
+                        <sequence id="seq_Anolis_luteogularis" taxon="Anolis_luteogularis" totalcount="2" value="0021011133{12}07110"/>
+                        <sequence id="seq_Anolis_marcanoi" taxon="Anolis_marcanoi" totalcount="2" value="102124113{34}508100"/>
+                        <sequence id="seq_Anolis_maynardi" taxon="Anolis_maynardi" totalcount="2" value="0021041134407110"/>
+                        <sequence id="seq_Anolis_microtus" taxon="Anolis_microtus" totalcount="2" value="?000011133{0123}0310?"/>
+                        <sequence id="seq_Anolis_occultus" taxon="Anolis_occultus" totalcount="2" value="000004114{34}203110"/>
+                        <sequence id="seq_Anolis_olssoni" taxon="Anolis_olssoni" totalcount="2" value="1021041135407110"/>
+                        <sequence id="seq_Anolis_ophiolepis" taxon="Anolis_ophiolepis" totalcount="2" value="102104113{34}508210"/>
+                        <sequence id="seq_Anolis_paternus" taxon="Anolis_paternus" totalcount="2" value="0021041135408110"/>
+                        <sequence id="seq_Anolis_pumilis" taxon="Anolis_pumilis" totalcount="2" value="1011041135508110"/>
+                        <sequence id="seq_Anolis_richardi" taxon="Anolis_richardi" totalcount="2" value="000001113{45}306100"/>
+                        <sequence id="seq_Anolis_sagrei" taxon="Anolis_sagrei" totalcount="2" value="1021041134608211"/>
+                        <sequence id="seq_Anolis_sheplani" taxon="Anolis_sheplani" totalcount="2" value="01{12}1041134?11110"/>
+                        <sequence id="seq_Anolis_strahmi" taxon="Anolis_strahmi" totalcount="2" value="1021241133508100"/>
+                        <sequence id="seq_Anolis_stratulus" taxon="Anolis_stratulus" totalcount="2" value="00210{34}1134507100"/>
+                        <sequence id="seq_Anolis_valencienni" taxon="Anolis_valencienni" totalcount="2" value="0021041133408210"/>
+                        <sequence id="seq_Anolis_vanidicus" taxon="Anolis_vanidicus" totalcount="2" value="01010411354?7110"/>
+                        <sequence id="seq_Anolis_vermiculatus" taxon="Anolis_vermiculatus" totalcount="2" value="0121041133{45}07110"/>
+                        <sequence id="seq_Anolis_wattsi" taxon="Anolis_wattsi" totalcount="2" value="00210{34}1134507110"/>
+                        <sequence id="seq_Chamaeleolis_chamaeleonides" taxon="Chamaeleolis_chamaeleonides" totalcount="2" value="0021410033?12100"/>
+                        <sequence id="seq_Chamaeleolis_guamuhaya" taxon="Chamaeleolis_guamuhaya" totalcount="2" value="0021410033?12100"/>
+                        <sequence id="seq_Chamaelinorops_barbouri" taxon="Chamaelinorops_barbouri" totalcount="2" value="100?041135?14310"/>
+                        <sequence id="seq_Diplolaemus_darwinii" taxon="Diplolaemus_darwinii" totalcount="2" value="000000013020501?"/>
+                        <sequence id="seq_Phenacosaurus_nicefori" taxon="Phenacosaurus_nicefori" totalcount="2" value="000?01114{23}?11100"/>
+                        <sequence id="seq_Polychrus_acutirostris" taxon="Polychrus_acutirostris" totalcount="2" value="1000000101?1?100"/>
+                        <userDataType ambiguities="34 56 12 45 23 0123" id="StandardData.0" nrOfStates="10" spec="beast.evolution.datatype.StandardData">
+                            <charstatelabels characterName="  1  'Postfrontal bone (this study)' " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.0" spec="beast.evolution.datatype.UserDataType" states="2" value="present., absent."/>
+                            <charstatelabels characterName="  2  Parietal_foramen " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.01" spec="beast.evolution.datatype.UserDataType" states="2" value="at_fronto_parietal_suture., entirely_within_parietal."/>
+                            <charstatelabels characterName="  3  'Parietal roof and crests, ordered linear. (These states refer to ontogenetic end' " codeMap="0=0, 1=1, 2=2, ? =0 1 2 " id="UserDataType.02" spec="beast.evolution.datatype.UserDataType" states="3" value="'crests U-shaped (not meeting posteriorly), roof trapezoidal.', 'crests V-shaped (meeting posteriorly at occipital crest but not', 'crests Y-shaped (meeting posteriorly and forming midsagittal cr'"/>
+                            <charstatelabels characterName="  4  'Parietal posterior margin, unordered. (Related to character 3 but treated separa' " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.03" spec="beast.evolution.datatype.UserDataType" states="2" value="notched_posteriorly_and_not_extending_over_occipital_region_as, 'not notched posteriorly with a half-funnel-shaped portion exten'"/>
+                            <charstatelabels characterName="  5  'Dentary sculpturing, unordered' " codeMap="0=0, 1=1, 2=2, 3=3, 4=4, ? =0 1 2 3 4 " id="UserDataType.04" spec="beast.evolution.datatype.UserDataType" states="5" value="absent., 'present as irregular horizontal excavations (cristatellus type)', 'present as a single, forward-directed, semilunar excavation (cy', 'present as a series of 7-10 semilunar excavations (krugi type)', 'present as irregular rugosities on posterolateral surface (Cham'"/>
+                            <charstatelabels characterName="  6  'Splenial bone, ordered by step matrix A1' " codeMap="0=0, 1=1, 2=2, 3=3, 4=4, ? =0 1 2 3 4 " id="UserDataType.05" spec="beast.evolution.datatype.UserDataType" states="5" value="'large and broad, includes anterior mylohyoid foramen and anteri', 'small and narrow, extends from posterior border of single myloh', 'very small and narrow, restricted to lingual surface of mandibl', 'very small and narrow, restricted to ventral surface of mandibl', 'absent (e.g. A. sagrei).'"/>
+                            <charstatelabels characterName="  7  Angular_bone " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.06" spec="beast.evolution.datatype.UserDataType" states="2" value="present., absent."/>
+                            <charstatelabels characterName="  8  Palatine_teeth " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.07" spec="beast.evolution.datatype.UserDataType" states="2" value="present., absent."/>
+                            <charstatelabels characterName="  9  'Modal number of presacral vertebrae, ordered linear' " codeMap="0=0, 1=1, 2=2, 3=3, 4=4, 5=5, ? =0 1 2 3 4 5 " id="UserDataType.08" spec="beast.evolution.datatype.UserDataType" states="6" value="27., 26., 25., 24., 23., 22."/>
+                            <charstatelabels characterName="  10  'Modal number of lumbar vertebrae, ordered linear' " codeMap="0=0, 1=1, 2=2, 3=3, 4=4, 5=5, 6=6, ? =0 1 2 3 4 5 6 " id="UserDataType.09" spec="beast.evolution.datatype.UserDataType" states="7" value="0., l., 2., 3., 4., 5., 6."/>
+                            <charstatelabels characterName="  11  'Modal number of caudal vertebrae anterior to first autotomic vertebra, ordered l' " codeMap="0=0, 1=1, 2=2, 3=3, 4=4, 5=5, 6=6, ? =0 1 2 3 4 5 6 " id="UserDataType.010" spec="beast.evolution.datatype.UserDataType" states="7" value="11., 10., 9., 8., 7., 6., 5."/>
+                            <charstatelabels characterName="  12  Caudal_autotomy_septa " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.011" spec="beast.evolution.datatype.UserDataType" states="2" value="present., absent."/>
+                            <charstatelabels characterName="  13  'Postxiphisternal inscriptional rib formula, modal condition is given (attached c' " codeMap="0=0, 1=1, 2=2, 3=3, 4=4, 5=5, 6=6, 7=7, 8=8, 9=9, ? =0 1 2 3 4 5 6 7 8 9 " id="UserDataType.012" spec="beast.evolution.datatype.UserDataType" states="10" value="4_to_3., 5_to_1., 4_to_2., 5_to_0., 4_to_1., 3_to_2., 4_to_0., 3_to_1., 2_to_2., 1_to_3."/>
+                            <charstatelabels characterName="  14  'Caudal ribs, transverse processes, unordered' " codeMap="0=0, 1=1, 2=2, 3=3, ? =0 1 2 3 " id="UserDataType.013" spec="beast.evolution.datatype.UserDataType" states="4" value="present_on_caudal_vertebrae_extending_into_posterior_half_of_se, disappear_after_a_short_series_confined_to_caudal_vertebrae_on, present_on_caudal_vertebrae_extending_into_posterior_half_of_se, extend_into_posterior_half_of_caudal_series_with_the_processes"/>
+                            <charstatelabels characterName="  15  Interclavicle " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.014" spec="beast.evolution.datatype.UserDataType" states="2" value="lateral_processes_in_contact_with_clavicles_for_less_than_half, lateral_processes_in_contact_with_clavieles_for_more_than_half"/>
+                            <charstatelabels characterName="  16  'Parabasisphenoid (this study)' " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.015" spec="beast.evolution.datatype.UserDataType" states="2" value="basipterygoid_processes_lack_anteroventral_crests., basipterygoid_processes_with_anteroventral_crests_that_approach"/>
+                        </userDataType>
+                    </data>
+
+
+    
+
+
+    
+
+
+    
+<map name="Uniform">beast.math.distributions.Uniform</map>
+<map name="Exponential">beast.math.distributions.Exponential</map>
+<map name="LogNormal">beast.math.distributions.LogNormalDistributionModel</map>
+<map name="Normal">beast.math.distributions.Normal</map>
+<map name="Beta">beast.math.distributions.Beta</map>
+<map name="Gamma">beast.math.distributions.Gamma</map>
+<map name="LaplaceDistribution">beast.math.distributions.LaplaceDistribution</map>
+<map name="prior">beast.math.distributions.Prior</map>
+<map name="InverseGamma">beast.math.distributions.InverseGamma</map>
+<map name="OneOnX">beast.math.distributions.OneOnX</map>
+
+
+<run chainLength="10000000" id="mcmc" spec="MCMC">
+    <state id="state" storeEvery="5000">
+        <tree id="Tree.t:M3982" name="stateNode">
+            <taxonset id="TaxonSet.M39822" spec="TaxonSet">
+                <alignment filter="1,2,4,7,8,12,15,16" id="M39822" spec="FilteredAlignment">
+                    <data
+idref="M3982"/>
+                    <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39822" nrOfStates="2" spec="beast.evolution.datatype.StandardData"/>
+                </alignment>
+            </taxonset>
+        </tree>
+        <parameter id="birthRate.t:M3982" name="stateNode">1.0</parameter>
+        <parameter dimension="4" id="freqParameter.s:M39827" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
+        <parameter dimension="4" id="freqParameter.s:M39826" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
+        <parameter dimension="4" id="freqParameter.s:M39823" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
+        <parameter dimension="4" id="freqParameter.s:M39825" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
+        <parameter dimension="4" id="freqParameter.s:M39822" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
+        <parameter dimension="4" id="freqParameter.s:M39824" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
+        <parameter dimension="4" id="freqParameter.s:M398210" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
+    </state>
+
+    <init estimate="false" id="RandomTree.t:M3982" initial="@Tree.t:M3982" spec="beast.evolution.tree.RandomTree" taxa="@M39822">
+        <populationModel id="ConstantPopulation0.t:M3982" spec="ConstantPopulation">
+            <parameter id="randomPopSize.t:M3982" name="popSize">1.0</parameter>
+        </populationModel>
+    </init>
+
+    <distribution id="posterior" spec="util.CompoundDistribution">
+        <distribution id="prior" spec="util.CompoundDistribution">
+            <distribution birthDiffRate="@birthRate.t:M3982" id="YuleModel.t:M3982" spec="beast.evolution.speciation.YuleModel" tree="@Tree.t:M3982"/>
+            <prior id="YuleBirthRatePrior.t:M3982" name="distribution" x="@birthRate.t:M3982">
+                <Uniform id="Uniform.0" name="distr" upper="Infinity"/>
+            </prior>
+        </distribution>
+        <distribution id="likelihood" spec="util.CompoundDistribution">
+            <distribution data="@M39822" id="morphTreeLikelihood.M39822" spec="TreeLikelihood" tree="@Tree.t:M3982">
+                <siteModel gammaCategoryCount="1" id="morphSiteModel.s:M39822" spec="SiteModel">
+                    <parameter estimate="false" id="mutationRate.s:M39822" name="mutationRate">1.0</parameter>
+                    <parameter estimate="false" id="gammaShape.s:M39822" name="shape">1.0</parameter>
+                    <parameter estimate="false" id="proportionInvariant.s:M39822" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
+                    <substModel datatype="@morphDataType.M39822" id="LewisMK.s:M39822" spec="LewisMK">
+                        <frequencies frequencies="@freqParameter.s:M39822" id="estimatedFreqs.s:M39822" spec="Frequencies"/>
+                    </substModel>
+                </siteModel>
+                <branchRateModel id="StrictClockModel.c:M3982" spec="beast.evolution.branchratemodel.StrictClockModel">
+                    <parameter estimate="false" id="clockRate.c:M3982" name="clock.rate">1.0</parameter>
+                </branchRateModel>
+            </distribution>
+            <distribution branchRateModel="@StrictClockModel.c:M3982" id="morphTreeLikelihood.M39823" spec="TreeLikelihood" tree="@Tree.t:M3982">
+                <data
+data="@M3982"
+filter="3"
+id="M39823"
+spec="FilteredAlignment">
+                    <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39823" nrOfStates="3" spec="beast.evolution.datatype.StandardData"/>
+                </data>
+                <siteModel gammaCategoryCount="1" id="morphSiteModel.s:M39823" spec="SiteModel">
+                    <parameter estimate="false" id="mutationRate.s:M39823" name="mutationRate">1.0</parameter>
+                    <parameter estimate="false" id="gammaShape.s:M39823" name="shape">1.0</parameter>
+                    <parameter estimate="false" id="proportionInvariant.s:M39823" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
+                    <substModel datatype="@morphDataType.M39823" id="LewisMK.s:M39823" spec="LewisMK">
+                        <frequencies frequencies="@freqParameter.s:M39823" id="estimatedFreqs.s:M39823" spec="Frequencies"/>
+                    </substModel>
+                </siteModel>
+            </distribution>
+            <distribution branchRateModel="@StrictClockModel.c:M3982" id="morphTreeLikelihood.M39824" spec="TreeLikelihood" tree="@Tree.t:M3982">
+                <data
+data="@M3982"
+filter="14"
+id="M39824"
+spec="FilteredAlignment">
+                    <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39824" nrOfStates="4" spec="beast.evolution.datatype.StandardData"/>
+                </data>
+                <siteModel gammaCategoryCount="1" id="morphSiteModel.s:M39824" spec="SiteModel">
+                    <parameter estimate="false" id="mutationRate.s:M39824" name="mutationRate">1.0</parameter>
+                    <parameter estimate="false" id="gammaShape.s:M39824" name="shape">1.0</parameter>
+                    <parameter estimate="false" id="proportionInvariant.s:M39824" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
+                    <substModel datatype="@morphDataType.M39824" id="LewisMK.s:M39824" spec="LewisMK">
+                        <frequencies frequencies="@freqParameter.s:M39824" id="estimatedFreqs.s:M39824" spec="Frequencies"/>
+                    </substModel>
+                </siteModel>
+            </distribution>
+            <distribution branchRateModel="@StrictClockModel.c:M3982" id="morphTreeLikelihood.M39825" spec="TreeLikelihood" tree="@Tree.t:M3982">
+                <data
+data="@M3982"
+filter="5,6"
+id="M39825"
+spec="FilteredAlignment">
+                    <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39825" nrOfStates="5" spec="beast.evolution.datatype.StandardData"/>
+                </data>
+                <siteModel gammaCategoryCount="1" id="morphSiteModel.s:M39825" spec="SiteModel">
+                    <parameter estimate="false" id="mutationRate.s:M39825" name="mutationRate">1.0</parameter>
+                    <parameter estimate="false" id="gammaShape.s:M39825" name="shape">1.0</parameter>
+                    <parameter estimate="false" id="proportionInvariant.s:M39825" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
+                    <substModel datatype="@morphDataType.M39825" id="LewisMK.s:M39825" spec="LewisMK">
+                        <frequencies frequencies="@freqParameter.s:M39825" id="estimatedFreqs.s:M39825" spec="Frequencies"/>
+                    </substModel>
+                </siteModel>
+            </distribution>
+            <distribution branchRateModel="@StrictClockModel.c:M3982" id="morphTreeLikelihood.M39826" spec="TreeLikelihood" tree="@Tree.t:M3982">
+                <data
+data="@M3982"
+filter="9"
+id="M39826"
+spec="FilteredAlignment">
+                    <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39826" nrOfStates="6" spec="beast.evolution.datatype.StandardData"/>
+                </data>
+                <siteModel gammaCategoryCount="1" id="morphSiteModel.s:M39826" spec="SiteModel">
+                    <parameter estimate="false" id="mutationRate.s:M39826" name="mutationRate">1.0</parameter>
+                    <parameter estimate="false" id="gammaShape.s:M39826" name="shape">1.0</parameter>
+                    <parameter estimate="false" id="proportionInvariant.s:M39826" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
+                    <substModel datatype="@morphDataType.M39826" id="LewisMK.s:M39826" spec="LewisMK">
+                        <frequencies frequencies="@freqParameter.s:M39826" id="estimatedFreqs.s:M39826" spec="Frequencies"/>
+                    </substModel>
+                </siteModel>
+            </distribution>
+            <distribution branchRateModel="@StrictClockModel.c:M3982" id="morphTreeLikelihood.M39827" spec="TreeLikelihood" tree="@Tree.t:M3982">
+                <data
+data="@M3982"
+filter="10,11"
+id="M39827"
+spec="FilteredAlignment">
+                    <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39827" nrOfStates="7" spec="beast.evolution.datatype.StandardData"/>
+                </data>
+                <siteModel gammaCategoryCount="1" id="morphSiteModel.s:M39827" spec="SiteModel">
+                    <parameter estimate="false" id="mutationRate.s:M39827" name="mutationRate">1.0</parameter>
+                    <parameter estimate="false" id="gammaShape.s:M39827" name="shape">1.0</parameter>
+                    <parameter estimate="false" id="proportionInvariant.s:M39827" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
+                    <substModel datatype="@morphDataType.M39827" id="LewisMK.s:M39827" spec="LewisMK">
+                        <frequencies frequencies="@freqParameter.s:M39827" id="estimatedFreqs.s:M39827" spec="Frequencies"/>
+                    </substModel>
+                </siteModel>
+            </distribution>
+            <distribution branchRateModel="@StrictClockModel.c:M3982" id="morphTreeLikelihood.M398210" spec="TreeLikelihood" tree="@Tree.t:M3982">
+                <data
+data="@M3982"
+filter="13"
+id="M398210"
+spec="FilteredAlignment">
+                    <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M398210" nrOfStates="10" spec="beast.evolution.datatype.StandardData"/>
+                </data>
+                <siteModel gammaCategoryCount="1" id="morphSiteModel.s:M398210" spec="SiteModel">
+                    <parameter estimate="false" id="mutationRate.s:M398210" name="mutationRate">1.0</parameter>
+                    <parameter estimate="false" id="gammaShape.s:M398210" name="shape">1.0</parameter>
+                    <parameter estimate="false" id="proportionInvariant.s:M398210" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
+                    <substModel datatype="@morphDataType.M398210" id="LewisMK.s:M398210" spec="LewisMK">
+                        <frequencies frequencies="@freqParameter.s:M398210" id="estimatedFreqs.s:M398210" spec="Frequencies"/>
+                    </substModel>
+                </siteModel>
+            </distribution>
+        </distribution>
+    </distribution>
+
+    <operator id="YuleBirthRateScaler.t:M3982" parameter="@birthRate.t:M3982" scaleFactor="0.75" spec="ScaleOperator" weight="3.0"/>
+
+    <operator id="treeScaler.t:M3982" scaleFactor="0.5" spec="ScaleOperator" tree="@Tree.t:M3982" weight="3.0"/>
+
+    <operator id="treeRootScaler.t:M3982" rootOnly="true" scaleFactor="0.5" spec="ScaleOperator" tree="@Tree.t:M3982" weight="3.0"/>
+
+    <operator id="UniformOperator.t:M3982" spec="Uniform" tree="@Tree.t:M3982" weight="30.0"/>
+
+    <operator id="SubtreeSlide.t:M3982" spec="SubtreeSlide" tree="@Tree.t:M3982" weight="15.0"/>
+
+    <operator id="narrow.t:M3982" spec="Exchange" tree="@Tree.t:M3982" weight="15.0"/>
+
+    <operator id="wide.t:M3982" isNarrow="false" spec="Exchange" tree="@Tree.t:M3982" weight="3.0"/>
+
+    <operator id="WilsonBalding.t:M3982" spec="WilsonBalding" tree="@Tree.t:M3982" weight="3.0"/>
+
+    <logger fileName="beast.log" id="tracelog" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
+        <log idref="posterior"/>
+        <log idref="likelihood"/>
+        <log idref="prior"/>
+        <log idref="YuleModel.t:M3982"/>
+        <parameter idref="birthRate.t:M3982" name="log"/>
+        <log idref="morphTreeLikelihood.M39827"/>
+        <parameter idref="freqParameter.s:M39827" name="log"/>
+        <log idref="morphTreeLikelihood.M39826"/>
+        <parameter idref="freqParameter.s:M39826" name="log"/>
+        <log idref="morphTreeLikelihood.M39823"/>
+        <parameter idref="freqParameter.s:M39823" name="log"/>
+        <log idref="morphTreeLikelihood.M39825"/>
+        <parameter idref="freqParameter.s:M39825" name="log"/>
+        <log idref="morphTreeLikelihood.M39822"/>
+        <parameter idref="freqParameter.s:M39822" name="log"/>
+        <log idref="morphTreeLikelihood.M39824"/>
+        <parameter idref="freqParameter.s:M39824" name="log"/>
+        <log idref="morphTreeLikelihood.M398210"/>
+        <parameter idref="freqParameter.s:M398210" name="log"/>
+    </logger>
+
+    <logger id="screenlog" logEvery="1000">
+        <log idref="posterior"/>
+        <log arg="@posterior" id="ESS.0" spec="util.ESS"/>
+        <log idref="likelihood"/>
+        <log idref="prior"/>
+    </logger>
+
+</run>
+
+</beast>
