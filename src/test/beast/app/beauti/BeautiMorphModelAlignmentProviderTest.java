@@ -10,7 +10,7 @@ import org.fest.swing.fixture.JOptionPaneFixture;
 import org.fest.swing.fixture.JTabbedPaneFixture;
 import org.junit.Test;
 
-public class BeautiMorphModelAlignmentProividerTest extends BeautiBase {
+public class BeautiMorphModelAlignmentProviderTest extends BeautiBase {
 	
 	JOptionPaneFixture dialog;
 

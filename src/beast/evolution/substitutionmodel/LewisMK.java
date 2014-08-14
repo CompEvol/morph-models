@@ -14,7 +14,7 @@ import java.util.Arrays;
 /**
  * @author Alexandra Gavryushkina
  */
-@Description("LewisML subtitution model: equal rates, equal frequencies")
+@Description("LewisMK subtitution model: equal rates, equal frequencies")
 @Citation("Lewis, Paul O. A likelihood approach to estimating phylogeny from discrete morphological character data. Systematic biology 50.6 (2001): 913-925.")
 public class LewisMK extends SubstitutionModel.Base  {
 
