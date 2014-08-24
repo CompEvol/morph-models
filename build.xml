@@ -29,6 +29,10 @@
         <pathelement path="${buildMM}"/>
 		<fileset dir="${libBeast2}" includes="junit-4.8.2.jar"/>
         <pathelement path="${beast2classpath}"/>
+		<fileset dir="${beast2path}/lib" includes="jam.jar"/>
+		<fileset dir="${beast2path}/lib" includes="beagle.jar"/>
+		<fileset dir="${beast2path}/lib" includes="fest.jar"/>
+		<fileset dir="${beast2path}/lib" includes="colt.jar"/>
 	</path>
 
 	<!-- start -->
