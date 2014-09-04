@@ -3,12 +3,7 @@ package beast.app.beauti;
 import beast.core.Description;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -19,7 +14,9 @@ import beast.app.draw.ExtensionFileFilter;
 import beast.core.BEASTInterface;
 import beast.core.parameter.RealParameter;
 import beast.evolution.alignment.Alignment;
+import beast.evolution.alignment.AscertainedFilteredAlignment;
 import beast.evolution.alignment.FilteredAlignment;
+import beast.evolution.alignment.Sequence;
 import beast.evolution.datatype.DataType;
 import beast.evolution.datatype.StandardData;
 import beast.evolution.datatype.UserDataType;
@@ -48,10 +45,18 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 			// space size
 			List<BEASTInterface> alignments = getAlignments(doc, files);
 			List<BEASTInterface> filteredAlignments = new ArrayList<BEASTInterface>();
+            Object[] possibleValues = { "Lewis MK", "Lewis MKv"};
+            Object selectedValue = JOptionPane.showInputDialog(null, "What substitution model would you like to use for " +
+                            "this morphological data?", "Substitution model selection",
+                    JOptionPane.INFORMATION_MESSAGE, null, possibleValues, possibleValues[0]);
 			try {
 				for (BEASTInterface o : alignments) {
-					if (o instanceof Alignment) {
-						processAlignment((Alignment) o, filteredAlignments, doc);
+  					if (o instanceof Alignment) {
+                        if (selectedValue.equals("Lewis MK")) {
+                            processAlignment((Alignment) o, filteredAlignments, false, doc);
+                        }  else {
+                            processAlignment((Alignment) o, filteredAlignments, true, doc);
+                        }
 					}
 				}
 			} catch (Exception e) {
@@ -125,8 +130,11 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 	// split an alignment into filtered alignments -- one for each state space
 	// size
 	// add them to filteredAlignments
-	public void processAlignment(Alignment alignment, List<BEASTInterface> filteredAlignments, BeautiDoc doc) throws Exception {
+	public void processAlignment(Alignment alignment, List<BEASTInterface> filteredAlignments, boolean ascertained, BeautiDoc doc) throws Exception {
 		Map<Integer, List<Integer>> stateSpaceMap = new HashMap<Integer, List<Integer>>();
+
+        int initialSiteCount = alignment.getSiteCount();
+        int maxNrOfStates = 0;
 
 		// distinguish between StandardData and others
 		if (alignment.getDataType() instanceof StandardData) {
@@ -138,11 +146,12 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 					// this assumes there is a charStateLabel for this site
 					nrOfStates = dataType.charStateLabelsInput.get().get(i).getStateCount();
 				} else {
-					// deal with the case there is no charStateLabel
+					// deal with the case where there is no charStateLabel
 					nrOfStates = calcNumberOfStates(alignment, i);
 				}
 				if (!stateSpaceMap.containsKey(nrOfStates)) {
 					stateSpaceMap.put(nrOfStates, new ArrayList<Integer>());
+                    maxNrOfStates = Math.max(maxNrOfStates, nrOfStates);
 				}
 				stateSpaceMap.get(nrOfStates).add(i);
 			}
@@ -153,10 +162,24 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 				int nrOfStates = calcNumberOfStates(alignment, i);
 				if (!stateSpaceMap.containsKey(nrOfStates)) {
 					stateSpaceMap.put(nrOfStates, new ArrayList<Integer>());
+                    maxNrOfStates = Math.max(maxNrOfStates, nrOfStates);
 				}
 				stateSpaceMap.get(nrOfStates).add(i);
 			}
 		}
+
+        if (ascertained) {
+            StringBuilder seqToAccountForAscertainment = new StringBuilder();
+            for (int i=0; i<maxNrOfStates; i++) {
+                seqToAccountForAscertainment.append(i);
+            }
+            for (Sequence seq: alignment.sequenceInput.get()) {
+                String newSequenceValue = seq.dataInput.get() + seqToAccountForAscertainment;
+                seq.dataInput.setValue(newSequenceValue, seq);
+            }
+            alignment.initAndValidate(); //TODO look if we need to initAndValidate or just update some members of alignment
+        }
+
 
 		String tree = alignment.getID();
 		String clock = alignment.getID();
@@ -168,11 +191,27 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 			// create fileter range
 			// currently, just creates a singleton for each entry.
 			// The entries are sorted (by construction of the list)
-			// TODO: beautify range when there are consecutive sites involved
+            // AG: added ranges for consequent site numbers
 			StringBuilder range = new StringBuilder();
-			for (Integer site : stateSpaceMap.get(nrOfStates)) {
-				range.append((site + 1)+ ",");
-			}
+            List<Integer> sites = stateSpaceMap.get(nrOfStates);
+            for (int i=0; i< sites.size(); i++) {
+                int site = sites.get(i);
+                if (i == sites.size()-1 || sites.get(i+1) != site+1) {
+                    range.append((site + 1)+ ",");
+                } else {
+                    if (range.length() == 0 || range.charAt(range.length()-1) != '-') {
+                        range.append((site + 1)+ "-");
+                    }
+                }
+
+            }
+//			for (Integer site : sites) {
+//				range.append((site + 1)+ ",");
+//			}
+
+            if (ascertained) {
+                range.append((initialSiteCount+1)+"-"+(initialSiteCount+nrOfStates)+",");
+            }
 			range.deleteCharAt(range.length() - 1);
 
 			// create data type
@@ -203,7 +242,11 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 			String name = alignment.getID() + nrOfStates;
 			dataType.setID("morphDataType." + name);
 			doc.addPlugin(dataType);
-			FilteredAlignment data = new FilteredAlignment();
+            FilteredAlignment data = ascertained ? new AscertainedFilteredAlignment() : new FilteredAlignment();
+            if (data instanceof AscertainedFilteredAlignment) {
+                ((AscertainedFilteredAlignment) data).excludefromInput.setValue(stateSpaceMap.get(nrOfStates).size(), data);
+                ((AscertainedFilteredAlignment) data).excludetoInput.setValue(stateSpaceMap.get(nrOfStates).size()+nrOfStates-1, data);
+            }
 			data.initByName("data", alignment, "filter", range.toString(), "userDataType", dataType);
 			data.setID(ID);
 			doc.addPlugin(data);

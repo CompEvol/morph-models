@@ -21,6 +21,8 @@ public class LewisMK extends SubstitutionModel.Base  {
     public Input<Integer> nrOfStatesInput = new Input<Integer>("stateNumber", "the number of character states");
 
     public Input<DataType> dataTypeInput = new Input<DataType>("datatype", "datatype, used to determine the number of states", Validate.XOR, nrOfStatesInput);
+
+    //public Input<Boolean> isMKvInput = new Input<>("isMkv", "whether to use MKv model or just MK", false);
     
     public LewisMK() {
         // this is added to avoid a parsing error inherited from superclass because frequencies are not provided.

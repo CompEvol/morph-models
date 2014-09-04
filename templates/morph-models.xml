@@ -23,7 +23,7 @@
 	            </populationModel>
             </init>
 
-			<distribution id="morphTreeLikelihood.$(n)" spec='TreeLikelihood' tree='@Tree.t:$(n)'> 
+			<distribution id="morphTreeLikelihood.$(n)" spec='TreeLikelihoodForLewisMKModel' tree='@Tree.t:$(n)'>
 				<data spec="beast.evolution.alignment.FilteredAlignment" id='$(n)' filter="0-end">
 					<userDataType spec='beast.evolution.datatype.StandardData' id='morphDataType.$(n)' />
 				</data>
