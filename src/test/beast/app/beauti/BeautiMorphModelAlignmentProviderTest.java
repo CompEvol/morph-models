@@ -25,7 +25,7 @@ public class BeautiMorphModelAlignmentProviderTest extends BeautiBase {
 
 		dialog = new JOptionPaneFixture(robot());
 		dialog.component().setLocation(0, 0);
-		dialog.comboBox("OptionPane.comboBox").selectItem("Add MK Morphological Data");
+		dialog.comboBox("OptionPane.comboBox").selectItem("Add Morphological Data");
 		dialog.okButton().click();
 		
 		JFileChooserFixture fileChooser = findFileChooser().using(robot());

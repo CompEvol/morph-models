@@ -44,28 +44,33 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 			// split alignments into filtered alignments -- one for each state
 			// space size
 			List<BEASTInterface> alignments = getAlignments(doc, files);
+            int partitions = JOptionPane.showConfirmDialog(null, "Would you like to partition the data matrix with respect to the number of character states \n " +
+                    "to apply different substitution models for each partition?", "Data partition with respect to the number of states", 0);
 			List<BEASTInterface> filteredAlignments = new ArrayList<BEASTInterface>();
-            Object[] possibleValues = { "Lewis MK", "Lewis MKv"};
-            Object selectedValue = JOptionPane.showInputDialog(null, "What substitution model would you like to use for " +
-                            "this morphological data?", "Substitution model selection",
-                    JOptionPane.INFORMATION_MESSAGE, null, possibleValues, possibleValues[0]);
-			try {
-				for (BEASTInterface o : alignments) {
-  					if (o instanceof Alignment) {
-                        if (selectedValue.equals("Lewis MK")) {
-                            processAlignment((Alignment) o, filteredAlignments, false, doc);
-                        }  else {
-                            processAlignment((Alignment) o, filteredAlignments, true, doc);
+            int condition = JOptionPane.showConfirmDialog(null, "Would you like to condition on excluding constant characters? \n " +
+                    "It is preferable if the data does not include constant characters.", "Conditioning on constant characters", 0);
+            if (partitions == 0) {
+                try {
+                    for (BEASTInterface o : alignments) {
+                        if (o instanceof Alignment) {
+                            if (condition == 0) {
+                                processAlignment((Alignment) o, filteredAlignments, true, doc);
+                            }  else {
+                                processAlignment((Alignment) o, filteredAlignments, false, doc);
+                            }
                         }
-					}
-				}
-			} catch (Exception e) {
-				JOptionPane.showMessageDialog(null, "Something went wrong converting the alignment: " + e.getMessage());
-				e.printStackTrace();
-				return null;
-			}
+                    }
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Something went wrong converting the alignment: " + e.getMessage());
+                    e.printStackTrace();
+                    return null;
+                }
 
-			return filteredAlignments;
+                return filteredAlignments;
+            }  else {
+                //TODO figure out what to return  implement not partitioning alignmnet 1) ascertainment
+            }
+
 		}
 		return null;
 	}
