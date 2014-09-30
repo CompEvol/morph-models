@@ -83,11 +83,12 @@ public class LewisMK extends SubstitutionModel.Base  {
     }
 
     @Override
-    public boolean canHandleDataType(DataType dataType) throws Exception {
+    public boolean canHandleDataType(DataType dataType) {
         if (dataType instanceof StandardData || dataType instanceof Binary) {
             return true;
         }
-        throw new Exception("Can only handle StandardData and binary data");
+        return false;
+        //throw new Exception("Can only handle StandardData and binary data");
     }
 
 }
