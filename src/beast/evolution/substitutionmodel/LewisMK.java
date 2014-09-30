@@ -13,6 +13,7 @@ import java.util.Arrays;
 
 /**
  * @author Alexandra Gavryushkina
+ * @author Joseph Heled
  */
 @Description("LewisMK subtitution model: equal rates, equal frequencies")
 @Citation("Lewis, Paul O. A likelihood approach to estimating phylogeny from discrete morphological character data. Systematic biology 50.6 (2001): 913-925.")
@@ -23,10 +24,12 @@ public class LewisMK extends SubstitutionModel.Base  {
     public Input<DataType> dataTypeInput = new Input<DataType>("datatype", "datatype, used to determine the number of states", Validate.XOR, nrOfStatesInput);
 
     //public Input<Boolean> isMKvInput = new Input<>("isMkv", "whether to use MKv model or just MK", false);
-    
+    boolean hasFreqs;
+    private boolean updateFreqs;
+
     public LewisMK() {
         // this is added to avoid a parsing error inherited from superclass because frequencies are not provided.
-        frequenciesInput.setRule(Input.Validate.OPTIONAL);
+        frequenciesInput.setRule(Validate.OPTIONAL);
         try {
             // this call will be made twice when constructed from XML
             // but this ensures that the object is validly constructed for testing purposes.
@@ -39,8 +42,28 @@ public class LewisMK extends SubstitutionModel.Base  {
         }
     }
 
+    double totalSubRate;
     double[] frequencies;
     EigenDecomposition eigenDecomposition;
+
+    private void setFrequencies() {
+        final Frequencies frequencies1 = frequenciesInput.get();
+        if( frequencies1 != null ) {
+            if( frequencies1.getFreqs().length != nrOfStates ) {
+                throw new RuntimeException("number of stationary frequencies does not match number of states.");
+            }
+            System.arraycopy(frequencies1.getFreqs(), 0, frequencies, 0, nrOfStates);
+            totalSubRate = 1;
+            for(int k = 0; k < nrOfStates; ++k) {
+               totalSubRate -= frequencies[k]*frequencies[k];
+            }
+            hasFreqs = true;
+        }  else {
+            Arrays.fill(frequencies, (1.0 / nrOfStates));
+            hasFreqs = false;
+        }
+        updateFreqs = false;
+    }
 
     @Override
     public void initAndValidate() throws Exception {
@@ -56,7 +79,7 @@ public class LewisMK extends SubstitutionModel.Base  {
 //
 //        eigenDecomposition = new EigenDecomposition(evec, ivec, eval);
         frequencies = new double[nrOfStates];
-        Arrays.fill(frequencies, (1.0/nrOfStates));
+        setFrequencies();
     }
 
     @Override
@@ -66,14 +89,31 @@ public class LewisMK extends SubstitutionModel.Base  {
 
     @Override
     public void getTransitionProbabilities(Node node, double fStartTime, double fEndTime, double fRate, double[] matrix) {
-        double fDelta = (nrOfStates/(nrOfStates-1)) * (fStartTime - fEndTime);
-        double fPStay = (1.0 + (nrOfStates -1) * Math.exp(-fDelta * fRate)) / nrOfStates;
-        double fPMove = (1.0 - Math.exp(-fDelta * fRate)) / nrOfStates;
-        // fill the matrix with move probabilities
-        Arrays.fill(matrix, fPMove);
-        // fill the diagonal
-        for (int i = 0; i < nrOfStates; i++) {
-            matrix[i * (nrOfStates+1)] = fPStay;
+        if( updateFreqs ) {
+           setFrequencies();
+        }
+
+        if( hasFreqs ) {
+            final double e1 = Math.exp(-(fStartTime - fEndTime) * fRate/totalSubRate);
+            final double e2 = 1 - e1;
+
+            for( int i = 0; i < nrOfStates; ++i ) {
+                final int r = i * nrOfStates;
+                for( int j = 0; j < nrOfStates; ++j ) {
+                    matrix[r + j] = frequencies[j] * e2;
+                }
+                matrix[r + i] += e1;
+            }
+        } else {
+            double fDelta = (nrOfStates / (nrOfStates - 1)) * (fStartTime - fEndTime);
+            double fPStay = (1.0 + (nrOfStates - 1) * Math.exp(-fDelta * fRate)) / nrOfStates;
+            double fPMove = (1.0 - Math.exp(-fDelta * fRate)) / nrOfStates;
+            // fill the matrix with move probabilities
+            Arrays.fill(matrix, fPMove);
+            // fill the diagonal
+            for (int i = 0; i < nrOfStates; i++) {
+                matrix[i * (nrOfStates + 1)] = fPStay;
+            }
         }
     }
 
@@ -91,4 +131,12 @@ public class LewisMK extends SubstitutionModel.Base  {
         //throw new Exception("Can only handle StandardData and binary data");
     }
 
+    protected boolean requiresRecalculation() {
+        if( ! hasFreqs ) {
+            return false;
+        }
+        // we only get here if something is dirty
+        updateFreqs = true;
+        return true;
+    }
 }
