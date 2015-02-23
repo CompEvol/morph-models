@@ -14,7 +14,6 @@ import beast.app.draw.ExtensionFileFilter;
 import beast.core.BEASTInterface;
 import beast.core.parameter.RealParameter;
 import beast.evolution.alignment.Alignment;
-import beast.evolution.alignment.AscertainedFilteredAlignment;
 import beast.evolution.alignment.FilteredAlignment;
 import beast.evolution.alignment.Sequence;
 import beast.evolution.datatype.DataType;
