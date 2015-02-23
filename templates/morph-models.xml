@@ -6,7 +6,8 @@
 
         <subtemplate id='MKTrait' class='beast.evolution.alignment.FilteredAlignment' mainid='$(n)'
         suppressInputs = 'beast.evolution.substitutionmodel.LewisMK.stateNumber,
-			beast.evolution.substitutionmodel.LewisMK.datatype'
+			beast.evolution.substitutionmodel.LewisMK.datatype,
+			beast.evolution.substitutionmodel.LewisMK.frequencies'
 
 >
 <![CDATA[
@@ -23,7 +24,7 @@
 	            </populationModel>
             </init>
 
-			<distribution id="morphTreeLikelihood.$(n)" spec='TreeLikelihoodForLewisMKModel' tree='@Tree.t:$(n)'>
+			<distribution id="morphTreeLikelihood.$(n)" spec='TreeLikelihood' tree='@Tree.t:$(n)'>
 				<data spec="beast.evolution.alignment.FilteredAlignment" id='$(n)' filter="0-end">
 					<userDataType spec='beast.evolution.datatype.StandardData' id='morphDataType.$(n)' />
 				</data>
@@ -32,11 +33,7 @@
 				        <mutationRate        spec='parameter.RealParameter' id='mutationRate.s:$(n)' value='1.0'        estimate='false'/>
 				        <shape               spec='parameter.RealParameter' id='gammaShape.s:$(n)' value='1.0'         estimate='false'/>
                     <!-- MK subst model -->
-					<substModel spec="LewisMK" id="LewisMK.s:$(n)" datatype='@morphDataType.$(n)'>
-						<frequencies id='estimatedFreqs.s:$(n)' spec='Frequencies'>
-						    <frequencies id='freqParameter.s:$(n)' spec='parameter.RealParameter' dimension='4' value='0.25' lower='0' upper='1'/>
-						</frequencies>
-					</substModel>
+					<substModel spec="LewisMK" id="LewisMK.s:$(n)" datatype='@morphDataType.$(n)'/>
 				</siteModel>
 				<branchRateModel id="StrictClockModel.c:$(n)" spec="beast.evolution.branchratemodel.StrictClockModel">
 					<parameter id="clockRate.c:$(n)" name="clock.rate" value="1.0"/>
@@ -66,7 +63,6 @@
         <operator id='proportionInvariantScaler.s:$(n)' spec='ScaleOperator' scaleFactor="0.5" weight="0.1" parameter="@proportionInvariant.s:$(n)"/>
         <operator id='mutationRateScaler.s:$(n)' spec='ScaleOperator' scaleFactor="0.5" weight="0.1" parameter="@mutationRate.s:$(n)"/>
         <operator id='gammaShapeScaler.s:$(n)' spec='ScaleOperator' scaleFactor="0.5" weight="0.1" parameter="@gammaShape.s:$(n)"/>
-
 
         <operator id='treeScaler.t:$(n)' spec='ScaleOperator' scaleFactor="0.5" weight="3" tree="@Tree.t:$(n)"/>
         <operator id='treeRootScaler.t:$(n)' spec='ScaleOperator' scaleFactor="0.5" weight="3" tree="@Tree.t:$(n)" rootOnly='true'/>

@@ -44,11 +44,11 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 			// split alignments into filtered alignments -- one for each state
 			// space size
 			List<BEASTInterface> alignments = getAlignments(doc, files);
-            int partitions = JOptionPane.showConfirmDialog(null, "Would you like to partition the data matrix with respect to the number of character states \n " +
-                    "to apply different substitution models for each partition?", "Data partition with respect to the number of states", 0);
+            int partitions = 0; // JOptionPane.showConfirmDialog(null, "Would you like to partition the data matrix with respect to the number of character states \n " +
+            //        "to apply different substitution models for each partition?", "Data partition with respect to the number of states", 0);
 			List<BEASTInterface> filteredAlignments = new ArrayList<BEASTInterface>();
-            int condition = JOptionPane.showConfirmDialog(null, "Would you like to condition on excluding constant characters? \n " +
-                    "It is preferable if the data does not include constant characters.", "Conditioning on constant characters", 0);
+            int condition = 1; // JOptionPane.showConfirmDialog(null, "Would you like to condition on excluding constant characters? \n " +
+            //        "It is preferable if the data does not include constant characters.", "Conditioning on constant characters", 0);
             if (partitions == 0) {
                 try {
                     for (BEASTInterface o : alignments) {
@@ -247,10 +247,12 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 			String name = alignment.getID() + nrOfStates;
 			dataType.setID("morphDataType." + name);
 			doc.addPlugin(dataType);
-            FilteredAlignment data = ascertained ? new AscertainedFilteredAlignment() : new FilteredAlignment();
-            if (data instanceof AscertainedFilteredAlignment) {
-                ((AscertainedFilteredAlignment) data).excludefromInput.setValue(stateSpaceMap.get(nrOfStates).size(), data);
-                ((AscertainedFilteredAlignment) data).excludetoInput.setValue(stateSpaceMap.get(nrOfStates).size()+nrOfStates-1, data);
+            FilteredAlignment data = new FilteredAlignment();
+
+            if (ascertained) {
+				data.isAscertainedInput.setValue(true, data);
+				data.excludefromInput.setValue(stateSpaceMap.get(nrOfStates).size(), data);
+                data.excludetoInput.setValue(stateSpaceMap.get(nrOfStates).size()+nrOfStates-1, data);
             }
 			data.initByName("data", alignment, "filter", range.toString(), "userDataType", dataType);
 			data.setID(ID);
