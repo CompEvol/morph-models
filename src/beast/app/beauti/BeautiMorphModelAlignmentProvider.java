@@ -8,19 +8,15 @@ import java.util.*;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
-import beast.app.beauti.BeautiAlignmentProvider;
-import beast.app.beauti.BeautiDoc;
 import beast.app.draw.ExtensionFileFilter;
 import beast.core.BEASTInterface;
-import beast.core.parameter.RealParameter;
 import beast.evolution.alignment.Alignment;
+import beast.evolution.alignment.AscertainedForParsimonyUninformativeFilteredAlignment;
 import beast.evolution.alignment.FilteredAlignment;
 import beast.evolution.alignment.Sequence;
 import beast.evolution.datatype.DataType;
 import beast.evolution.datatype.StandardData;
 import beast.evolution.datatype.UserDataType;
-import beast.evolution.sitemodel.SiteModelInterface;
-import beast.evolution.substitutionmodel.GeneralSubstitutionModel;
 import beast.util.NexusParser;
 
 @Description("Class for creating new partitions for morphological data to be edited by AlignmentListInputEditor")
@@ -43,11 +39,11 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 			// split alignments into filtered alignments -- one for each state
 			// space size
 			List<BEASTInterface> alignments = getAlignments(doc, files);
-            int partitions = 0; // JOptionPane.showConfirmDialog(null, "Would you like to partition the data matrix with respect to the number of character states \n " +
-            //        "to apply different substitution models for each partition?", "Data partition with respect to the number of states", 0);
+            int partitions = 0; //JOptionPane.showConfirmDialog(null, "Would you like to partition the data matrix with respect to the number of character states \n " +
+                    //"to apply different substitution models for each partition?", "Data partition with respect to the number of states", 0);
 			List<BEASTInterface> filteredAlignments = new ArrayList<BEASTInterface>();
-            int condition = 1; // JOptionPane.showConfirmDialog(null, "Would you like to condition on excluding constant characters? \n " +
-            //        "It is preferable if the data does not include constant characters.", "Conditioning on constant characters", 0);
+            int condition = 1; //JOptionPane.showConfirmDialog(null, "Would you like to condition on excluding constant characters? \n " +
+                    // "It is preferable if the data does not include constant characters.", "Conditioning on constant characters", 0);
             if (partitions == 0) {
                 try {
                     for (BEASTInterface o : alignments) {
@@ -139,6 +135,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 
         int initialSiteCount = alignment.getSiteCount();
         int maxNrOfStates = 0;
+		int seqCount = alignment.sequenceInput.get().size();
 
 		// distinguish between StandardData and others
 		if (alignment.getDataType() instanceof StandardData) {
@@ -177,8 +174,19 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
             for (int i=0; i<maxNrOfStates; i++) {
                 seqToAccountForAscertainment.append(i);
             }
+			int seqIndex=0;
             for (Sequence seq: alignment.sequenceInput.get()) {
-                String newSequenceValue = seq.dataInput.get() + seqToAccountForAscertainment;
+				StringBuilder seqNonConstant = new StringBuilder();
+				for (int i=0; i<seqCount; i++) {
+					if (i == seqIndex) {
+						seqNonConstant.append("1");
+					} else {
+						seqNonConstant.append("0");
+					}
+
+				}
+				seqIndex++;
+                String newSequenceValue = seq.dataInput.get() + seqToAccountForAscertainment + seqNonConstant;
                 seq.dataInput.setValue(newSequenceValue, seq);
             }
             alignment.initAndValidate(); //TODO look if we need to initAndValidate or just update some members of alignment
@@ -215,6 +223,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 
             if (ascertained) {
                 range.append((initialSiteCount+1)+"-"+(initialSiteCount+nrOfStates)+",");
+				range.append((initialSiteCount+maxNrOfStates+1)+"-"+(initialSiteCount+maxNrOfStates+seqCount)+",");
             }
 			range.deleteCharAt(range.length() - 1);
 
@@ -246,12 +255,15 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 			String name = alignment.getID() + nrOfStates;
 			dataType.setID("morphDataType." + name);
 			doc.addPlugin(dataType);
-            FilteredAlignment data = new FilteredAlignment();
+            FilteredAlignment data = ascertained?new FilteredAlignment():new AscertainedForParsimonyUninformativeFilteredAlignment();
 
             if (ascertained) {
 				data.isAscertainedInput.setValue(true, data);
 				data.excludefromInput.setValue(stateSpaceMap.get(nrOfStates).size(), data);
-                data.excludetoInput.setValue(stateSpaceMap.get(nrOfStates).size()+nrOfStates-1, data);
+				data.excludetoInput.setValue(stateSpaceMap.get(nrOfStates).size()+nrOfStates, data);
+				((AscertainedForParsimonyUninformativeFilteredAlignment)data).excludefromNonConstantInput.setValue(stateSpaceMap.get(nrOfStates).size()+nrOfStates, data);
+				((AscertainedForParsimonyUninformativeFilteredAlignment)data).excludetoNonConstantInput.setValue(stateSpaceMap.get(nrOfStates).size()+nrOfStates+seqCount, data);
+
             }
 			data.initByName("data", alignment, "filter", range.toString(), "userDataType", dataType);
 			data.setID(ID);
