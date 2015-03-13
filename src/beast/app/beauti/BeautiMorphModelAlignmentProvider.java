@@ -134,7 +134,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 		Map<Integer, List<Integer>> stateSpaceMap = new HashMap<Integer, List<Integer>>();
 
         int initialSiteCount = alignment.getSiteCount();
-        int maxNrOfStates = 0;
+        int maxNrOfStates = 0; // for each site the number of states is counted and the maximum of this number is MaxNrOfStates
 		int seqCount = alignment.sequenceInput.get().size();
 
 		// distinguish between StandardData and others
@@ -143,12 +143,17 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 			StandardData dataType = (StandardData) alignment.getDataType();
 			for (int i = 0; i < alignment.getSiteCount(); i++) {
 				int nrOfStates = 0;
-				if (dataType.charStateLabelsInput.get().size() > i) {
-					// this assumes there is a charStateLabel for this site
+				int nrOfStatesPresented = calcNumberOfStates(alignment, i);
+				if (dataType.charStateLabelsInput.get().size() > i && dataType.charStateLabelsInput.get().get(i).getStateCount() > 0) {
+					// this assumes there is a charStateLabel with the state description for this site
 					nrOfStates = dataType.charStateLabelsInput.get().get(i).getStateCount();
+					if (nrOfStatesPresented > nrOfStates) {
+						throw new Exception("The number of states in character " + (i+1) + " is larger than in " +
+								"the description. It should be less or equal.");
+					}
 				} else {
-					// deal with the case where there is no charStateLabel
-					nrOfStates = calcNumberOfStates(alignment, i);
+					// deal with the case where there is no charStateLabel or there is no state description
+					nrOfStates = nrOfStatesPresented;
 				}
 				if (!stateSpaceMap.containsKey(nrOfStates)) {
 					stateSpaceMap.put(nrOfStates, new ArrayList<Integer>());
@@ -157,8 +162,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 				stateSpaceMap.get(nrOfStates).add(i);
 			}
 		} else {
-			// determine state space size by counting different nr of states for
-			// a
+			// determine state space size by counting states in each site
 			for (int i = 0; i < alignment.getSiteCount(); i++) {
 				int nrOfStates = calcNumberOfStates(alignment, i);
 				if (!stateSpaceMap.containsKey(nrOfStates)) {
@@ -294,12 +298,15 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 	 * calculate number of states for a site by determining the set of unique
 	 * characters at that site.
 	 */
-	private int calcNumberOfStates(Alignment alignment, int site) {
+	private int calcNumberOfStates(Alignment alignment, int site) throws Exception{
 		int[] pattern = alignment.getPattern(alignment.getPatternIndex(site));
 		Set<Integer> states = new HashSet<Integer>();
+		DataType dataType = alignment.getDataType();
 		for (int k : pattern) {
-			if (!alignment.getDataType().isAmbiguousState(k)) {
-				states.add(k);
+			if (k >= 0 && !dataType.getCode(k).equals("?") && !dataType.getCode(k).equals("-")) {
+				for (int m:dataType.getStatesForCode(k)) {
+					states.add(m);
+				}
 			}
 		}
 		int nrOfStates = states.size();
