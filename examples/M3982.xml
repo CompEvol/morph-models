@@ -110,14 +110,14 @@ idref="M3982"/>
                 </alignment>
             </taxonset>
         </tree>
-        <parameter id="birthRate.t:M3982" name="stateNode">1.0</parameter>
-        <parameter dimension="4" id="freqParameter.s:M39827" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
-        <parameter dimension="4" id="freqParameter.s:M39826" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
-        <parameter dimension="4" id="freqParameter.s:M39823" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
-        <parameter dimension="4" id="freqParameter.s:M39825" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
-        <parameter dimension="4" id="freqParameter.s:M39822" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
-        <parameter dimension="4" id="freqParameter.s:M39824" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
-        <parameter dimension="4" id="freqParameter.s:M398210" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
+      <parameter id="birthRate.t:M3982" name="stateNode">1.0</parameter>
+      <parameter dimension="7" id="freqParameter.s:M39827" lower="0.0" name="stateNode" upper="1.0">0.142857142857142857142857142857142857142857</parameter>
+      <parameter dimension="6" id="freqParameter.s:M39826" lower="0.0" name="stateNode" upper="1.0">0.166666666666666666666666666666666666666667</parameter>
+      <parameter dimension="3" id="freqParameter.s:M39823" lower="0.0" name="stateNode" upper="1.0">0.333333333333333333333333333333333333333333</parameter>
+      <parameter dimension="5" id="freqParameter.s:M39825" lower="0.0" name="stateNode" upper="1.0">0.2</parameter>
+      <parameter dimension="2" id="freqParameter.s:M39822" lower="0.0" name="stateNode" upper="1.0">0.5</parameter>
+      <parameter dimension="4" id="freqParameter.s:M39824" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
+      <parameter dimension="10" id="freqParameter.s:M398210" lower="0.0" name="stateNode" upper="1.0">0.1</parameter>
     </state>
 
     <init estimate="false" id="RandomTree.t:M3982" initial="@Tree.t:M3982" spec="beast.evolution.tree.RandomTree" taxa="@M39822">
@@ -134,7 +134,10 @@ idref="M3982"/>
             </prior>
         </distribution>
         <distribution id="likelihood" spec="util.CompoundDistribution">
-            <distribution data="@M39822" id="morphTreeLikelihood.M39822" spec="TreeLikelihood" tree="@Tree.t:M3982">
+            <distribution id="morphTreeLikelihood.M39822" spec="TreeLikelihood" tree="@Tree.t:M3982">
+	      <data data="@M3982" filter="1,2,4,7,8,12" id="M39820" spec="FilteredAlignment">
+		<userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39820" nrOfStates="2" spec="beast.evolution.datatype.StandardData"/>
+              </data>
                 <siteModel gammaCategoryCount="1" id="morphSiteModel.s:M39822" spec="SiteModel">
                     <parameter estimate="false" id="mutationRate.s:M39822" name="mutationRate">1.0</parameter>
                     <parameter estimate="false" id="gammaShape.s:M39822" name="shape">1.0</parameter>
