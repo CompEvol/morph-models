@@ -15,7 +15,8 @@ public class AscertainedForParsimonyUninformativeAlignment extends Alignment {
     public Input<Integer> excludetoNonConstantInput = new Input<Integer>("excludetoNonConstant", "last site to condition on " +
             "non constant parsimony uninformative sites (but excluding this site), default 0", 0);
 
-    Set<Integer> excludedNonConstantPatterns; //one state differs only patterns
+    Set<Integer> excludedNonConstantPatterns; //parsimony uninformative characters, that is, only one character is different
+                                                // from the others
 
     @Override
     void setupAscertainment() {
@@ -46,7 +47,7 @@ public class AscertainedForParsimonyUninformativeAlignment extends Alignment {
             }
         }
 
-    } // initAndValidate
+    }
 
     @Override
     public double getAscertainmentCorrection(double[] patternLogProbs) {

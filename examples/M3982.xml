@@ -111,13 +111,6 @@ idref="M3982"/>
             </taxonset>
         </tree>
         <parameter id="birthRate.t:M3982" name="stateNode">1.0</parameter>
-        <parameter dimension="4" id="freqParameter.s:M39827" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
-        <parameter dimension="4" id="freqParameter.s:M39826" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
-        <parameter dimension="4" id="freqParameter.s:M39823" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
-        <parameter dimension="4" id="freqParameter.s:M39825" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
-        <parameter dimension="4" id="freqParameter.s:M39822" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
-        <parameter dimension="4" id="freqParameter.s:M39824" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
-        <parameter dimension="4" id="freqParameter.s:M398210" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
     </state>
 
     <init estimate="false" id="RandomTree.t:M3982" initial="@Tree.t:M3982" spec="beast.evolution.tree.RandomTree" taxa="@M39822">
@@ -139,9 +132,7 @@ idref="M3982"/>
                     <parameter estimate="false" id="mutationRate.s:M39822" name="mutationRate">1.0</parameter>
                     <parameter estimate="false" id="gammaShape.s:M39822" name="shape">1.0</parameter>
                     <parameter estimate="false" id="proportionInvariant.s:M39822" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
-                    <substModel datatype="@morphDataType.M39822" id="LewisMK.s:M39822" spec="LewisMK">
-                        <frequencies frequencies="@freqParameter.s:M39822" id="estimatedFreqs.s:M39822" spec="Frequencies"/>
-                    </substModel>
+                    <substModel datatype="@morphDataType.M39822" id="LewisMK.s:M39822" spec="LewisMK"/>
                 </siteModel>
                 <branchRateModel id="StrictClockModel.c:M3982" spec="beast.evolution.branchratemodel.StrictClockModel">
                     <parameter estimate="false" id="clockRate.c:M3982" name="clock.rate">1.0</parameter>
@@ -159,9 +150,7 @@ spec="FilteredAlignment">
                     <parameter estimate="false" id="mutationRate.s:M39823" name="mutationRate">1.0</parameter>
                     <parameter estimate="false" id="gammaShape.s:M39823" name="shape">1.0</parameter>
                     <parameter estimate="false" id="proportionInvariant.s:M39823" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
-                    <substModel datatype="@morphDataType.M39823" id="LewisMK.s:M39823" spec="LewisMK">
-                        <frequencies frequencies="@freqParameter.s:M39823" id="estimatedFreqs.s:M39823" spec="Frequencies"/>
-                    </substModel>
+                    <substModel datatype="@morphDataType.M39823" id="LewisMK.s:M39823" spec="LewisMK"/>
                 </siteModel>
             </distribution>
             <distribution branchRateModel="@StrictClockModel.c:M3982" id="morphTreeLikelihood.M39824" spec="TreeLikelihood" tree="@Tree.t:M3982">
@@ -176,9 +165,7 @@ spec="FilteredAlignment">
                     <parameter estimate="false" id="mutationRate.s:M39824" name="mutationRate">1.0</parameter>
                     <parameter estimate="false" id="gammaShape.s:M39824" name="shape">1.0</parameter>
                     <parameter estimate="false" id="proportionInvariant.s:M39824" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
-                    <substModel datatype="@morphDataType.M39824" id="LewisMK.s:M39824" spec="LewisMK">
-                        <frequencies frequencies="@freqParameter.s:M39824" id="estimatedFreqs.s:M39824" spec="Frequencies"/>
-                    </substModel>
+                    <substModel datatype="@morphDataType.M39824" id="LewisMK.s:M39824" spec="LewisMK"/>
                 </siteModel>
             </distribution>
             <distribution branchRateModel="@StrictClockModel.c:M3982" id="morphTreeLikelihood.M39825" spec="TreeLikelihood" tree="@Tree.t:M3982">
@@ -193,9 +180,7 @@ spec="FilteredAlignment">
                     <parameter estimate="false" id="mutationRate.s:M39825" name="mutationRate">1.0</parameter>
                     <parameter estimate="false" id="gammaShape.s:M39825" name="shape">1.0</parameter>
                     <parameter estimate="false" id="proportionInvariant.s:M39825" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
-                    <substModel datatype="@morphDataType.M39825" id="LewisMK.s:M39825" spec="LewisMK">
-                        <frequencies frequencies="@freqParameter.s:M39825" id="estimatedFreqs.s:M39825" spec="Frequencies"/>
-                    </substModel>
+                    <substModel datatype="@morphDataType.M39825" id="LewisMK.s:M39825" spec="LewisMK"/>
                 </siteModel>
             </distribution>
             <distribution branchRateModel="@StrictClockModel.c:M3982" id="morphTreeLikelihood.M39826" spec="TreeLikelihood" tree="@Tree.t:M3982">
@@ -210,9 +195,7 @@ spec="FilteredAlignment">
                     <parameter estimate="false" id="mutationRate.s:M39826" name="mutationRate">1.0</parameter>
                     <parameter estimate="false" id="gammaShape.s:M39826" name="shape">1.0</parameter>
                     <parameter estimate="false" id="proportionInvariant.s:M39826" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
-                    <substModel datatype="@morphDataType.M39826" id="LewisMK.s:M39826" spec="LewisMK">
-                        <frequencies frequencies="@freqParameter.s:M39826" id="estimatedFreqs.s:M39826" spec="Frequencies"/>
-                    </substModel>
+                    <substModel datatype="@morphDataType.M39826" id="LewisMK.s:M39826" spec="LewisMK"/>
                 </siteModel>
             </distribution>
             <distribution branchRateModel="@StrictClockModel.c:M3982" id="morphTreeLikelihood.M39827" spec="TreeLikelihood" tree="@Tree.t:M3982">
@@ -227,9 +210,7 @@ spec="FilteredAlignment">
                     <parameter estimate="false" id="mutationRate.s:M39827" name="mutationRate">1.0</parameter>
                     <parameter estimate="false" id="gammaShape.s:M39827" name="shape">1.0</parameter>
                     <parameter estimate="false" id="proportionInvariant.s:M39827" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
-                    <substModel datatype="@morphDataType.M39827" id="LewisMK.s:M39827" spec="LewisMK">
-                        <frequencies frequencies="@freqParameter.s:M39827" id="estimatedFreqs.s:M39827" spec="Frequencies"/>
-                    </substModel>
+                    <substModel datatype="@morphDataType.M39827" id="LewisMK.s:M39827" spec="LewisMK"/>
                 </siteModel>
             </distribution>
             <distribution branchRateModel="@StrictClockModel.c:M3982" id="morphTreeLikelihood.M398210" spec="TreeLikelihood" tree="@Tree.t:M3982">
@@ -244,9 +225,7 @@ spec="FilteredAlignment">
                     <parameter estimate="false" id="mutationRate.s:M398210" name="mutationRate">1.0</parameter>
                     <parameter estimate="false" id="gammaShape.s:M398210" name="shape">1.0</parameter>
                     <parameter estimate="false" id="proportionInvariant.s:M398210" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
-                    <substModel datatype="@morphDataType.M398210" id="LewisMK.s:M398210" spec="LewisMK">
-                        <frequencies frequencies="@freqParameter.s:M398210" id="estimatedFreqs.s:M398210" spec="Frequencies"/>
-                    </substModel>
+                    <substModel datatype="@morphDataType.M398210" id="LewisMK.s:M398210" spec="LewisMK"/>
                 </siteModel>
             </distribution>
         </distribution>
@@ -275,19 +254,12 @@ spec="FilteredAlignment">
         <log idref="YuleModel.t:M3982"/>
         <parameter idref="birthRate.t:M3982" name="log"/>
         <log idref="morphTreeLikelihood.M39827"/>
-        <parameter idref="freqParameter.s:M39827" name="log"/>
         <log idref="morphTreeLikelihood.M39826"/>
-        <parameter idref="freqParameter.s:M39826" name="log"/>
         <log idref="morphTreeLikelihood.M39823"/>
-        <parameter idref="freqParameter.s:M39823" name="log"/>
         <log idref="morphTreeLikelihood.M39825"/>
-        <parameter idref="freqParameter.s:M39825" name="log"/>
         <log idref="morphTreeLikelihood.M39822"/>
-        <parameter idref="freqParameter.s:M39822" name="log"/>
         <log idref="morphTreeLikelihood.M39824"/>
-        <parameter idref="freqParameter.s:M39824" name="log"/>
         <log idref="morphTreeLikelihood.M398210"/>
-        <parameter idref="freqParameter.s:M398210" name="log"/>
     </logger>
 
     <logger id="screenlog" logEvery="1000">
