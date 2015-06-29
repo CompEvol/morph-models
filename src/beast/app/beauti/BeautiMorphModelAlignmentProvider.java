@@ -152,6 +152,12 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 					}
 				} else {
 					// deal with the case where there is no charStateLabel or there is no state description
+					if (nrOfStatesPresented < 2) {
+						throw new RuntimeException("Cannot determine the number of possible states for character " +
+								(i+1) + ". \n There is no character description and there are fewer than two states for " +
+								"this character in the matrix. \n Please specify the number of possible states for " +
+								"characters in CHARSTATELABELS block");
+					}
 					nrOfStates = nrOfStatesPresented;
 				}
 				if (!stateSpaceMap.containsKey(nrOfStates)) {
