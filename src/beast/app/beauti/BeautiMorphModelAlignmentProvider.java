@@ -42,7 +42,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
             int partitions = 0; //JOptionPane.showConfirmDialog(null, "Would you like to partition the data matrix with respect to the number of character states \n " +
                     //"to apply different substitution models for each partition?", "Data partition with respect to the number of states", 0);
 			List<BEASTInterface> filteredAlignments = new ArrayList<BEASTInterface>();
-            int condition = 1; //JOptionPane.showConfirmDialog(null, "Would you like to condition on recording variable characters only (Mkv)?", "Conditioning on constant characters", 0);
+            int condition = JOptionPane.showConfirmDialog(null, "Would you like to condition on recording variable characters only (Mkv)?", "Conditioning on variable characters", 0);
             if (partitions == 0) {
                 try {
                     for (BEASTInterface o : alignments) {
@@ -183,21 +183,27 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
             for (int i=0; i<maxNrOfStates; i++) {
                 seqToAccountForAscertainment.append(i);
             }
-			int seqIndex=0;
-            for (Sequence seq: alignment.sequenceInput.get()) {
-				StringBuilder seqNonConstant = new StringBuilder();
-				for (int i=0; i<seqCount; i++) {
-					if (i == seqIndex) {
-						seqNonConstant.append("1");
-					} else {
-						seqNonConstant.append("0");
-					}
-
-				}
-				seqIndex++;
-                String newSequenceValue = seq.dataInput.get() + seqToAccountForAscertainment + seqNonConstant;
-                seq.dataInput.setValue(newSequenceValue, seq);
-            }
+			//This was for conditioning on parsimony uninformative characters, although is not correct
+			//because it only covers one type of parsimony uninformative characters
+//			int seqIndex=0;
+//            for (Sequence seq: alignment.sequenceInput.get()) {
+//				StringBuilder seqNonConstant = new StringBuilder();
+//				for (int i=0; i<seqCount; i++) {
+//					if (i == seqIndex) {
+//						seqNonConstant.append("1");
+//					} else {
+//						seqNonConstant.append("0");
+//					}
+//
+//				}
+//				seqIndex++;
+//                String newSequenceValue = seq.dataInput.get() + seqToAccountForAscertainment + seqNonConstant;
+//                seq.dataInput.setValue(newSequenceValue, seq);
+//            }
+			for (Sequence seq: alignment.sequenceInput.get()) {
+				String newSequenceValue = seq.dataInput.get() + seqToAccountForAscertainment;
+				seq.dataInput.setValue(newSequenceValue, seq);
+			}
             alignment.initAndValidate(); //TODO look if we need to initAndValidate or just update some members of alignment
         }
 
@@ -232,7 +238,8 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 
             if (ascertained) {
                 range.append((initialSiteCount+1)+"-"+(initialSiteCount+nrOfStates)+",");
-				range.append((initialSiteCount+maxNrOfStates+1)+"-"+(initialSiteCount+maxNrOfStates+seqCount)+",");
+				//incorrect for parsimony uninformative
+				//range.append((initialSiteCount+maxNrOfStates+1)+"-"+(initialSiteCount+maxNrOfStates+seqCount)+",");
             }
 			range.deleteCharAt(range.length() - 1);
 
@@ -264,14 +271,16 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 			String name = alignment.getID() + nrOfStates;
 			dataType.setID("morphDataType." + name);
 			doc.addPlugin(dataType);
-            FilteredAlignment data = ascertained?new AscertainedForParsimonyUninformativeFilteredAlignment():new FilteredAlignment();
-
+			//incorrect for parsimony uninformative
+            //FilteredAlignment data = ascertained?new AscertainedForParsimonyUninformativeFilteredAlignment():new FilteredAlignment();
+			FilteredAlignment data = new FilteredAlignment();
             if (ascertained) {
 				data.isAscertainedInput.setValue(true, data);
 				data.excludefromInput.setValue(stateSpaceMap.get(nrOfStates).size(), data);
 				data.excludetoInput.setValue(stateSpaceMap.get(nrOfStates).size()+nrOfStates, data);
-				((AscertainedForParsimonyUninformativeFilteredAlignment)data).excludefromNonConstantInput.setValue(stateSpaceMap.get(nrOfStates).size()+nrOfStates, data);
-				((AscertainedForParsimonyUninformativeFilteredAlignment)data).excludetoNonConstantInput.setValue(stateSpaceMap.get(nrOfStates).size()+nrOfStates+seqCount, data);
+				//incorrect for parsimony uninformative
+//				((AscertainedForParsimonyUninformativeFilteredAlignment)data).excludefromNonConstantInput.setValue(stateSpaceMap.get(nrOfStates).size()+nrOfStates, data);
+//				((AscertainedForParsimonyUninformativeFilteredAlignment)data).excludetoNonConstantInput.setValue(stateSpaceMap.get(nrOfStates).size()+nrOfStates+seqCount, data);
 
             }
 			data.initByName("data", alignment, "filter", range.toString(), "userDataType", dataType);

@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><beast beautitemplate='Standard' beautistatus='' namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" version="2.0">
+
+
+    <data
+id="penguins_morph"
+dataType="standard">
+                            <sequence id="seq_Aptenodytes_forsteri_0.0" taxon="Aptenodytes_forsteri_0.0" totalcount="7" value="0002010000000100100-011111100----00000010011100010100000000001000000110-2110000100111102000120120012{01}01111001100001102111204111100111013211101101111112002121212010000201101401101111011001010111000111210101111210110110110110011?1111101100101100000123456"/>
+                            <sequence id="seq_Pygoscelis_antarctica_0.0" taxon="Pygoscelis_antarctica_0.0" totalcount="7" value="1002100000000000100-211111100----0100000400000010011000111010000010000202211000110100101000120{01}2000300111110{12}010011101011204012110111013211101101111102{01}{01}2121212010000201101401101111011021010111200111211101110210112100211100111??1111011????1100?00123456"/>
+                            <sequence id="seq_Megadyptes_antipodes_0.0" taxon="Megadyptes_antipodes_0.0" totalcount="7" value="1001200020111000100-311111110----0210000200000001010101010020011010100200011000010200112000120120002101110102010011112011204011110111013211001101111112002121212010000201101401101111011001010111100111210102101210001010211001110??111101100?11100000123456"/>
+                            <sequence id="seq_Eudyptes_chrysolophus_0.0" taxon="Eudyptes_chrysolophus_0.0" totalcount="7" value="1001201210111002100-211111111122100000000000000011100001110100220111002120110000102001120001201200031012101020110111120{01}12040111101110132110011011111120021212120100002011014011011110110010101111001112101021012100011100000111001?111101100111100000123456"/>
+                            <sequence id="seq_Eudyptes_sclateri_0.0" taxon="Eudyptes_sclateri_0.0" totalcount="7" value="1001201210111002100-011111111000000000000000000011100002110200220111002120110000102001120001201200031012101020110111120?120401111011101321100110111111200212121201000020110140110111101100101011110011121010{12}101210?????????????????11110110??11100?00123456"/>
+                            <sequence id="seq_Eudyptula_minor_0.0" taxon="Eudyptula_minor_0.0" totalcount="7" value="11012000000000000100511111100----03000001002000010001010020200121301001010110001002001120001201210010111101010000011120112030211101110132111011011111120021212120100002{01}1101401101111011001011111100111210{01}031012100021001001000000?111101100?11100000123456"/>
+                            <sequence id="seq_Madrynornis_mirandus_10.0" taxon="Madrynornis_mirandus_10.0" totalcount="7" value="?????????????-?????-?????????????????????????????????????????????????????????0?0?020??1???0??0?2???{12}??121???10000?112{12}0--2?-?--?1?1?-?-??1?0011011111??0?2121?12?1?000201??14????11?10????---0??110?11121-10{12}10121-????????????????-1??10-1???1???0??0123456"/>
+                            <sequence id="seq_Spheniscus_demersus_0.0" taxon="Spheniscus_demersus_0.0" totalcount="7" value="21101000010000000000011111100----00103200100011010000001111100221001001010111001012001100010201210010112101000000111220112041211101110132110011011111121121212120100002{01}11014011011110110010111111001112101031012110010110110211000?11110110??11100?00123456"/>
+                            <sequence id="seq_Spheniscus_muizoni_9.1" taxon="Spheniscus_muizoni_9.1" totalcount="7" value="-------------?-----?---------------------------------------------------------?----------?-------------?-?--?----?--------20-?--?----?--?-??0-11?11111?2012121?12?1??00211?014??1?11?10????????????????121?103?01210???????????????????????????????0??0123456"/>
+                            <sequence id="seq_Marplesornis_novaezealandiae_5.1" taxon="Marplesornis_novaezealandiae_5.1" totalcount="7" value="?????????????????????????????????????????????????????????????????????????????-01?1210???????201110????120???2?0???01000??2??????1010?01321?0?11-111?-1??-212??12?10?00??11014?1?????--????-???????-----?--????--??-????????????????-?---?-10????1---?0123456"/>
+                            <sequence id="seq_Palaeospheniscus_patagonicus_14.58" taxon="Palaeospheniscus_patagonicus_14.58" totalcount="7" value="?????????????-?????-?????????????????????????????????????????????????????????-?????????????1??????????-????-????0??????????????-????-?--2-???11-11111{01}200212111201000020100140-1011110????-?????110?1112101012--210????????????????-?-------011--000?0123456"/>
+                            <sequence id="seq_Eretiscus_tonnii_17.28" taxon="Eretiscus_tonnii_17.28" totalcount="7" value="3????????????????????????????????????????????????????????????????????????????-????????????????????????-????????????????????????-??????--?--?????11111?2?0212111201?0002?100-????????-?????-???????-----1101012--?1-?????????????????????-???-1???????0123456"/>
+                            <sequence id="seq_Paraptenodytes_antarcticus_22.0" taxon="Paraptenodytes_antarcticus_22.0" totalcount="7" value="?????????????????????????????????????????????????????????????????????????????-10012?0???????2010??????020???2?0???01001???????????????-2?10?0???110010100202111201100020101-????????-?????-?????12?111121-?001102?0?????????????????1-----0-12---000?0123456"/>
+                            <sequence id="seq_Perudyptes_devriesi_41.0" taxon="Perudyptes_devriesi_41.0" totalcount="7" value="?????????????-??????????????????????????????????????????????????????????????0-0?0120????????20???????1-???1-?0?0?0???????-?????-??????--?--????-11000010?2011001001?112????-??-1?100-0???010????????-1?{12}?-?00?--21-?????????????????---------?-----0?0123456"/>
+                            <sequence id="seq_Icadyptes_salasi_36.0" taxon="Icadyptes_salasi_36.0" totalcount="7" value="???????????????????????????????????????????????????????????????????????????0?00?012?????0?002??01??001020001?0?00001?????-?????-????-?11?-0????-110?101?-20210120011002?00211011110110000?-???????-----??-????--??-?????????????????1-----0-1?0?0---?0123456"/>
+                            <sequence id="seq_Kairuku_waitaki_26.07" taxon="Kairuku_waitaki_26.07" totalcount="7" value="???????????????????????????????????????????????????????????????????????????00???????????0?????????????-20????????????????2?-???1??1?????--0--0011100101??202100?0??????-???1??11?1--1-??00??????1??1???21-1002--21??????????????????100?-??11?0?0-10?0123456"/>
+                            <sequence id="seq_Delphinornis_wimani_34.71" taxon="Delphinornis_wimani_34.71" totalcount="7" value="?????????????????????????????????????????????????????????????????????????????-?????????????????????????????????????????????????-??????--?--????-????-???-?????---???????????????????-?????????????-----21?1001??{01}???????????????????-???--??---?--???0123456"/>
+                            <sequence id="seq_Waimanu_manneringi_61.3" taxon="Waimanu_manneringi_61.3" totalcount="7" value="?????????????-???????????????????????????????????????????????????????????????-????????????????????????-????-??????????????13??????????--?--????-????-???-?????---??????????-??-?????--???01?11?????11?2110000101000?????????????????-?0-------??-001?0123456"/>
+                            <sequence id="seq_Pygoscelis_grandis_4.5" taxon="Pygoscelis_grandis_4.5" totalcount="7" value="?????????????-?????????????????????????????????????????????????????????????---?????????????????????????????-????????????????0??-??????1-?-?????-1-------?21------?--0-20---1?-1----------0???0????????1210102110210?????????????????------------1-00?0123456"/>
+                            <userDataType id="StandardData.0" spec="beast.evolution.datatype.StandardData" ambiguities="01 12" nrOfStates="7">
+                                <charstatelabels id="UserDataType.0" spec="beast.evolution.datatype.UserDataType" characterName="Tip of mandibular rhamphotheca, profile in lateral view (GB1)" codeMap="0=0, 1=1, 2=2, 3=3, ? =0 1 2 3 " states="4" value="pointed, slightly_truncated, strongly_truncated,_squared_off, truncated_but_with_a_rounded_margin_(procellariiform-like)"/>
+                                <charstatelabels id="UserDataType.01" spec="beast.evolution.datatype.UserDataType" characterName="Longitudinal grooves on base of culmen (GB2)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.02" spec="beast.evolution.datatype.UserDataType" characterName="Longitudinal grooves on base of latericorn and ramicorn (GB3)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.03" spec="beast.evolution.datatype.UserDataType" characterName="Feathering of maxilla (GB4)" codeMap="0=0, 1=1, 2=2, 3=3, ? =0 1 2 3 " states="4" value="totally_unfeathered, slightly_feathered,_less_than_half_the_length_of_maxilla, feathering_that_reaches_half_the_length_of_maxilla, feathering_surpassing_half_the_length_of_maxilla"/>
+                                <charstatelabels id="UserDataType.04" spec="beast.evolution.datatype.UserDataType" characterName="Ramicorn, inner groove at tip (GB5)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="absent, present_and_single, present_and_double"/>
+                                <charstatelabels id="UserDataType.05" spec="beast.evolution.datatype.UserDataType" characterName="Orange or pink plate on ramicorn (GB6)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.06" spec="beast.evolution.datatype.UserDataType" characterName="Plates of rhamphotheca, inflated aspect (GB7)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.07" spec="beast.evolution.datatype.UserDataType" characterName="Gape (GB8)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="not_fleshy, margin_narrowly_fleshy, margin_markedly_fleshy"/>
+                                <charstatelabels id="UserDataType.08" spec="beast.evolution.datatype.UserDataType" characterName="Ramicorn color pattern (GB9)" codeMap="0=0, 1=1, 2=2, 3=3, 4=4, 5=5, 6=6, ? =0 1 2 3 4 5 6 " states="7" value="black, reddish, pink, yellowish, orange, green, blue"/>
+                                <charstatelabels id="UserDataType.09" spec="beast.evolution.datatype.UserDataType" characterName="Latericorn and ramicorn, light distal mark (GB10)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.010" spec="beast.evolution.datatype.UserDataType" characterName="Latericorn color (GB11)" codeMap="0=0, 1=1, 2=2, 3=3, 4=4, 5=5, ? =0 1 2 3 4 5 " states="6" value="black, red, orange, yellow, green, blue"/>
+                                <charstatelabels id="UserDataType.011" spec="beast.evolution.datatype.UserDataType" characterName="Culminicorn (GB12)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="black, red, orange"/>
+                                <charstatelabels id="UserDataType.012" spec="beast.evolution.datatype.UserDataType" characterName="Maxillary and mandibulary unguis, color (GB13)" codeMap="0=0, 1=1, 2=2, 3=3, 4=4, ? =0 1 2 3 4 " states="5" value="black, red, yellow, green, blue-gray"/>
+                                <charstatelabels id="UserDataType.013" spec="beast.evolution.datatype.UserDataType" characterName="Ramicorn, ultraviolet reflectance peak (corresponds to the orange spot) (KC14)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.014" spec="beast.evolution.datatype.UserDataType" characterName="Bill of downy chick, color (GB14)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="dark, reddish, pale,_variably_horn_to_yellow"/>
+                                <charstatelabels id="UserDataType.015" spec="beast.evolution.datatype.UserDataType" characterName="Bill of immature, color (GB15)" codeMap="0=0, 1=1, 2=2, 3=3, 4=4, ? =0 1 2 3 4 " states="5" value="dark, bicolored_red_and_black, red, yellow, gray"/>
+                                <charstatelabels id="UserDataType.016" spec="beast.evolution.datatype.UserDataType" characterName="External nares (GB17)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="present, absent"/>
+                                <charstatelabels id="UserDataType.017" spec="beast.evolution.datatype.UserDataType" characterName="Nostril tubes in adult (GB16)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.018" spec="beast.evolution.datatype.UserDataType" characterName="Nostril tubes in hatchling (GB16)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.019" spec="beast.evolution.datatype.UserDataType" characterName=" External nares (KC19)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="well-separated, fused_at_midline"/>
+                                <charstatelabels id="UserDataType.020" spec="beast.evolution.datatype.UserDataType" characterName="Iris color (GB18)" codeMap="0=0, 1=1, 2=2, 3=3, 4=4, 5=5, ? =0 1 2 3 4 5 " states="6" value="dark, reddish-brown, claret_red, yellow, white, silvery_gray"/>
+                                <charstatelabels id="UserDataType.021" spec="beast.evolution.datatype.UserDataType" characterName="Scale-like feathers (GB19)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.022" spec="beast.evolution.datatype.UserDataType" characterName="Rachis of contour feathers (GB20)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="cylindrical, flat_and_broad"/>
+                                <charstatelabels id="UserDataType.023" spec="beast.evolution.datatype.UserDataType" characterName="Rectrices (GB21)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="form_a_functional_fan, do_not_form_a_fan"/>
+                                <charstatelabels id="UserDataType.024" spec="beast.evolution.datatype.UserDataType" characterName="Remiges (GB22)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="differentiated_from_contour_feathers, indistinct_from_contour_feathers"/>
+                                <charstatelabels id="UserDataType.025" spec="beast.evolution.datatype.UserDataType" characterName="Apteria (GB23)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="present, absent"/>
+                                <charstatelabels id="UserDataType.026" spec="beast.evolution.datatype.UserDataType" characterName="Molt of contour feathers (GB24)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="gradual, simultaneous"/>
+                                <charstatelabels id="UserDataType.027" spec="beast.evolution.datatype.UserDataType" characterName="Yellow pigmentation in crown feathers (pileum) (GB25)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.028" spec="beast.evolution.datatype.UserDataType" characterName="Head plumes (cristea pennae) (GB26)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.029" spec="beast.evolution.datatype.UserDataType" characterName="Head plumes (GB27)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="compact, sparse"/>
+                                <charstatelabels id="UserDataType.030" spec="beast.evolution.datatype.UserDataType" characterName="Head plumes (GB28)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="directed_dorsally, directed_posteriorly,_not_drooping, directed_posteriorly,__drooping"/>
+                                <charstatelabels id="UserDataType.031" spec="beast.evolution.datatype.UserDataType" characterName="Head plumes, origin (GB29)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="at_base_of_bill_close_to_gape, on_the_recess_between_latericorn_and_culminicorn, on_forehead"/>
+                                <charstatelabels id="UserDataType.032" spec="beast.evolution.datatype.UserDataType" characterName="Head plumes, color  (GB30)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="yellow, orange"/>
+                                <charstatelabels id="UserDataType.033" spec="beast.evolution.datatype.UserDataType" characterName="Nape (occiput), crest development (GB31)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="absent, slight, distinct"/>
+                                <charstatelabels id="UserDataType.034" spec="beast.evolution.datatype.UserDataType" characterName="Periocular region (GB32)" codeMap="0=0, 1=1, 2=2, 3=3, ? =0 1 2 3 " states="4" value="black, white, yellow, bluish_grey"/>
+                                <charstatelabels id="UserDataType.035" spec="beast.evolution.datatype.UserDataType" characterName="Fleshy eyering (GB33)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.036" spec="beast.evolution.datatype.UserDataType" characterName="White eyering (GB34)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.037" spec="beast.evolution.datatype.UserDataType" characterName="White eyebrow (supercilium) (GB35)" codeMap="0=0, 1=1, 2=2, 3=3, ? =0 1 2 3 " states="4" value="absent, narrow,_from_postocular_area, narrow,_from_preocular_area, wide,_from_preocular_area"/>
+                                <charstatelabels id="UserDataType.038" spec="beast.evolution.datatype.UserDataType" characterName="Loreal area (lorum), aspect (GB36)" codeMap="0=0, 1=1, 2=2, 3=3, ? =0 1 2 3 " states="4" value="feathered, with_spot_of_bare_skin_in_the_recess_between_latericorn_and_culminicorn, with_spot_of_bare_skin_contacting_eye, bare_skin_extending_to_the_base_of_bill"/>
+                                <charstatelabels id="UserDataType.039" spec="beast.evolution.datatype.UserDataType" characterName="Auricular patch (regio auricularis) (GB37)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.040" spec="beast.evolution.datatype.UserDataType" characterName="Throat pattern (GB38)" codeMap="0=0, 1=1, 2=2, 3=3, 4=4, ? =0 1 2 3 4 " states="5" value="black, white, yellw, irregularly_streaked, with_chinstrap"/>
+                                <charstatelabels id="UserDataType.041" spec="beast.evolution.datatype.UserDataType" characterName="Collar (GB39)" codeMap="0=0, 1=1, 2=2, 3=3, ? =0 1 2 3 " states="4" value="absent, slight_notch, diffusely_marked, strongly_demarked"/>
+                                <charstatelabels id="UserDataType.042" spec="beast.evolution.datatype.UserDataType" characterName="Breast, golden color (GB40)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.043" spec="beast.evolution.datatype.UserDataType" characterName="Dorsum (GB41)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="black, dark_bluish_grey, light_bluish_grey"/>
+                                <charstatelabels id="UserDataType.044" spec="beast.evolution.datatype.UserDataType" characterName="Black marginal edge of dorsum between lateral collar and axillary patch, contrasting with dorsum (GB42)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.045" spec="beast.evolution.datatype.UserDataType" characterName="Black dots irregularly distributed over white belly (GB43)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.046" spec="beast.evolution.datatype.UserDataType" characterName="Flanks, dark lateral band reaching the breast (GB44)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.047" spec="beast.evolution.datatype.UserDataType" characterName="Distinct dark axillary patch of triangular shape (GB45)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.048" spec="beast.evolution.datatype.UserDataType" characterName="Flanks, extent of dorsal dark cover into the leg (GB46)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="incomplete,_not_reaching_tarsus, complete,_reaching_tarsus"/>
+                                <charstatelabels id="UserDataType.049" spec="beast.evolution.datatype.UserDataType" characterName="Rump, color (GB47)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="indistinct_in_color_from_dorsum, distinct_white_patch"/>
+                                <charstatelabels id="UserDataType.050" spec="beast.evolution.datatype.UserDataType" characterName="Tail length (GB48)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="short,_the_quills_barely_emerge_from_the_rump, quills_distinctly_developed"/>
+                                <charstatelabels id="UserDataType.051" spec="beast.evolution.datatype.UserDataType" characterName="Outer rectrices, color (GB49)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="same_color_as_inner, lighter_than_inner_retrices"/>
+                                <charstatelabels id="UserDataType.052" spec="beast.evolution.datatype.UserDataType" characterName="White line connecting leading edge of flipper with white belly (GB50)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.053" spec="beast.evolution.datatype.UserDataType" characterName="Flipper, upperside, light notch at base (GB51)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.054" spec="beast.evolution.datatype.UserDataType" characterName="Leading edge of flipper, pattern of upperside (GB52)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="black, white"/>
+                                <charstatelabels id="UserDataType.055" spec="beast.evolution.datatype.UserDataType" characterName="Leading edge of flipper, pattern of underside (GB53)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="white, incompletely_dark, completely_dark_and_wide"/>
+                                <charstatelabels id="UserDataType.056" spec="beast.evolution.datatype.UserDataType" characterName="Flipper, underside, dark elbow patch (GB54)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.057" spec="beast.evolution.datatype.UserDataType" characterName="Flipper, underside, tip pattern (GB55)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="immaculate, patchy,_in_variable_extent, _small_circular_dot_present"/>
+                                <charstatelabels id="UserDataType.058" spec="beast.evolution.datatype.UserDataType" characterName="Immature plumage, white eyebrow (supercilium) (GB56)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.059" spec="beast.evolution.datatype.UserDataType" characterName="Immature plumage, throat pattern (jugulum) (GB57)" codeMap="0=0, 1=1, 2=2, 3=3, ? =0 1 2 3 " states="4" value="black, mottled, white, brown"/>
+                                <charstatelabels id="UserDataType.060" spec="beast.evolution.datatype.UserDataType" characterName="Immature plumage, flanks, dark lateral band (GB58)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.061" spec="beast.evolution.datatype.UserDataType" characterName="Chicks hatch almost naked (GB59)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="no, yes"/>
+                                <charstatelabels id="UserDataType.062" spec="beast.evolution.datatype.UserDataType" characterName="Dominant color pattern of first down (GB60)" codeMap="0=0, 1=1, 2=2, 3=3, ? =0 1 2 3 " states="4" value="_pale_gray, distinctly_brown, bicolored,_dark_above_and_whitish_bellow, uniformly_blackish_gray"/>
+                                <charstatelabels id="UserDataType.063" spec="beast.evolution.datatype.UserDataType" characterName="Dominant color pattern of second down (GB61)" codeMap="0=0, 1=1, 2=2, 3=3, ? =0 1 2 3 " states="4" value="pale_grey, distinctly_brown, _bicolored,_dark_above_and_whitish_bellow, uniformly_blackish_gray"/>
+                                <charstatelabels id="UserDataType.064" spec="beast.evolution.datatype.UserDataType" characterName="Chick, second down, collar (GB62)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.065" spec="beast.evolution.datatype.UserDataType" characterName="Feet, dorsal color (GB63)" codeMap="0=0, 1=1, 2=2, 3=3, 4=4, ? =0 1 2 3 4 " states="5" value="dark, pink, orange, white-flesh, blue"/>
+                                <charstatelabels id="UserDataType.066" spec="beast.evolution.datatype.UserDataType" characterName="Feet, soles distinctly darker than dorsal surface (GB64)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.067" spec="beast.evolution.datatype.UserDataType" characterName="Feet, unguis digiti (BG65)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="flat, compressed"/>
+                                <charstatelabels id="UserDataType.068" spec="beast.evolution.datatype.UserDataType" characterName="Clutch size (GB65)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="two_eggs, one_egg"/>
+                                <charstatelabels id="UserDataType.069" spec="beast.evolution.datatype.UserDataType" characterName="Incubatory sac (GB66)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.070" spec="beast.evolution.datatype.UserDataType" characterName="Nest (GB67)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="no_nest,_incubation_over_the_feet, nest_placed_underground,_either_burrowed_in_sand_or_inside_natural_hollow_or_crack, _open_nest,_a_shallow_depression_on_bare_ground_or_in_midst_of_vegetation"/>
+                                <charstatelabels id="UserDataType.071" spec="beast.evolution.datatype.UserDataType" characterName="Size of first egg relative to the second egg (GB68)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="similar, first_egg_smaller, first_egg_larger"/>
+                                <charstatelabels id="UserDataType.072" spec="beast.evolution.datatype.UserDataType" characterName="Creche (GB69)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="absent, small,_3-6_birds, formed_by_dozens_to_hundreds_of_immatures"/>
+                                <charstatelabels id="UserDataType.073" spec="beast.evolution.datatype.UserDataType" characterName="Egg shape (BG71)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="oval, conical, spherical"/>
+                                <charstatelabels id="UserDataType.074" spec="beast.evolution.datatype.UserDataType" characterName="Ecstatic display (BG72)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.075" spec="beast.evolution.datatype.UserDataType" characterName="Premaxilla, tip (rostrum maxillare) (GB0)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="pointed, weakly_hooked, strongly_hooked"/>
+                                <charstatelabels id="UserDataType.076" spec="beast.evolution.datatype.UserDataType" characterName=" Internarial bar (pila supranasalis) shape in cross section (C75)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="suboval, inverted_U-shape"/>
+                                <charstatelabels id="UserDataType.077" spec="beast.evolution.datatype.UserDataType" characterName="Internarial bar (pila supranasalis), profile in lateral view (KC78)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="dorsal_edge_curves_smoothly_to_tip_of_beak, pronounced_step_in_dorsal_edge"/>
+                                <charstatelabels id="UserDataType.078" spec="beast.evolution.datatype.UserDataType" characterName="Basioccipital, subcondylar fossa (fossa subcondylaris) (GB73)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent_or_shallow, deep"/>
+                                <charstatelabels id="UserDataType.079" spec="beast.evolution.datatype.UserDataType" characterName="Supraoccipital, paired grooves for the exit of v. occipitalis externae (sulcus vena occipitalis externae) (BG74)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="poorly_developed, deeply_excavated"/>
+                                <charstatelabels id="UserDataType.080" spec="beast.evolution.datatype.UserDataType" characterName="Frontal, shelf of bone bounding salt-gland fossa (fossa glandulae nasalis) laterally (OH10)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.081" spec="beast.evolution.datatype.UserDataType" characterName="Squamosal, temporal fossa (fossa temporalis), size (BG76)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="_fossae_separated_by_considerable_wide_surface_(at_least_the_width_of_the_cerebellar_prominence, more_extensive,_fossae_meeting_or_nearly_meeting_at_midline_of_the_skull"/>
+                                <charstatelabels id="UserDataType.082" spec="beast.evolution.datatype.UserDataType" characterName="Squamosal, temporal fossa (fossa temporalis), depth of caudal region (BG77)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="flat, shallow, greatly_deepened"/>
+                                <charstatelabels id="UserDataType.083" spec="beast.evolution.datatype.UserDataType" characterName="Squamosal, development of the opening that transmits the a. ophthalmica externa in the caudoventral area of the temporal fossa (near nuchal crest) (BG78)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="small_or_vestigial, well-developed"/>
+                                <charstatelabels id="UserDataType.084" spec="beast.evolution.datatype.UserDataType" characterName="Orbit, fonticuli orbitocraniales (BG79)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="small_or_vestigial, broad_and_conspicuous_openings"/>
+                                <charstatelabels id="UserDataType.085" spec="beast.evolution.datatype.UserDataType" characterName="Ectethmoid (BG80)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="absent, weakly_developed,_widely_separate_from_the_lacrimal, well_developed,_contacting_or_fused_to_the_lacrimal"/>
+                                <charstatelabels id="UserDataType.086" spec="beast.evolution.datatype.UserDataType" characterName="Lacrimal, descending process (OH11)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="unperforated, perforated"/>
+                                <charstatelabels id="UserDataType.087" spec="beast.evolution.datatype.UserDataType" characterName="Lacrimal (BG82)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="reduced,_concealed_in_dorsal_view, small_portion_exposed_in_dorsal_view, well-exposed_in_dorsal_view"/>
+                                <charstatelabels id="UserDataType.088" spec="beast.evolution.datatype.UserDataType" characterName="Lacrimal, contact with frontal (KT89)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="suture, fusion"/>
+                                <charstatelabels id="UserDataType.089" spec="beast.evolution.datatype.UserDataType" characterName="Lacrimal, dorsal process (BG83)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="closely_applied_to_the_nasal, _rostral_arm_of_dorsal_process_separated_from_the_nasal_by_a_slit-like_rostro-caudally_elongate_opening"/>
+                                <charstatelabels id="UserDataType.090" spec="beast.evolution.datatype.UserDataType" characterName="Nasal cavity, external naris (cavum nasi, apertura nasi ossea), caudal margin (OH5)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="extended_caudal_to_the_rostral_margin_of_the_hiatus_orbitonasalis, not_extended_caudal_to_the_rostral_margin_of_the_hiatus_orbitonasalis"/>
+                                <charstatelabels id="UserDataType.091" spec="beast.evolution.datatype.UserDataType" characterName="Nasal cavity, internarial bar (pila supranasalis):   (OH6)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="wide_throughout_its_length, slender,_slightly_constricted_laterally"/>
+                                <charstatelabels id="UserDataType.092" spec="beast.evolution.datatype.UserDataType" characterName="Basitemporal plate (lamina parasphenoidalis), dorsoventral position with respect to the occipital condyle (BG86)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="ventral_to_the_level_of_the_condyle, at_the_level_of_the_condyle, dorsal_to_the_level_of_the_condyle,_surface_depressed"/>
+                                <charstatelabels id="UserDataType.093" spec="beast.evolution.datatype.UserDataType" characterName="Basipterygoid process (processus basipterygoideus) (BG87)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="absent, vestigial_or_poorly_developed, well-developed"/>
+                                <charstatelabels id="UserDataType.094" spec="beast.evolution.datatype.UserDataType" characterName="Eustachian tubes (tuba auditiva) (BG88)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="open_or_very_little_bony_covering_near_the_caudal_end_of_the_tube, mostly_enclosed_by_bone"/>
+                                <charstatelabels id="UserDataType.095" spec="beast.evolution.datatype.UserDataType" characterName="Pterygoid, shape (BG89)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="elongated, slight_lateral_expansion_of_rostral_end, rostral_end_broad,_pterygoid_sub-triangular"/>
+                                <charstatelabels id="UserDataType.096" spec="beast.evolution.datatype.UserDataType" characterName="Palatine, lamella choanalis (BG90)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="curved_and_smooth_plate,_slightly_differentiated_from_main_palatine_blade, ridged,_distinct_from_main_blade_by_a_low_keel, extended_vertically_ventrally_forming_the_crista_ventralis"/>
+                                <charstatelabels id="UserDataType.097" spec="beast.evolution.datatype.UserDataType" characterName="Vomer (BG91)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="laterally_compressed,_vertical_laminae_and_free_from_palatines, horizontally_flattened_laminae_and_ankylosed_with_palatines"/>
+                                <charstatelabels id="UserDataType.098" spec="beast.evolution.datatype.UserDataType" characterName="Facial foramen (foramen n. facialis) (BG92)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.099" spec="beast.evolution.datatype.UserDataType" characterName="Jugal arch, bar shape in lateral view (BG93)" codeMap="0=0, 1=1, 2=2, 3=3, ? =0 1 2 3 " states="4" value="straight, slightly_curved, ventrally_bowed, strongly_curved,_sigmoid_shape"/>
+                                <charstatelabels id="UserDataType.0100" spec="beast.evolution.datatype.UserDataType" characterName="Jugal arch, dorsal process (this pointed process is located on the caudal end of the jugal, adjacent to the condyle for articulation with the quadrate) (BG94)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0101" spec="beast.evolution.datatype.UserDataType" characterName="Premaxilla, frontal process, naso-premaxillary suture (BG95)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="visible, obliterated"/>
+                                <charstatelabels id="UserDataType.0102" spec="beast.evolution.datatype.UserDataType" characterName="Quadrate, relative lengths of otic and orbital processes (processus oticus and processus orbitalis) (KC102)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="orbital_process_longer, otic_process_longer"/>
+                                <charstatelabels id="UserDataType.0103" spec="beast.evolution.datatype.UserDataType" characterName="Quadrate, otic process (processus oticus), rostral border, tubercle for m. adductor mandibulae externus, pars profunda (BG96)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="absent, _present,_as_a_ridge, _present,_as_a_tubercle"/>
+                                <charstatelabels id="UserDataType.0104" spec="beast.evolution.datatype.UserDataType" characterName="Quadrate, otic process (processus oticus), rostral border, tubercle for m. adductor mandibulae externus, pars profunda (KC104)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="contiguous_with_squamosal_capitulum, separated_from_squamosal_capitulum"/>
+                                <charstatelabels id="UserDataType.0105" spec="beast.evolution.datatype.UserDataType" characterName="Tomial edge (crista tomialis) (BG97)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="plane_of_tomial_edge_approximately_at_the_level_of_the_basitemporal_plate_(lamina_parasphenoidalis), _dorsal_to_the_level_of_the_basitemporal_plate"/>
+                                <charstatelabels id="UserDataType.0106" spec="beast.evolution.datatype.UserDataType" characterName="Mandible, symphysis (C101)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="extensive_bony_connection, short_terminal_bony_connection"/>
+                                <charstatelabels id="UserDataType.0107" spec="beast.evolution.datatype.UserDataType" characterName="Mandible, posteriorly projected midline spur from dentary underlying symphysis (KC107)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0108" spec="beast.evolution.datatype.UserDataType" characterName="Mandible, coronoid process (processus coronoideus), position on the dorsal margin of the mandible with respect to caudal mandibular fenestra (fenestra mandibulae caudalis) (BG98)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="markedly_rostral, on_the_rostral_end_of_the_fenestra, caudal_to_fenestra"/>
+                                <charstatelabels id="UserDataType.0109" spec="beast.evolution.datatype.UserDataType" characterName="Mandible, rostral fenestra (fenestra mandibulae rostralis) (OH8)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="imperforate_or_small_opening, large_opening"/>
+                                <charstatelabels id="UserDataType.0110" spec="beast.evolution.datatype.UserDataType" characterName="Mandible, caudal fenestra (fenestra mandibulae caudalis) (OH9)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="open,_can_be_seen_through_from_the_medial_or_lateral_aspects, nearly_or_completely_concealed_by_the_splenial_medially_(i.e.,_fenestra_not_visible_in_the_medial_aspect)"/>
+                                <charstatelabels id="UserDataType.0111" spec="beast.evolution.datatype.UserDataType" characterName="Mandible, mandibular ramus (BG101)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="depth_subequal_over_entire_ramus, pronounced_deepening_at_midpoint"/>
+                                <charstatelabels id="UserDataType.0112" spec="beast.evolution.datatype.UserDataType" characterName="Mandible, mandibular ramus (KC112)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="essentially_straight_or_gently_sloping, pronounced_ventral_deflection_near_midpoint"/>
+                                <charstatelabels id="UserDataType.0113" spec="beast.evolution.datatype.UserDataType" characterName="Mandible, dentary, length of dorsal edge relative to mandibular ramus length in lateral view (BG103)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="markedly_more_than_half_the_length_of_ramus, approximately_half_the_length_of_ramus"/>
+                                <charstatelabels id="UserDataType.0114" spec="beast.evolution.datatype.UserDataType" characterName="Mandible, articular, medial process (processus medialis) (BG104)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="not_hoooked, hooked"/>
+                                <charstatelabels id="UserDataType.0115" spec="beast.evolution.datatype.UserDataType" characterName="Mandible, angular, aspect in dorsal view (BG106)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="sharply_truncated_caudally, caudally_projected,_forming_retroarticular_process_(processus_retroarticularis)"/>
+                                <charstatelabels id="UserDataType.0116" spec="beast.evolution.datatype.UserDataType" characterName="Mandible, angular, retroarticular process (processus retroarticularis), aspect in dorsal view in relation to the articular area for the quadrate between the lateral and medial condyles (condylus lateralis and condylus medialis) (BG105)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="broad,_approximately_equal_to_the_articular_area, moderately_long,_narrower_than_the_articular_area, very_long,_longer_and_narrower_than_the_articular_area"/>
+                                <charstatelabels id="UserDataType.0117" spec="beast.evolution.datatype.UserDataType" characterName="Mandible, medial emargination between medial and retroarticular processes (processus retroarticularis and processus medialis) (KC108)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="absent, weak_concavity, strong_concavity"/>
+                                <charstatelabels id="UserDataType.0118" spec="beast.evolution.datatype.UserDataType" characterName="Atlas, processus ventralis (BG108)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent_or_slightly_developed, well_developed,_high_and_prominent_ridge_on_the_dorsal_surface_of_the_arcus_atlantis"/>
+                                <charstatelabels id="UserDataType.0119" spec="beast.evolution.datatype.UserDataType" characterName="Transition to free cervicothoracic ribs (BG109)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="starting_at_13th_cervical_vertebra, starting_at_14th_cervical_vertebra, starting_at_15th_cervical_vertebra"/>
+                                <charstatelabels id="UserDataType.0120" spec="beast.evolution.datatype.UserDataType" characterName="Cervical vertebrae, transverse process (processus transversus) in last five cervical vertebrae (BG111)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="not_elongated_laterally, greatly_elongated_laterally"/>
+                                <charstatelabels id="UserDataType.0121" spec="beast.evolution.datatype.UserDataType" characterName="Thoracic vertebrae, posteriormost vertebrae (KC114)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="heterocoelous, weakly_opisthocoelous, strongly_opisthocoelous"/>
+                                <charstatelabels id="UserDataType.0122" spec="beast.evolution.datatype.UserDataType" characterName="Thoracic vertebrae, deep excavation on lateral face of posterior thoracic vertebrae (KC124)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0123" spec="beast.evolution.datatype.UserDataType" characterName="Synsacrum, number of incorporated vertebrae (C117)" codeMap="0=0, 1=1, 2=2, 3=3, 4=4, 5=5, ? =0 1 2 3 4 5 " states="6" value="nine, eleven, twelve, thirteen, fourteen, fifteen_of_more"/>
+                                <charstatelabels id="UserDataType.0124" spec="beast.evolution.datatype.UserDataType" characterName="Synsacrum, height of crista synsacri between acetabula (KC126)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="flat_or_weakly_projected, strongly_projected"/>
+                                <charstatelabels id="UserDataType.0125" spec="beast.evolution.datatype.UserDataType" characterName="Caudal vertebrae (BG113)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="seven, eight, nine_or_more"/>
+                                <charstatelabels id="UserDataType.0126" spec="beast.evolution.datatype.UserDataType" characterName="Thoracic ribs, uncinate processes (costae, processes uncinati) (BG114)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="elongate,_narrow, wide_at_base,_spatulate, extremely_wide_at_base"/>
+                                <charstatelabels id="UserDataType.0127" spec="beast.evolution.datatype.UserDataType" characterName="Thoracic ribs, uncinate processes (costae, processes uncinati) (KC129)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="fused_to_ribs, unfused"/>
+                                <charstatelabels id="UserDataType.0128" spec="beast.evolution.datatype.UserDataType" characterName="Sternum, external spine (spina externa rostri) (OH13)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0129" spec="beast.evolution.datatype.UserDataType" characterName="Sternum, facies articularis furculae projects as a distinctive process (BG116)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0130" spec="beast.evolution.datatype.UserDataType" characterName="Sternum, articular facets for coracoids (sulcus articularis coracoideus) (C122)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="meet_or_overlap_one_another_at_midline, separated_by_wide_non-articulatory_surface"/>
+                                <charstatelabels id="UserDataType.0131" spec="beast.evolution.datatype.UserDataType" characterName="Sternum, labrum externum (C123)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="continues_as_sharp_ridge_onto_the_base_of_the_spina_externa, fades_away_without_continuing_onto_the_base"/>
+                                <charstatelabels id="UserDataType.0132" spec="beast.evolution.datatype.UserDataType" characterName="Sternum, caudal incisurae (KC133)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="none, two, four"/>
+                                <charstatelabels id="UserDataType.0133" spec="beast.evolution.datatype.UserDataType" characterName="Furcula, hypocleidium (apophysis furculae) (BG117)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent_or_low_knob-like_process, long,_blade-like_process"/>
+                                <charstatelabels id="UserDataType.0134" spec="beast.evolution.datatype.UserDataType" characterName="Furcula, ramus (CL218)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="sub-ovoid_in_cross-section_at_omal_end, mediolaterally_flattened_and_craniocaudally_expanded_at_omal_end"/>
+                                <charstatelabels id="UserDataType.0135" spec="beast.evolution.datatype.UserDataType" characterName="Scapula, acromion (CL223)" codeMap="0=0, 1=1, 2=2, 3=3, ? =0 1 2 3 " states="4" value="craniodorsally_directed,_nearly_parallel_to_long_axis_of_scapular_shaft_at_apex, forms_a_blunt_triangular_projection_with_apex_directed_approximately_at_45_degree_angle_from_long_axis_of_scapular_shaft, narrow_and_tapering,_apex_omally_directed, narrow_and_tapering,_apex_directed_at_a_right_angle_to_scapular_shaft"/>
+                                <charstatelabels id="UserDataType.0136" spec="beast.evolution.datatype.UserDataType" characterName="Scapula, blade, caudal half (corpus scapulae, extremitas caudalis (BG118)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="blade-like, slightly_expanded, broadly_expanded,_paddle-shaped"/>
+                                <charstatelabels id="UserDataType.0137" spec="beast.evolution.datatype.UserDataType" characterName="Coracoid, length (KC137)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="shorter_than_humerus, greatly_elongated,_longer_than_humerus"/>
+                                <charstatelabels id="UserDataType.0138" spec="beast.evolution.datatype.UserDataType" characterName="Coracoid, scapular cotyle (scapula cotylaris) (CL217)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="deep_and_socket-like, shallow_depression"/>
+                                <charstatelabels id="UserDataType.0139" spec="beast.evolution.datatype.UserDataType" characterName="Coracoid, medial margin, coracoidal fenestra (OH14)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="complete, incomplete, absent"/>
+                                <charstatelabels id="UserDataType.0140" spec="beast.evolution.datatype.UserDataType" characterName="Coracoid, foramen nervi supracoracoidei, Mayr (2005) cited ontogenetic evidence that this foramen is not homologous to the coracoidal fenestra of penguins. (K122)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0141" spec="beast.evolution.datatype.UserDataType" characterName="Coracoid, sternal margin (extremitas sternalis coracoidei (BG120)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="greatly_expanded, moderate_expansion"/>
+                                <charstatelabels id="UserDataType.0142" spec="beast.evolution.datatype.UserDataType" characterName="Coracoid, profile of the sternal margin (extremitas sternalis coracoidei) in ventral view (K124)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="convex, concave, flat"/>
+                                <charstatelabels id="UserDataType.0143" spec="beast.evolution.datatype.UserDataType" characterName="Coracoid, lateral process (processus lateralis)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent_or_highly_reduced, well-developed"/>
+                                <charstatelabels id="UserDataType.0144" spec="beast.evolution.datatype.UserDataType" characterName="Forelimb elements (BG121)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="subcircular_in_cross_section, flattened"/>
+                                <charstatelabels id="UserDataType.0145" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, head very developed and reniform, continuous with tuberculum dorsale (BG122)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0146" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, head in posterior view(C132)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="apex_of_humeral_head_located_near_midline, humeral_head_slopes_so_that_apex_of_humeral_head_located_ventrally"/>
+                                <charstatelabels id="UserDataType.0147" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, incisura capitis (K127)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="essentially_confluent_with_sulcus_transversus, clearly_separated_from_sulcus_transversus"/>
+                                <charstatelabels id="UserDataType.0148" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, capital incisure (CL222)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="extends_to_secondary_tricipital_fossa, separated_from_secondary_tricipital_fossa"/>
+                                <charstatelabels id="UserDataType.0149" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, pit for ligament insertion on proximal surface adjacent to head (K128)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent_or_very_shallow, deep"/>
+                                <charstatelabels id="UserDataType.0150" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, orientation of intumescentia humeri and tuberculum ventrale (K129)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="intumescentia_projects_ventrally_from_shaft,_tuberculum_oriented_caudally, intumescentia_projects_ventrally_from_shaft,_tuberculum_oriented_ventrally, intumescentia_projected_more_cranioventrally__(so_as_to_be_partially_obscured_in_posterior_view),_tuberculum_oriented_cranioventrally"/>
+                                <charstatelabels id="UserDataType.0151" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, proximal margin of tricipital fossa (fossa tricipitalis) (K135)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="weak_projection, projects_so_as_to_be_well-exposed_in_proximal_view"/>
+                                <charstatelabels id="UserDataType.0152" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, proximal border of tricipital fossa in ventral view (KT153)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="concave_proximal_margin, straight_border"/>
+                                <charstatelabels id="UserDataType.0153" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, tricipital fossa (fossa tricipitalis) (BG123)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="small_with_penetrating_pneumatic_foramina, moderate_fossa_without_pneumatic_foramen, deep_fossa_without_pneumatic_foramen"/>
+                                <charstatelabels id="UserDataType.0154" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, tricipital fossa (fossa tricipitalis) (BG124)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="single, bipartite"/>
+                                <charstatelabels id="UserDataType.0155" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, deltoid crest, impressio m. pectoralis (BG125)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="superficial_poorly-defined_groove, shallow,_well-defined_oblong_fossa, _deep,_well-defined_oblong_fossa"/>
+                                <charstatelabels id="UserDataType.0156" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, impressio insertii m. supracoracoideus (K133)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="small,_semicircular_scar, greatly_elongated_with_long_axis_sub-parallel_to_main_axis_of_humeral_shaft"/>
+                                <charstatelabels id="UserDataType.0157" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, impressio insertii m. supracoracoideus and m. latissimus dorsi (K134)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="separated_by_a_wide_gap, separated_by_a_moderate_gap, separated_by_small_gap_or_confluent"/>
+                                <charstatelabels id="UserDataType.0158" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, coracobrachialis caudalis scar (CL219)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="clearly_separated_from_head, scar_contacts_distal_margin_of_head"/>
+                                <charstatelabels id="UserDataType.0159" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, coracobrachialis caudal scar (CL220)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="deeply_depressed,_subcircular, flat,_ovoid,_oriented_dorsoventrally, flat,_elongate_and_oriented_obliquely_at_approximately_45_degree_angle_to_long_axis_of_shaft"/>
+                                <charstatelabels id="UserDataType.0160" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, groove for coracobrachialis nerve (CL221)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent_or_poorly_defined, sharp,_narrow_sulcus"/>
+                                <charstatelabels id="UserDataType.0161" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, shaft, dorsoventral width (K136)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="shaft_thins_or_maintains_width_distally, shaft_widens_distally"/>
+                                <charstatelabels id="UserDataType.0162" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, nutrient foramen (foramen nutricum) (C143)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="situated_on_ventral_face_of_shaft, situated_on_cranial_face_of_shaft"/>
+                                <charstatelabels id="UserDataType.0163" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, anterior face of shaft elongate depression near ventral margin (C144)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0164" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, shaft, sigmoid curvature (K137)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent_or_weak, strong"/>
+                                <charstatelabels id="UserDataType.0165" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, development of dorsal supracondylar tubercle (processus supracondylar dorsalis) (BG126)" codeMap="0=0, 1=1, 2=2, 3=3, ? =0 1 2 3 " states="4" value="absent, compact_tubercle, elongate_process, extremely_elongate_process"/>
+                                <charstatelabels id="UserDataType.0166" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, demarcation of sulcus scapulotricipitalis (BG127)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="not_demarcated, passage_a_well-marked_groove, development_of_trochlear_ridge_for_articulation_with_os_sesamoideum_m._scapulotricipitis"/>
+                                <charstatelabels id="UserDataType.0167" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, posterior trochlear ridge (BG128)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="extends_beyond_ventral_margin_of_the_humeral_shaft, does_not_extend_beyond_the_humeral_shaft"/>
+                                <charstatelabels id="UserDataType.0168" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, angle between main axis of shaft and tangent of ulnar and radial condyles (condylus dorsalis and condylus ventralis) (K141)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="less_than_45_degrees, more_than_45_degrees, about_90_degrees"/>
+                                <charstatelabels id="UserDataType.0169" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, ulnar condyle (condylus ventralis) (K142)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="condyle_projected_and_rounded, condyle_flattened"/>
+                                <charstatelabels id="UserDataType.0170" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, shelf adjacent to condylus ventralis: large, ratio of condyle width (K143)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="shelf_width_&gt;1.3, moderate,_ratio_of_condyle_width:_shelf_width_1.3-2.0, greatly_reduced,_less_than_half_condyle_width"/>
+                                <charstatelabels id="UserDataType.0171" spec="beast.evolution.datatype.UserDataType" characterName="Radius, shaft (KC166)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="sub-cylindrical, _broad_and_flattened"/>
+                                <charstatelabels id="UserDataType.0172" spec="beast.evolution.datatype.UserDataType" characterName=" Ulna, olecranon position and shape of posterior ulnar margin (K144)" codeMap="0=0, 1=1, 2=2, 3=3, 4=4, 5=5, ? =0 1 2 3 4 5 " states="6" value="olecranon_arises_at_level_of,_or_proximally_surpassing,_humeral_cotylae, olecranon_a_tab-like_projection_slightly_distally_displaced_from_cotylae_creating_a_rounded_posterior_ulnar_margin, olecranon_a_tab-like_projection_slightly_distally_displaced_from_cotylae_creating_a_squared_posterior_margin, posterior_margin_is_a_smooth_curve,_apex_located_one_fourth_of_length_to_distal_end, posterior_margin_with_a_distinct_angle,_apex_located_one_fourth_of_length_to_distal_end, posterior_margin_is_rounded_and_tab-like,_apex_located_at_the_level_of_proximal_end_of_the_ulna"/>
+                                <charstatelabels id="UserDataType.0173" spec="beast.evolution.datatype.UserDataType" characterName="Ulna, distinct process extending toward sulcus humerotricipitalis of humerus (K145)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0174" spec="beast.evolution.datatype.UserDataType" characterName="Ulnare (KC169)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="_U-shaped, triangular,_fan-shaped_wedge"/>
+                                <charstatelabels id="UserDataType.0175" spec="beast.evolution.datatype.UserDataType" characterName="Carpometacarpus, pisiform process (processus pisiformis) (C155)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="well-projected_round_tubercle, reduced_to_a_low_ridge"/>
+                                <charstatelabels id="UserDataType.0176" spec="beast.evolution.datatype.UserDataType" characterName="Carpometacarpus, distal facet on metacarpal I (C156)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0177" spec="beast.evolution.datatype.UserDataType" characterName="Carpometacarpus, metacarpal II, distinct anterior bowing (C157)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0178" spec="beast.evolution.datatype.UserDataType" characterName="Carpometacarpus, extension of metacarpals II and III (C158)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="subequal_or_III_slightly_shorter, metacarpal_III_projects_markedly_distal_of_metacarpal_II"/>
+                                <charstatelabels id="UserDataType.0179" spec="beast.evolution.datatype.UserDataType" characterName="Carpometacarpus, metacarpal III, distal articular surface (facies articularis digitalis major) (C159)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="wedge_shaped_or_broadens_anteriorly_in_distal_view, slightly_depressed_ovoid_surface"/>
+                                <charstatelabels id="UserDataType.0180" spec="beast.evolution.datatype.UserDataType" characterName="Carpometacarpus, extensor process (processus extensorius) (KC175)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="present, absent"/>
+                                <charstatelabels id="UserDataType.0181" spec="beast.evolution.datatype.UserDataType" characterName="Carpometacarpus, metacarpal II, distal expansion (KC176)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0182" spec="beast.evolution.datatype.UserDataType" characterName="Phalanx III-1, proximal process (BG130)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0183" spec="beast.evolution.datatype.UserDataType" characterName="Phalanges of manus, relative length of phalanx III-1 and phalanx II-1 (C161)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="phalanx_III-1_shorter, subequal_in_length"/>
+                                <charstatelabels id="UserDataType.0184" spec="beast.evolution.datatype.UserDataType" characterName="Phalanges of manus, length relative to carpometacarpus (BG131)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="long, short"/>
+                                <charstatelabels id="UserDataType.0185" spec="beast.evolution.datatype.UserDataType" characterName="Fusion of ilia to synsacrum (K149)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="unfused, partially_fused, well_fused"/>
+                                <charstatelabels id="UserDataType.0186" spec="beast.evolution.datatype.UserDataType" characterName="Pelvis, preacetabular ilia (KC181)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="flat,_well-separated, approach_one_another,_but_do_not_contact_at_midline, _contact_at_midline_forming_canalis_iliosynsacralis"/>
+                                <charstatelabels id="UserDataType.0187" spec="beast.evolution.datatype.UserDataType" characterName="Pelvis, foramina intervertebralia large, forming wide openings on dorsal surface of pelvis (KC182)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0188" spec="beast.evolution.datatype.UserDataType" characterName="Ilium, projected postiliac spine" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0189" spec="beast.evolution.datatype.UserDataType" characterName="Pelvis, size of foramen ilioischiadicum and foramen acetabuli (OH16)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="foramen_ilioischiadicum_smaller_or_similar_in_size, foramen_ilioischiadicum_larger"/>
+                                <charstatelabels id="UserDataType.0190" spec="beast.evolution.datatype.UserDataType" characterName="Pelvis, fenestra ischiopubica (BG133)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="very_wide_and_closed_at_its_caudal_end, slit-like_and_open_at_its_caudal_end"/>
+                                <charstatelabels id="UserDataType.0191" spec="beast.evolution.datatype.UserDataType" characterName="Ischium,  caudal extent in relation to postacetabular ilium (BG134)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="ischium_shorter_than_ilium, ischium_projects_slightly_beyond_the_ilium, ischium_projected_far_caudal_to_ilium"/>
+                                <charstatelabels id="UserDataType.0192" spec="beast.evolution.datatype.UserDataType" characterName="Patella (KC 187)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent,_unossified,_or_a_small_ossicle, present_as_a_large,_block-like_element"/>
+                                <charstatelabels id="UserDataType.0193" spec="beast.evolution.datatype.UserDataType" characterName="Patella, sulcus m. ambiens (BG135)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="shallow_groove, deep_groove, perforation"/>
+                                <charstatelabels id="UserDataType.0194" spec="beast.evolution.datatype.UserDataType" characterName="Tibiotarsus, crista patellaris (BG136)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="slightly_developed, well-projected, greatly_elongated"/>
+                                <charstatelabels id="UserDataType.0195" spec="beast.evolution.datatype.UserDataType" characterName="Tibiotarsus, shaft, craniocaudal  flattening (C169)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="_weak,_midshaft_craniocaudal__depth_greater_than_75%_mediolateral_width, _strong,_midshaft_craniocaudal_depth_equal_to_or_less_than_75%_mediolateral_width"/>
+                                <charstatelabels id="UserDataType.0196" spec="beast.evolution.datatype.UserDataType" characterName="Tibiotarsus, notch in distal edge of medial condyle (condylus medialis) (AH38)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="present, absent"/>
+                                <charstatelabels id="UserDataType.0197" spec="beast.evolution.datatype.UserDataType" characterName="Tibiotarsus, lateral condyle (condylus lateralis) in lateral profile (AH37)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="ovoid, subcircular"/>
+                                <charstatelabels id="UserDataType.0198" spec="beast.evolution.datatype.UserDataType" characterName="Tibiotarsus, sulcus extensorius (K139)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="laterally_positioned, close_to_midline, medially_positioned"/>
+                                <charstatelabels id="UserDataType.0199" spec="beast.evolution.datatype.UserDataType" characterName="Tarsometatarsus, elongation index (proximodistal length / mediolateral width at proximal end) (BH139)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="_slender,_EI_&gt;3.0, shortened,_2.5&lt;EI_&lt;_3.0, _greatly_shortened_EI_&lt;_2.5"/>
+                                <charstatelabels id="UserDataType.0200" spec="beast.evolution.datatype.UserDataType" characterName="Tarsometatarsus, medial margin, pronounced convexity (K157)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0201" spec="beast.evolution.datatype.UserDataType" characterName="Tarsometatarsus, enclosed hypotarsal canals (canales hypotarsi) (BG139)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="present, absent"/>
+                                <charstatelabels id="UserDataType.0202" spec="beast.evolution.datatype.UserDataType" characterName="Tarsometatarsus, relative plantar projection of medial and lateral hypotarsal crests (KT203)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="medial_crest_projects_farther_than_lateral, projection_of_medial_and_lateral_hypotarsal_crests_subequal"/>
+                                <charstatelabels id="UserDataType.0203" spec="beast.evolution.datatype.UserDataType" characterName="Tarsometatarsus, intermediate hypotarsal crests (crista intermediae hypotarsi):" codeMap="0=0, 1=1, ? =0 1 " states="2" value="distinct,_separated_by_groove, _non-distinct"/>
+                                <charstatelabels id="UserDataType.0204" spec="beast.evolution.datatype.UserDataType" characterName="Tarsometatarsus, dorsal sulcus between metatarsals II and III (sulcus longitudinalis dorsalis medialis) (K159)" codeMap="0=0, 1=1, 2=2, 3=3, ? =0 1 2 3 " states="4" value="absent_or_barely_perceptible, shallow_groove, moderate_groove, deep_groove"/>
+                                <charstatelabels id="UserDataType.0205" spec="beast.evolution.datatype.UserDataType" characterName="Tarsometatarsus, proximal vascular foramina on plantar surface (K162)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="foramen_vasculare_proximale_mediale_present,_foramen_vasculare_proximale_laterale_absent_or_vestigial, both_foramina_present, foramen_vasculare_proximale_laterale_present,_foramen_vasculare_proximale_mediale_absent_or_vestigial"/>
+                                <charstatelabels id="UserDataType.0206" spec="beast.evolution.datatype.UserDataType" characterName="Tarsometatarsus, opening for medial foramen proximalis vascularis distal to crista medialis hypotarsi (BG140)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0207" spec="beast.evolution.datatype.UserDataType" characterName="Tarsometatarsus, medial hypotarsal crest (crista medialis hypotarsi) perforated by opening for the medial foramen proximalis vascularis (B139)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0208" spec="beast.evolution.datatype.UserDataType" characterName="Tarsometatarsus, distal vascular foramen (foramen vasculare distale)  (K163)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="present,_separated_from_incisura_intertrochlearis_lateralis_by_osseous_bridge, present,_open_distally, absent"/>
+                                <charstatelabels id="UserDataType.0209" spec="beast.evolution.datatype.UserDataType" characterName="Tarsometatarsus, metatarsae IV" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="distal_end_projects_laterally, straight, distal_end_deflected_medially"/>
+                                <charstatelabels id="UserDataType.0210" spec="beast.evolution.datatype.UserDataType" characterName="Tarsometatarsus, trochleae in distal view (KT211)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="trochlea_metatarsi_III_and_IV_aligned_in_same_plane, trochlea_metatarsi_IV_displaced_dorsally"/>
+                                <charstatelabels id="UserDataType.0211" spec="beast.evolution.datatype.UserDataType" characterName="M. latissimus dorsi, pars cranialis, accessory slip (BG143)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0212" spec="beast.evolution.datatype.UserDataType" characterName="M. latissimus dorsi, pars cranialis and pars caudalis (BG144)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="separated, fused"/>
+                                <charstatelabels id="UserDataType.0213" spec="beast.evolution.datatype.UserDataType" characterName="M. latissimus dorsi, pars metapatagialis, development (BG145)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="wide, intermediate, narrow"/>
+                                <charstatelabels id="UserDataType.0214" spec="beast.evolution.datatype.UserDataType" characterName="M. serratus profundus, cranial fascicle (BG146)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0215" spec="beast.evolution.datatype.UserDataType" characterName="M. deltoideus, pars propatagialis, subdivision in superficial and deep layers (BG147)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="undivided, divided"/>
+                                <charstatelabels id="UserDataType.0216" spec="beast.evolution.datatype.UserDataType" characterName="M. deltoideus, pars major (BG148)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="triangular_or_fan-shaped, strap-shaped"/>
+                                <charstatelabels id="UserDataType.0217" spec="beast.evolution.datatype.UserDataType" characterName="M. deltoideus, pars major, caput caudale (BG149)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="short, intermediate, long"/>
+                                <charstatelabels id="UserDataType.0218" spec="beast.evolution.datatype.UserDataType" characterName="M. deltoideus, pars minor, origin on the clavicular articulation of the coracoid (BG150)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0219" spec="beast.evolution.datatype.UserDataType" characterName="M. ulnometacarpalis ventralis (BG151)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0220" spec="beast.evolution.datatype.UserDataType" characterName="M. iliotrochantericus caudalis (BG152)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="narrow, wide"/>
+                                <charstatelabels id="UserDataType.0221" spec="beast.evolution.datatype.UserDataType" characterName="M. iliofemoralis, origin (BG153)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="tendinous, partially_tendinous_and_partially_fleshy, totally_fleshy"/>
+                                <charstatelabels id="UserDataType.0222" spec="beast.evolution.datatype.UserDataType" characterName="M. flexor perforatus digitis IV, rami II-III (BG154)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="free, fused"/>
+                                <charstatelabels id="UserDataType.0223" spec="beast.evolution.datatype.UserDataType" characterName="M. flexor perforatus digitis IV, rami I-IV (BG155)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="free, fused"/>
+                                <charstatelabels id="UserDataType.0224" spec="beast.evolution.datatype.UserDataType" characterName="M. flexor perforatus digitis IV, insertion of middle rami (BG156)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="on_phalanx_3, on_phalanx_4"/>
+                                <charstatelabels id="UserDataType.0225" spec="beast.evolution.datatype.UserDataType" characterName="M. latissimus dorsi, pars caudalis, additional origin from dorsal process of vertebrae (BG157)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0226" spec="beast.evolution.datatype.UserDataType" characterName="Oral mucosa (bucca, tunica mucosa oris), buccal papillae group on the medial surface of the lower jaw (ramus mandibularis) at the level of the rictus (BG 158)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="small_number_of_rudimentary_papillae_with_no_clear_arrangement, _large,_elongated_papillae_with_no_clear_arrangement, _two_clear_rows_of_short_conical_papillae"/>
+                                <charstatelabels id="UserDataType.0227" spec="beast.evolution.datatype.UserDataType" characterName="Tracheal rings (KC219)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="single, bifurcated"/>
+                                <charstatelabels id="UserDataType.0228" spec="beast.evolution.datatype.UserDataType" characterName="Quadrate, processus oticus, caudal margin in lateral view (A9)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="straight, flexed_so_as_to_be_concave_caudally"/>
+                                <charstatelabels id="UserDataType.0229" spec="beast.evolution.datatype.UserDataType" characterName="Synsacrum, first incorporated vertebra, position of fovea costalis (KS230)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="caudal_to_level_of_processus_transversus, cranial_to_level_of_transverse_process"/>
+                                <charstatelabels id="UserDataType.0230" spec="beast.evolution.datatype.UserDataType" characterName="Synsacrum, ventral surface of first few incorporated vertebrae (A63)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="rounded_or_flattened, sharp,_blade-like_ventral_margin"/>
+                                <charstatelabels id="UserDataType.0231" spec="beast.evolution.datatype.UserDataType" characterName="Pygostyle, shape (KS232)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="tapers_to_a_narrow_edge_both_dorsally_and_ventrally_as_in_most_volant_birds, _triangular_in_cross-section_with_a_wide,_flat_ventral_margin"/>
+                                <charstatelabels id="UserDataType.0232" spec="beast.evolution.datatype.UserDataType" characterName="Sternum, orientation of sulcus articularis coracoideus in ventral view (A15)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="sulci_oriented_in_essentially_straight_horizontal_line, sulci_directed_caudolaterally_so_as_to_together_form_an_inverted_U_shape"/>
+                                <charstatelabels id="UserDataType.0233" spec="beast.evolution.datatype.UserDataType" characterName="Sternum, trabecula lateralis projects caudal to main body of sternum (KS234)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="no, yes"/>
+                                <charstatelabels id="UserDataType.0234" spec="beast.evolution.datatype.UserDataType" characterName="Scapula, facies articularis humeralis (KS235)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="rounded,_projecting_from_shaft_of_scapula, compressed_and_ovoid,_projecting_from_shaft_of_scapula, flattened_and_nearly_merged_with_shaft_of_scapula"/>
+                                <charstatelabels id="UserDataType.0235" spec="beast.evolution.datatype.UserDataType" characterName="Coracoid, facies articularis sternalis, dorsal surface (KS236)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="single_facet, two_facets"/>
+                                <charstatelabels id="UserDataType.0236" spec="beast.evolution.datatype.UserDataType" characterName="Coracoid, processus acrocoracoideus, region of tubecrulum brachiale (AH22)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="craniocaudally_compressed, craniocaudally_expanded,_with_a_large_flat_surface_cranial_to_tuberculum_brachiale"/>
+                                <charstatelabels id="UserDataType.0237" spec="beast.evolution.datatype.UserDataType" characterName="Humerus, scar for origin of m. brachialis (A34)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="ovoid_fossa_on_cranial_face_of_humerus_at_distal_end, proximodistally_elongate_scar_on_dorsal_margin_of_humeral_shaft,_with_diagonally_oriented_proximal_border, proximodistally_elongate_scar_on_dorsal_margin_of_humeral_shaft,_with_chevron-shaped_proximal_border"/>
+                                <charstatelabels id="UserDataType.0238" spec="beast.evolution.datatype.UserDataType" characterName="Radius, proximally projecting spike-like process at cranial margin (KS239)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="absent, present"/>
+                                <charstatelabels id="UserDataType.0239" spec="beast.evolution.datatype.UserDataType" characterName="Ulna incisura radialis (KS240)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="concave_in_proximal_view,_so_that_the_ulna_contacts_the_proximal_radius_at_both_its_caudal_and_ventral_surfaces, obsolete,_so_radius_and_ulna_abut_one_another_at_a_nearly_flat_contact"/>
+                                <charstatelabels id="UserDataType.0240" spec="beast.evolution.datatype.UserDataType" characterName="Ulnare, distal angle (This character refers to the distal angle in the specialized fan-shaped ulnare of penguins and is considered non-comparable for outgroup taxa) (KS241)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="rounded, pointed"/>
+                                <charstatelabels id="UserDataType.0241" spec="beast.evolution.datatype.UserDataType" characterName="Tibiotarsus, medial margin in distal view (KS242)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="margin_is_nearly_straight, margin_strongly_convex"/>
+                                <charstatelabels id="UserDataType.0242" spec="beast.evolution.datatype.UserDataType" characterName="Tarsometatarsus, crista medialis hypotarsi (KS243)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="present, absent"/>
+                                <charstatelabels id="UserDataType.0243" spec="beast.evolution.datatype.UserDataType" characterName="Tarsometatarsus, trochlea metatarsi II strongly plantarly deflected (A73)" codeMap="0=0, 1=1, ? =0 1 " states="2" value="no, yes"/>
+                                <charstatelabels id="UserDataType.0244" spec="beast.evolution.datatype.UserDataType" characterName="Pedal digit I (KS245)" codeMap="0=0, 1=1, 2=2, ? =0 1 2 " states="3" value="small,_with_metatarsal_I_and_single_phalanx_both_present, metatarsal_I_reduced_to_an_ossicle,_claw_represented_by_a_minute_ossicle_or_lost, metatarsal_I_absent"/>
+                            </userDataType>
+                        </data>
+
+
+    
+
+
+    
+
+
+    
+<map name="Uniform" >beast.math.distributions.Uniform</map>
+<map name="Exponential" >beast.math.distributions.Exponential</map>
+<map name="LogNormal" >beast.math.distributions.LogNormalDistributionModel</map>
+<map name="Normal" >beast.math.distributions.Normal</map>
+<map name="Beta" >beast.math.distributions.Beta</map>
+<map name="Gamma" >beast.math.distributions.Gamma</map>
+<map name="LaplaceDistribution" >beast.math.distributions.LaplaceDistribution</map>
+<map name="prior" >beast.math.distributions.Prior</map>
+<map name="InverseGamma" >beast.math.distributions.InverseGamma</map>
+<map name="OneOnX" >beast.math.distributions.OneOnX</map>
+
+
+<run id="mcmc" spec="MCMC" chainLength="10000000">
+    <state id="state" storeEvery="5000">
+        <tree id="Tree.t:penguins_morph" name="stateNode">
+            <trait id="dateTrait.t:penguins_morph" spec="beast.evolution.tree.TraitSet" traitname="date-backward">
+                Aptenodytes_forsteri_0.0=0.0,
+Pygoscelis_antarctica_0.0=0.0,
+Megadyptes_antipodes_0.0=0.0,
+Eudyptes_chrysolophus_0.0=0.0,
+Eudyptes_sclateri_0.0=0.0,
+Eudyptula_minor_0.0=0.0,
+Madrynornis_mirandus_10.0=10.0,
+Spheniscus_demersus_0.0=0.0,
+Spheniscus_muizoni_9.1=9.1,
+Marplesornis_novaezealandiae_5.1=5.1,
+Palaeospheniscus_patagonicus_14.58=14.58,
+Eretiscus_tonnii_17.28=17.28,
+Paraptenodytes_antarcticus_22.0=22.0,
+Perudyptes_devriesi_41.0=41.0,
+Icadyptes_salasi_36.0=36.0,
+Kairuku_waitaki_26.07=26.07,
+Delphinornis_wimani_34.71=34.71,
+Waimanu_manneringi_61.3=61.3,
+Pygoscelis_grandis_4.5=4.5                <taxa id="TaxonSet.penguins_morph2" spec="TaxonSet">
+                    <alignment id="penguins_morph2" spec="FilteredAlignment" ascertained="true" excludefrom="164" excludeto="166" filter="2-3,6-7,10,14,17-20,22-30,33,36-37,40,43,45-55,57,59,61-62,65,67-70,75,77-82,84-85,87,89-92,95,98-99,101-103,105-108,110-116,119,121,123,125,128-132,134-135,138-139,141-142,144-150,152-153,155,157,159,161-165,168,170,172,174-185,188-191,193,196-198,201-204,207-208,211-213,215-217,219-221,223-226,228-234,236-237,239-244,246-247">
+                        <data idref="penguins_morph"/>
+                        <userDataType id="morphDataType.penguins_morph2" spec="beast.evolution.datatype.StandardData" ambiguities="01 12" nrOfStates="2"/>
+                    </alignment>
+                </taxa>
+            </trait>
+            <taxonset idref="TaxonSet.penguins_morph2"/>
+        </tree>
+        <parameter id="birthRate.t:penguins_morph" name="stateNode">1.0</parameter>
+        <parameter id="ucldMean.c:penguins_morph" name="stateNode">1.0</parameter>
+        <parameter id="ucldStdev.c:penguins_morph" lower="0.0" name="stateNode">0.1</parameter>
+        <stateNode id="rateCategories.c:penguins_morph" spec="parameter.IntegerParameter" dimension="36">1</stateNode>
+    </state>
+
+    <init id="RandomTree.t:penguins_morph" spec="beast.evolution.tree.RandomTree" estimate="false" initial="@Tree.t:penguins_morph" taxa="@penguins_morph2">
+        <populationModel id="ConstantPopulation0.t:penguins_morph" spec="ConstantPopulation">
+            <parameter id="randomPopSize.t:penguins_morph" name="popSize">1.0</parameter>
+        </populationModel>
+    </init>
+
+    <distribution id="posterior" spec="util.CompoundDistribution">
+        <distribution id="prior" spec="util.CompoundDistribution">
+            <distribution id="YuleModel.t:penguins_morph" spec="beast.evolution.speciation.YuleModel" birthDiffRate="@birthRate.t:penguins_morph" tree="@Tree.t:penguins_morph"/>
+            <prior id="YuleBirthRatePrior.t:penguins_morph" name="distribution" x="@birthRate.t:penguins_morph">
+                <Uniform id="Uniform.0" name="distr" upper="Infinity"/>
+            </prior>
+            <prior id="MeanRatePrior.c:penguins_morph" name="distribution" x="@ucldMean.c:penguins_morph">
+                <Uniform id="Uniform.01" name="distr" upper="Infinity"/>
+            </prior>
+            <prior id="ucldStdevPrior.c:penguins_morph" name="distribution" x="@ucldStdev.c:penguins_morph">
+                <Gamma id="Gamma.0" name="distr">
+                    <parameter id="RealParameter.0" estimate="false" name="alpha">0.5396</parameter>
+                    <parameter id="RealParameter.01" estimate="false" name="beta">0.3819</parameter>
+                </Gamma>
+            </prior>
+        </distribution>
+        <distribution id="likelihood" spec="util.CompoundDistribution">
+            <distribution id="morphTreeLikelihood.penguins_morph2" spec="TreeLikelihood" data="@penguins_morph2" tree="@Tree.t:penguins_morph">
+                <siteModel id="morphSiteModel.s:penguins_morph2" spec="SiteModel">
+                    <parameter id="mutationRate.s:penguins_morph2" estimate="false" name="mutationRate">1.0</parameter>
+                    <parameter id="gammaShape.s:penguins_morph2" estimate="false" name="shape">1.0</parameter>
+                    <substModel id="LewisMK.s:penguins_morph2" spec="LewisMK" datatype="@morphDataType.penguins_morph2"/>
+                </siteModel>
+                <branchRateModel id="RelaxedClock.c:penguins_morph" spec="beast.evolution.branchratemodel.UCRelaxedClockModel" clock.rate="@ucldMean.c:penguins_morph" rateCategories="@rateCategories.c:penguins_morph" tree="@Tree.t:penguins_morph">
+                    <LogNormal id="LogNormalDistributionModel.c:penguins_morph" S="@ucldStdev.c:penguins_morph" meanInRealSpace="true" name="distr">
+                        <parameter id="RealParameter.02" estimate="false" lower="0.0" name="M" upper="1.0">1.0</parameter>
+                    </LogNormal>
+                </branchRateModel>
+            </distribution>
+            <distribution id="morphTreeLikelihood.penguins_morph3" spec="TreeLikelihood" branchRateModel="@RelaxedClock.c:penguins_morph" tree="@Tree.t:penguins_morph">
+                <data
+id="penguins_morph3"
+spec="FilteredAlignment"
+ascertained="true"
+data="@penguins_morph"
+excludefrom="59"
+excludeto="62"
+filter="5,8,12,15,31-32,34,44,56,58,71-74,76,83,86,88,93-94,96-97,104,109,117-118,120,122,126-127,133,137,140,143,151,154,156,158,160,167,169,171,186-187,192,194-195,199-200,206,209-210,214,218,222,227,235,238,245,246-248">
+                    <userDataType id="morphDataType.penguins_morph3" spec="beast.evolution.datatype.StandardData" ambiguities="01 12" nrOfStates="3"/>
+                </data>
+                <siteModel id="morphSiteModel.s:penguins_morph3" spec="SiteModel">
+                    <parameter id="mutationRate.s:penguins_morph3" estimate="false" name="mutationRate">1.0</parameter>
+                    <parameter id="gammaShape.s:penguins_morph3" estimate="false" name="shape">1.0</parameter>
+                    <substModel id="LewisMK.s:penguins_morph3" spec="LewisMK" datatype="@morphDataType.penguins_morph3"/>
+                </siteModel>
+            </distribution>
+            <distribution id="morphTreeLikelihood.penguins_morph4" spec="TreeLikelihood" branchRateModel="@RelaxedClock.c:penguins_morph" tree="@Tree.t:penguins_morph">
+                <data
+id="penguins_morph4"
+spec="FilteredAlignment"
+ascertained="true"
+data="@penguins_morph"
+excludefrom="13"
+excludeto="17"
+filter="1,4,35,38-39,42,60,63-64,100,136,166,205,246-249">
+                    <userDataType id="morphDataType.penguins_morph4" spec="beast.evolution.datatype.StandardData" ambiguities="01 12" nrOfStates="4"/>
+                </data>
+                <siteModel id="morphSiteModel.s:penguins_morph4" spec="SiteModel">
+                    <parameter id="mutationRate.s:penguins_morph4" estimate="false" name="mutationRate">1.0</parameter>
+                    <parameter id="gammaShape.s:penguins_morph4" estimate="false" name="shape">1.0</parameter>
+                    <substModel id="LewisMK.s:penguins_morph4" spec="LewisMK" datatype="@morphDataType.penguins_morph4"/>
+                </siteModel>
+            </distribution>
+            <distribution id="morphTreeLikelihood.penguins_morph5" spec="TreeLikelihood" branchRateModel="@RelaxedClock.c:penguins_morph" tree="@Tree.t:penguins_morph">
+                <data
+id="penguins_morph5"
+spec="FilteredAlignment"
+ascertained="true"
+data="@penguins_morph"
+excludefrom="4"
+excludeto="9"
+filter="13,16,41,66,246-250">
+                    <userDataType id="morphDataType.penguins_morph5" spec="beast.evolution.datatype.StandardData" ambiguities="01 12" nrOfStates="5"/>
+                </data>
+                <siteModel id="morphSiteModel.s:penguins_morph5" spec="SiteModel">
+                    <parameter id="mutationRate.s:penguins_morph5" estimate="false" name="mutationRate">1.0</parameter>
+                    <parameter id="gammaShape.s:penguins_morph5" estimate="false" name="shape">1.0</parameter>
+                    <substModel id="LewisMK.s:penguins_morph5" spec="LewisMK" datatype="@morphDataType.penguins_morph5"/>
+                </siteModel>
+            </distribution>
+            <distribution id="morphTreeLikelihood.penguins_morph6" spec="TreeLikelihood" branchRateModel="@RelaxedClock.c:penguins_morph" tree="@Tree.t:penguins_morph">
+                <data
+id="penguins_morph6"
+spec="FilteredAlignment"
+ascertained="true"
+data="@penguins_morph"
+excludefrom="4"
+excludeto="10"
+filter="11,21,124,173,246-251">
+                    <userDataType id="morphDataType.penguins_morph6" spec="beast.evolution.datatype.StandardData" ambiguities="01 12" nrOfStates="6"/>
+                </data>
+                <siteModel id="morphSiteModel.s:penguins_morph6" spec="SiteModel">
+                    <parameter id="mutationRate.s:penguins_morph6" estimate="false" name="mutationRate">1.0</parameter>
+                    <parameter id="gammaShape.s:penguins_morph6" estimate="false" name="shape">1.0</parameter>
+                    <substModel id="LewisMK.s:penguins_morph6" spec="LewisMK" datatype="@morphDataType.penguins_morph6"/>
+                </siteModel>
+            </distribution>
+            <distribution id="morphTreeLikelihood.penguins_morph7" spec="TreeLikelihood" branchRateModel="@RelaxedClock.c:penguins_morph" tree="@Tree.t:penguins_morph">
+                <data
+id="penguins_morph7"
+spec="FilteredAlignment"
+ascertained="true"
+data="@penguins_morph"
+excludefrom="1"
+excludeto="8"
+filter="9,246-252">
+                    <userDataType id="morphDataType.penguins_morph7" spec="beast.evolution.datatype.StandardData" ambiguities="01 12" nrOfStates="7"/>
+                </data>
+                <siteModel id="morphSiteModel.s:penguins_morph7" spec="SiteModel">
+                    <parameter id="mutationRate.s:penguins_morph7" estimate="false" name="mutationRate">1.0</parameter>
+                    <parameter id="gammaShape.s:penguins_morph7" estimate="false" name="shape">1.0</parameter>
+                    <substModel id="LewisMK.s:penguins_morph7" spec="LewisMK" datatype="@morphDataType.penguins_morph7"/>
+                </siteModel>
+            </distribution>
+        </distribution>
+    </distribution>
+
+    <operator id="YuleBirthRateScaler.t:penguins_morph" spec="ScaleOperator" parameter="@birthRate.t:penguins_morph" scaleFactor="0.75" weight="3.0"/>
+
+    <operator id="YuleModelTreeScaler.t:penguins_morph" spec="ScaleOperator" scaleFactor="0.5" tree="@Tree.t:penguins_morph" weight="3.0"/>
+
+    <operator id="YuleModelTreeRootScaler.t:penguins_morph" spec="ScaleOperator" rootOnly="true" scaleFactor="0.5" tree="@Tree.t:penguins_morph" weight="3.0"/>
+
+    <operator id="YuleModelUniformOperator.t:penguins_morph" spec="Uniform" tree="@Tree.t:penguins_morph" weight="30.0"/>
+
+    <operator id="YuleModelSubtreeSlide.t:penguins_morph" spec="SubtreeSlide" tree="@Tree.t:penguins_morph" weight="15.0"/>
+
+    <operator id="YuleModelNarrow.t:penguins_morph" spec="Exchange" tree="@Tree.t:penguins_morph" weight="15.0"/>
+
+    <operator id="YuleModelWide.t:penguins_morph" spec="Exchange" isNarrow="false" tree="@Tree.t:penguins_morph" weight="3.0"/>
+
+    <operator id="YuleModelWilsonBalding.t:penguins_morph" spec="WilsonBalding" tree="@Tree.t:penguins_morph" weight="3.0"/>
+
+    <operator id="ucldMeanScaler.c:penguins_morph" spec="ScaleOperator" parameter="@ucldMean.c:penguins_morph" scaleFactor="0.5" weight="1.0"/>
+
+    <operator id="ucldStdevScaler.c:penguins_morph" spec="ScaleOperator" parameter="@ucldStdev.c:penguins_morph" scaleFactor="0.5" weight="3.0"/>
+
+    <operator id="CategoriesRandomWalk.c:penguins_morph" spec="IntRandomWalkOperator" parameter="@rateCategories.c:penguins_morph" weight="10.0" windowSize="1"/>
+
+    <operator id="CategoriesSwapOperator.c:penguins_morph" spec="SwapOperator" intparameter="@rateCategories.c:penguins_morph" weight="10.0"/>
+
+    <operator id="CategoriesUniform.c:penguins_morph" spec="UniformOperator" parameter="@rateCategories.c:penguins_morph" weight="10.0"/>
+
+    <operator id="relaxedUpDownOperator.c:penguins_morph" spec="UpDownOperator" scaleFactor="0.75" weight="3.0">
+        <up idref="ucldMean.c:penguins_morph"/>
+        <down idref="Tree.t:penguins_morph"/>
+    </operator>
+
+    <logger id="tracelog" fileName="beast.log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
+        <log idref="posterior"/>
+        <log idref="likelihood"/>
+        <log idref="prior"/>
+        <log id="TreeHeight.t:penguins_morph" spec="beast.evolution.tree.TreeHeightLogger" tree="@Tree.t:penguins_morph"/>
+        <log idref="YuleModel.t:penguins_morph"/>
+        <log idref="birthRate.t:penguins_morph"/>
+        <log idref="morphTreeLikelihood.penguins_morph4"/>
+        <log idref="morphTreeLikelihood.penguins_morph3"/>
+        <log idref="morphTreeLikelihood.penguins_morph6"/>
+        <log idref="morphTreeLikelihood.penguins_morph2"/>
+        <log idref="morphTreeLikelihood.penguins_morph5"/>
+        <log idref="morphTreeLikelihood.penguins_morph7"/>
+        <log idref="ucldMean.c:penguins_morph"/>
+        <log idref="ucldStdev.c:penguins_morph"/>
+        <log id="rate.c:penguins_morph" spec="beast.evolution.branchratemodel.RateStatistic" branchratemodel="@RelaxedClock.c:penguins_morph" tree="@Tree.t:penguins_morph"/>
+    </logger>
+
+    <logger id="screenlog" logEvery="1000">
+        <log idref="posterior"/>
+        <log id="ESS.0" spec="util.ESS" arg="@posterior"/>
+        <log idref="likelihood"/>
+        <log idref="prior"/>
+    </logger>
+
+    <logger id="treelog.t:penguins_morph" fileName="$(tree).trees" logEvery="1000" mode="tree">
+        <log id="TreeWithMetaDataLogger.t:penguins_morph" spec="beast.evolution.tree.TreeWithMetaDataLogger" branchratemodel="@RelaxedClock.c:penguins_morph" tree="@Tree.t:penguins_morph"/>
+    </logger>
+
+</run>
+
+</beast>
