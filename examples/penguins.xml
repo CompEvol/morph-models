@@ -345,13 +345,14 @@ Pygoscelis_grandis_4.5=4.5                <taxa id="TaxonSet.penguins_morph2" sp
             </trait>
             <taxonset idref="TaxonSet.penguins_morph2"/>
         </tree>
+        <parameter id="gammaShape.s:penguins_morph2" name="stateNode">1.0</parameter>
+        <parameter id="gammaShape.s:penguins_dna" name="stateNode">1.0</parameter>
         <parameter id="freqParameter.s:penguins_dna" dimension="4" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
         <parameter id="rateAC.s:penguins_dna" lower="0.0" name="stateNode">1.0</parameter>
         <parameter id="rateAG.s:penguins_dna" lower="0.0" name="stateNode">1.0</parameter>
         <parameter id="rateAT.s:penguins_dna" lower="0.0" name="stateNode">1.0</parameter>
         <parameter id="rateCG.s:penguins_dna" lower="0.0" name="stateNode">1.0</parameter>
         <parameter id="rateGT.s:penguins_dna" lower="0.0" name="stateNode">1.0</parameter>
-        <parameter id="gammaShape.s:penguins_dna" name="stateNode">1.0</parameter>
         <parameter id="ucldMean.c:penguins_morph" name="stateNode">1.0</parameter>
         <parameter id="ucldStdev.c:penguins_morph" lower="0.0" name="stateNode">0.1</parameter>
         <stateNode id="rateCategories.c:penguins_morph" spec="parameter.IntegerParameter" dimension="36">1</stateNode>
@@ -382,6 +383,11 @@ Pygoscelis_grandis_4.5=4.5                <taxa id="TaxonSet.penguins_morph2" sp
             <prior id="GammaShapePrior.s:penguins_dna" name="distribution" x="@gammaShape.s:penguins_dna">
                 <Exponential id="Exponential.0" name="distr">
                     <parameter id="RealParameter.0" lower="0.0" name="mean" upper="0.0">1.0</parameter>
+                </Exponential>
+            </prior>
+            <prior id="GammaShapePrior.s:penguins_morph2" name="distribution" x="@gammaShape.s:penguins_morph2">
+                <Exponential id="Exponential.01" name="distr">
+                    <parameter id="RealParameter.01" lower="0.0" name="mean" upper="0.0">1.0</parameter>
                 </Exponential>
             </prior>
             <prior id="originPriorFBD.t:tree" name="distribution" x="@originFBD.t:tree">
@@ -427,33 +433,39 @@ Pygoscelis_grandis_4.5=4.5                <taxa id="TaxonSet.penguins_morph2" sp
                 <Uniform id="Uniform.04" name="distr"/>
             </prior>
             <prior id="MeanRatePrior.c:penguins_dna" name="distribution" x="@ucldMean.c:penguins_dna">
-                <Uniform id="Uniform.05" name="distr" upper="Infinity"/>
+                <LogNormal id="LogNormalDistributionModel.0" name="distr">
+                    <parameter id="RealParameter.012" estimate="false" name="M">-3.5</parameter>
+                    <parameter id="RealParameter.013" estimate="false" lower="0.0" name="S" upper="5.0">1.0</parameter>
+                </LogNormal>
             </prior>
             <prior id="MeanRatePrior.c:penguins_morph" name="distribution" x="@ucldMean.c:penguins_morph">
-                <Uniform id="Uniform.06" name="distr" upper="Infinity"/>
+                <LogNormal id="LogNormalDistributionModel.01" name="distr">
+                    <parameter id="RealParameter.014" estimate="false" name="M">-5.5</parameter>
+                    <parameter id="RealParameter.015" estimate="false" lower="0.0" name="S" upper="5.0">2.0</parameter>
+                </LogNormal>
             </prior>
             <prior id="ucldStdevPrior.c:penguins_dna" name="distribution" x="@ucldStdev.c:penguins_dna">
                 <Gamma id="Gamma.05" name="distr">
-                    <parameter id="RealParameter.012" estimate="false" name="alpha">0.5396</parameter>
-                    <parameter id="RealParameter.013" estimate="false" name="beta">0.3819</parameter>
+                    <parameter id="RealParameter.016" estimate="false" name="alpha">0.5396</parameter>
+                    <parameter id="RealParameter.017" estimate="false" name="beta">0.3819</parameter>
                 </Gamma>
             </prior>
             <prior id="ucldStdevPrior.c:penguins_morph" name="distribution" x="@ucldStdev.c:penguins_morph">
                 <Gamma id="Gamma.06" name="distr">
-                    <parameter id="RealParameter.014" estimate="false" name="alpha">0.5396</parameter>
-                    <parameter id="RealParameter.015" estimate="false" name="beta">0.3819</parameter>
+                    <parameter id="RealParameter.018" estimate="false" name="alpha">0.5396</parameter>
+                    <parameter id="RealParameter.019" estimate="false" name="beta">0.3819</parameter>
                 </Gamma>
             </prior>
         </distribution>
         <distribution id="likelihood" spec="util.CompoundDistribution">
             <distribution id="morphTreeLikelihood.penguins_morph2" spec="TreeLikelihood" data="@penguins_morph2" tree="@Tree.t:tree">
-                <siteModel id="morphSiteModel.s:penguins_morph2" spec="SiteModel">
+                <siteModel id="morphSiteModel.s:penguins_morph2" spec="SiteModel" gammaCategoryCount="4" shape="@gammaShape.s:penguins_morph2">
                     <parameter id="mutationRate.s:penguins_morph2" estimate="false" name="mutationRate">1.0</parameter>
                     <substModel id="LewisMK.s:penguins_morph2" spec="LewisMK" datatype="@morphDataType.penguins_morph2"/>
                 </siteModel>
                 <branchRateModel id="RelaxedClock.c:penguins_morph" spec="beast.evolution.branchratemodel.UCRelaxedClockModel" clock.rate="@ucldMean.c:penguins_morph" rateCategories="@rateCategories.c:penguins_morph" tree="@Tree.t:tree">
                     <LogNormal id="LogNormalDistributionModel.c:penguins_morph" S="@ucldStdev.c:penguins_morph" meanInRealSpace="true" name="distr">
-                        <parameter id="RealParameter.016" estimate="false" lower="0.0" name="M" upper="1.0">1.0</parameter>
+                        <parameter id="RealParameter.020" estimate="false" lower="0.0" name="M" upper="1.0">1.0</parameter>
                     </LogNormal>
                 </branchRateModel>
             </distribution>
@@ -465,7 +477,8 @@ data="@penguins_morph"
 filter="5,8,12,15,31-32,34,44,56,58,71-74,76,83,86,88,93-94,96-97,104,109,117-118,120,122,126-127,133,137,140,143,151,154,156,158,160,167,169,171,186-187,192,194-195,199-200,206,209-210,214,218,222,227,235,238,245">
                     <userDataType id="morphDataType.penguins_morph3" spec="beast.evolution.datatype.StandardData" ambiguities="01 12" nrOfStates="3"/>
                 </data>
-                <siteModel id="morphSiteModel.s:penguins_morph3" spec="SiteModel">
+                <!-- 4 gamma categories, gammaShape.s:penguins_morph2 is added and gammaShape.s:penguins_morph3 removed-->
+                <siteModel id="morphSiteModel.s:penguins_morph3" spec="SiteModel" gammaCategoryCount="4" shape="@gammaShape.s:penguins_morph2">
                     <parameter id="mutationRate.s:penguins_morph3" estimate="false" name="mutationRate">1.0</parameter>
                     <substModel id="LewisMK.s:penguins_morph3" spec="LewisMK" datatype="@morphDataType.penguins_morph3"/>
                 </siteModel>
@@ -478,7 +491,8 @@ data="@penguins_morph"
 filter="1,4,35,38-39,42,60,63-64,100,136,166,205">
                     <userDataType id="morphDataType.penguins_morph4" spec="beast.evolution.datatype.StandardData" ambiguities="01 12" nrOfStates="4"/>
                 </data>
-                <siteModel id="morphSiteModel.s:penguins_morph4" spec="SiteModel">
+                <!-- 4 gamma categories, gammaShape.s:penguins_morph2 is added and gammaShape.s:penguins_morph4 removed-->
+                <siteModel id="morphSiteModel.s:penguins_morph4" spec="SiteModel" gammaCategoryCount="4" shape="@gammaShape.s:penguins_morph2">
                     <parameter id="mutationRate.s:penguins_morph4" estimate="false" name="mutationRate">1.0</parameter>
                     <substModel id="LewisMK.s:penguins_morph4" spec="LewisMK" datatype="@morphDataType.penguins_morph4"/>
                 </siteModel>
@@ -491,7 +505,8 @@ data="@penguins_morph"
 filter="13,16,41,66">
                     <userDataType id="morphDataType.penguins_morph5" spec="beast.evolution.datatype.StandardData" ambiguities="01 12" nrOfStates="5"/>
                 </data>
-                <siteModel id="morphSiteModel.s:penguins_morph5" spec="SiteModel">
+                <!-- 4 gamma categories, gammaShape.s:penguins_morph2 is added and gammaShape.s:penguins_morph5 removed-->
+                <siteModel id="morphSiteModel.s:penguins_morph5" spec="SiteModel" gammaCategoryCount="4" shape="@gammaShape.s:penguins_morph2">
                     <parameter id="mutationRate.s:penguins_morph5" estimate="false" name="mutationRate">1.0</parameter>
                     <substModel id="LewisMK.s:penguins_morph5" spec="LewisMK" datatype="@morphDataType.penguins_morph5"/>
                 </siteModel>
@@ -504,7 +519,8 @@ data="@penguins_morph"
 filter="11,21,124,173">
                     <userDataType id="morphDataType.penguins_morph6" spec="beast.evolution.datatype.StandardData" ambiguities="01 12" nrOfStates="6"/>
                 </data>
-                <siteModel id="morphSiteModel.s:penguins_morph6" spec="SiteModel">
+                <!-- 4 gamma categories, gammaShape.s:penguins_morph2 is added and gammaShape.s:penguins_morph6 removed-->
+                <siteModel id="morphSiteModel.s:penguins_morph6" spec="SiteModel" gammaCategoryCount="4" shape="@gammaShape.s:penguins_morph2">
                     <parameter id="mutationRate.s:penguins_morph6" estimate="false" name="mutationRate">1.0</parameter>
                     <substModel id="LewisMK.s:penguins_morph6" spec="LewisMK" datatype="@morphDataType.penguins_morph6"/>
                 </siteModel>
@@ -517,7 +533,8 @@ data="@penguins_morph"
 filter="9">
                     <userDataType id="morphDataType.penguins_morph7" spec="beast.evolution.datatype.StandardData" ambiguities="01 12" nrOfStates="7"/>
                 </data>
-                <siteModel id="morphSiteModel.s:penguins_morph7" spec="SiteModel">
+                <!-- 4 gamma categories, gammaShape.s:penguins_morph2 is added and gammaShape.s:penguins_morph7 removed-->
+                <siteModel id="morphSiteModel.s:penguins_morph7" spec="SiteModel" gammaCategoryCount="4" shape="@gammaShape.s:penguins_morph2">
                     <parameter id="mutationRate.s:penguins_morph7" estimate="false" name="mutationRate">1.0</parameter>
                     <substModel id="LewisMK.s:penguins_morph7" spec="LewisMK" datatype="@morphDataType.penguins_morph7"/>
                 </siteModel>
@@ -534,14 +551,18 @@ filter="9">
                 </siteModel>
                 <branchRateModel id="RelaxedClock.c:penguins_dna" spec="beast.evolution.branchratemodel.UCRelaxedClockModel" clock.rate="@ucldMean.c:penguins_dna" rateCategories="@rateCategories.c:penguins_dna" tree="@Tree.t:tree">
                     <LogNormal id="LogNormalDistributionModel.c:penguins_dna" S="@ucldStdev.c:penguins_dna" meanInRealSpace="true" name="distr">
-                        <parameter id="RealParameter.017" estimate="false" lower="0.0" name="M" upper="1.0">1.0</parameter>
+                        <parameter id="RealParameter.021" estimate="false" lower="0.0" name="M" upper="1.0">1.0</parameter>
                     </LogNormal>
                 </branchRateModel>
             </distribution>
         </distribution>
     </distribution>
 
-    <operator id="FrequenciesExchanger.s:penguins_dna" spec="DeltaExchangeOperator" delta="0.01" weight="1.0">
+    <operator id="gammaShapeScaler.s:penguins_morph2" spec="ScaleOperator" parameter="@gammaShape.s:penguins_morph2" scaleFactor="0.5" weight="0.1"/>
+
+    <operator id="gammaShapeScaler.s:penguins_dna" spec="ScaleOperator" parameter="@gammaShape.s:penguins_dna" scaleFactor="0.5" weight="0.1"/>
+
+    <operator id="FrequenciesExchanger.s:penguins_dna" spec="DeltaExchangeOperator" delta="0.01" weight="0.1">
         <parameter idref="freqParameter.s:penguins_dna"/>
     </operator>
 
@@ -555,8 +576,6 @@ filter="9">
 
     <operator id="RateGTScaler.s:penguins_dna" spec="ScaleOperator" parameter="@rateGT.s:penguins_dna" scaleFactor="0.5" weight="0.1"/>
 
-    <operator id="gammaShapeScaler.s:penguins_dna" spec="ScaleOperator" parameter="@gammaShape.s:penguins_dna" scaleFactor="0.5" weight="1.0"/>
-
     <operator id="ucldMeanScaler.c:penguins_morph" spec="ScaleOperator" parameter="@ucldMean.c:penguins_morph" scaleFactor="0.5" weight="1.0"/>
 
     <operator id="ucldStdevScaler.c:penguins_morph" spec="ScaleOperator" parameter="@ucldStdev.c:penguins_morph" scaleFactor="0.5" weight="3.0"/>
@@ -567,8 +586,10 @@ filter="9">
 
     <operator id="CategoriesUniform.c:penguins_morph" spec="UniformOperator" parameter="@rateCategories.c:penguins_morph" weight="10.0"/>
 
-    <operator id="relaxedUpDownOperator.c:penguins_morph" spec="UpDownOperator" scaleFactor="0.75" weight="3.0">
+    <!-- relaxedUpDownOperator.c:penguins_morph and relaxedUpDownOperator.c:penguins_dna are merged to relaxedUpDownOperator.c:penguins --> 
+    <operator id="relaxedUpDownOperator.c:penguins" spec="UpDownOperator" scaleFactor="0.75" weight="3.0">
         <up idref="ucldMean.c:penguins_morph"/>
+        <up idref="ucldMean.c:penguins_dna"/>
         <down idref="Tree.t:tree"/>
     </operator>
 
@@ -581,11 +602,6 @@ filter="9">
     <operator id="CategoriesSwapOperator.c:penguins_dna" spec="SwapOperator" intparameter="@rateCategories.c:penguins_dna" weight="10.0"/>
 
     <operator id="CategoriesUniform.c:penguins_dna" spec="UniformOperator" parameter="@rateCategories.c:penguins_dna" weight="10.0"/>
-
-    <operator id="relaxedUpDownOperator.c:penguins_dna" spec="UpDownOperator" scaleFactor="0.75" weight="3.0">
-        <up idref="ucldMean.c:penguins_dna"/>
-        <down idref="Tree.t:tree"/>
-    </operator>
 
     <operator id="originScalerFBD.t:tree" spec="ScaleOperator" parameter="@originFBD.t:tree" scaleFactor="0.75" weight="3.0"/>
 
@@ -616,20 +632,21 @@ filter="9">
         <log idref="likelihood"/>
         <log idref="prior"/>
         <log id="TreeHeight.t:tree" spec="beast.evolution.tree.TreeHeightLogger" tree="@Tree.t:tree"/>
-        <log idref="morphTreeLikelihood.penguins_morph5"/>
-        <log idref="morphTreeLikelihood.penguins_morph7"/>
-        <log idref="morphTreeLikelihood.penguins_morph2"/>
-        <log idref="morphTreeLikelihood.penguins_morph4"/>
-        <log idref="morphTreeLikelihood.penguins_morph6"/>
         <log idref="morphTreeLikelihood.penguins_morph3"/>
+        <log idref="morphTreeLikelihood.penguins_morph2"/>
+        <log idref="morphTreeLikelihood.penguins_morph7"/>
+        <log idref="morphTreeLikelihood.penguins_morph5"/>
+        <log idref="morphTreeLikelihood.penguins_morph6"/>
+        <log idref="morphTreeLikelihood.penguins_morph4"/>
         <log idref="treeLikelihood.penguins_dna"/>
+        <log idref="gammaShape.s:penguins_morph2"/>
+        <log idref="gammaShape.s:penguins_dna"/>
         <log idref="freqParameter.s:penguins_dna"/>
         <log idref="rateAC.s:penguins_dna"/>
         <log idref="rateAG.s:penguins_dna"/>
         <log idref="rateAT.s:penguins_dna"/>
         <log idref="rateCG.s:penguins_dna"/>
         <log idref="rateGT.s:penguins_dna"/>
-        <log idref="gammaShape.s:penguins_dna"/>
         <log idref="ucldMean.c:penguins_morph"/>
         <log idref="ucldStdev.c:penguins_morph"/>
         <log id="rate.c:penguins_morph" spec="beast.evolution.branchratemodel.RateStatistic" branchratemodel="@RelaxedClock.c:penguins_morph" tree="@Tree.t:tree"/>
@@ -652,7 +669,7 @@ filter="9">
         <log idref="prior"/>
     </logger>
 
-    <logger id="treelog.t:tree" fileName="penguins.trees" logEvery="1000" mode="tree">
+    <logger id="treelog.t:tree" fileName="penguins.trees" logEvery="10000" mode="tree">
         <log id="TreeWithMetaDataLogger.t:tree" spec="beast.evolution.tree.TreeWithMetaDataLogger" branchratemodel="@RelaxedClock.c:penguins_morph" tree="@Tree.t:tree"/>
     </logger>
 

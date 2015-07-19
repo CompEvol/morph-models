@@ -588,7 +588,8 @@ filter="9,246-252">
 
     <operator id="CategoriesUniform.c:penguins_morph" spec="UniformOperator" parameter="@rateCategories.c:penguins_morph" weight="10.0"/>
 
-    <operator id="relaxedUpDownOperator.c:penguins_morph" spec="UpDownOperator" scaleFactor="0.75" weight="3.0">
+    <!-- Merged relaxedUpDownOperator operators --> 
+    <operator id="relaxedUpDownOperator.c:penguins" spec="UpDownOperator" scaleFactor="0.75" weight="3.0">
         <up idref="ucldMean.c:penguins_morph"/>
         <up idref="ucldMean.c:penguins_dna"/>
         <down idref="Tree.t:tree"/>
