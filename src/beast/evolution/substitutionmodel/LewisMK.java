@@ -66,7 +66,7 @@ public class LewisMK extends SubstitutionModel.Base  {
     }
 
     @Override
-    public void initAndValidate() throws Exception {
+    public void initAndValidate() {
     	if (nrOfStatesInput.get() != null) {
     		nrOfStates = nrOfStatesInput.get();
     	} else {
