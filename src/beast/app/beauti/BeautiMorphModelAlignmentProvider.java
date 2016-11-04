@@ -328,7 +328,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 	}
 
 	@Override
-	int matches(Alignment alignment) {
+	protected int matches(Alignment alignment) {
 		if (alignment.userDataTypeInput.get() != null && alignment.userDataTypeInput.get() instanceof StandardData) {
 			return 20;
 		}
