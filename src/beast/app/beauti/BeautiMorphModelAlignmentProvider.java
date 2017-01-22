@@ -39,31 +39,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 			// split alignments into filtered alignments -- one for each state
 			// space size
 			List<BEASTInterface> alignments = getAlignments(doc, files);
-            int partitions = 0; //JOptionPane.showConfirmDialog(null, "Would you like to partition the data matrix with respect to the number of character states \n " +
-                    //"to apply different substitution models for each partition?", "Data partition with respect to the number of states", 0);
-			List<BEASTInterface> filteredAlignments = new ArrayList<BEASTInterface>();
-            int condition = JOptionPane.showConfirmDialog(null, "Would you like to condition on recording variable characters only (Mkv)?", "Conditioning on variable characters", 0);
-            if (partitions == 0) {
-                try {
-                    for (BEASTInterface o : alignments) {
-                        if (o instanceof Alignment) {
-                            if (condition == 0) {
-                                processAlignment((Alignment) o, filteredAlignments, true, doc);
-                            }  else {
-                                processAlignment((Alignment) o, filteredAlignments, false, doc);
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, "Something went wrong converting the alignment: " + e.getMessage());
-                    e.printStackTrace();
-                    return null;
-                }
-
-                return filteredAlignments;
-            }  else {
-                //TODO figure out what to return  implement not partitioning alignmnet 1) ascertainment
-            }
+            return alignments;
 
 		}
 		return null;
@@ -71,6 +47,10 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 
 	@Override
 	public List<BEASTInterface> getAlignments(BeautiDoc doc, File[] files) {
+		if (files == null) {
+			   // merge "+ button" and "drag drop" function
+			   return getAlignments(doc);
+		}
 		List<BEASTInterface> selectedPlugins = new ArrayList<BEASTInterface>();
 		for (File file : files) {
 			String fileName = file.getName();
@@ -122,6 +102,32 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 					return null;
 				}
 			}
+		}
+		int partitions = 0; //JOptionPane.showConfirmDialog(null, "Would you like to partition the data matrix with respect to the number of character states \n " +
+        //"to apply different substitution models for each partition?", "Data partition with respect to the number of states", 0);
+
+		List<BEASTInterface> filteredAlignments = new ArrayList<BEASTInterface>();
+		int condition = JOptionPane.showConfirmDialog(null, "Would you like to condition on recording variable characters only (Mkv)?", "Conditioning on variable characters", 0);
+		if (partitions == 0) {
+		    try {
+		        for (BEASTInterface o : selectedPlugins) {
+		            if (o instanceof Alignment) {
+		                if (condition == 0) {
+		                    processAlignment((Alignment) o, filteredAlignments, true, doc);
+		                }  else {
+		                    processAlignment((Alignment) o, filteredAlignments, false, doc);
+		                }
+		            }
+		        }
+		    } catch (Exception e) {
+		        JOptionPane.showMessageDialog(null, "Something went wrong converting the alignment: " + e.getMessage());
+		        e.printStackTrace();
+		        return null;
+		    }
+		
+		    return filteredAlignments;
+		}  else {
+		    //TODO figure out what to return  implement not partitioning alignmnet 1) ascertainment
 		}
 		return selectedPlugins;
 	}
