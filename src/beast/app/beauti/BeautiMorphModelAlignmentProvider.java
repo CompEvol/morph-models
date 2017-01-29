@@ -270,7 +270,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 					codeMap.append(" " + i);
 				}
 				UserDataType userDataType = new UserDataType();
-				userDataType.initByName("states", nrOfStates, "codelength", 1, "codeMap", codeMap);
+				userDataType.initByName("states", nrOfStates, "codelength", 1, "codeMap", codeMap.toString());
 				dataType = userDataType;
 			}
 
