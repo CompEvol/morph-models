@@ -105,7 +105,7 @@ public class LewisMK extends SubstitutionModel.Base  {
                 matrix[r + i] += e1;
             }
         } else {
-            double fDelta = (nrOfStates / (nrOfStates - 1)) * (fStartTime - fEndTime);
+            double fDelta = (nrOfStates / (nrOfStates - 1.0)) * (fStartTime - fEndTime);
             double fPStay = (1.0 + (nrOfStates - 1) * Math.exp(-fDelta * fRate)) / nrOfStates;
             double fPMove = (1.0 - Math.exp(-fDelta * fRate)) / nrOfStates;
             // fill the matrix with move probabilities
