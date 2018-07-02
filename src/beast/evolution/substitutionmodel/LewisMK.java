@@ -139,4 +139,10 @@ public class LewisMK extends SubstitutionModel.Base  {
         updateFreqs = true;
         return true;
     }
+
+    @Override
+    protected void restore() {
+        updateFreqs = true;
+        super.restore();
+    }
 }
