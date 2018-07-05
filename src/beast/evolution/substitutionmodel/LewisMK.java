@@ -16,7 +16,10 @@ import java.util.Arrays;
  * @author Joseph Heled
  */
 @Description("LewisMK subtitution model: equal rates, equal frequencies")
-@Citation("Lewis, Paul O. A likelihood approach to estimating phylogeny from discrete morphological character data. Systematic biology 50.6 (2001): 913-925.")
+@Citation(value = "Lewis, P. O. (2001). \n" +
+        "A likelihood approach to estimating phylogeny from discrete morphological character data. \n" +
+        "Systematic biology, 50(6), 913-925.",
+        year = 2001, firstAuthorSurname = "Lewis", DOI="10.1080/106351501753462876")
 public class LewisMK extends SubstitutionModel.Base  {
 
     public Input<Integer> nrOfStatesInput = new Input<Integer>("stateNumber", "the number of character states");
