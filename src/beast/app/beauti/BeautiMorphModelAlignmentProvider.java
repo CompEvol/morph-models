@@ -23,7 +23,7 @@ import beast.util.NexusParser;
 public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 
 	@Override
-	protected List<BEASTInterface> getAlignments(BeautiDoc doc) {
+	public List<BEASTInterface> getAlignments(BeautiDoc doc) {
 		JFileChooser fileChooser = new JFileChooser(Beauti.g_sDir);
 		String[] exts = { ".nex", ".nxs", ".nexus" };
 		fileChooser.addChoosableFileFilter(new ExtensionFileFilter(exts, "Nexus file (*.nex)"));
