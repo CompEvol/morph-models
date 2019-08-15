@@ -75,6 +75,14 @@ public class LewisMK extends SubstitutionModel.Base  {
     	} else {
     		nrOfStates = dataTypeInput.get().getStateCount();
     	}
+    	
+    	if (nrOfStates <= 1) {    		
+    		// this goes here so that nrOfStates/(nrOfStates-1) in getTransitionProbabilities()    		
+    		// does not throw a division by zero exception
+    		throw new IllegalArgumentException("The number of states should be at least 2 but is" + nrOfStates + ".\n"
+    				+ "This may be due to a site in the alignment having only 1 state, which can be fixed by "
+    				+ "removing the site from the alignment.");
+    	}
 
 //        double[] eval = new double[]{0.0, -1.3333333333333333, -1.3333333333333333, -1.3333333333333333};
 //        double[] evec = new double[]{1.0, 2.0, 0.0, 0.5, 1.0, -2.0, 0.5, 0.0, 1.0, 2.0, 0.0, -0.5, 1.0, -2.0, -0.5, 0.0};
