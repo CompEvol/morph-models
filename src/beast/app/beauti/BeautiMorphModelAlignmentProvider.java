@@ -11,7 +11,6 @@ import javax.swing.JOptionPane;
 import beast.app.draw.ExtensionFileFilter;
 import beast.core.BEASTInterface;
 import beast.evolution.alignment.Alignment;
-import beast.evolution.alignment.AscertainedForParsimonyUninformativeFilteredAlignment;
 import beast.evolution.alignment.FilteredAlignment;
 import beast.evolution.alignment.Sequence;
 import beast.evolution.datatype.DataType;
@@ -23,7 +22,7 @@ import beast.util.NexusParser;
 public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 
 	@Override
-	protected List<BEASTInterface> getAlignments(BeautiDoc doc) {
+	public List<BEASTInterface> getAlignments(BeautiDoc doc) {
 		JFileChooser fileChooser = new JFileChooser(Beauti.g_sDir);
 		String[] exts = { ".nex", ".nxs", ".nexus" };
 		fileChooser.addChoosableFileFilter(new ExtensionFileFilter(exts, "Nexus file (*.nex)"));
@@ -106,7 +105,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 		int partitions = 0; //JOptionPane.showConfirmDialog(null, "Would you like to partition the data matrix with respect to the number of character states \n " +
         //"to apply different substitution models for each partition?", "Data partition with respect to the number of states", 0);
 
-		List<BEASTInterface> filteredAlignments = new ArrayList<BEASTInterface>();
+		List<BEASTInterface> filteredAlignments = new ArrayList<>();
 		int condition = JOptionPane.showConfirmDialog(null, "Would you like to condition on recording variable characters only (Mkv)?", "Conditioning on variable characters", 0);
 		if (partitions == 0) {
 		    try {
@@ -144,7 +143,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 
 		// distinguish between StandardData and others
 		if (alignment.getDataType() instanceof StandardData) {
-			// determine state space size by interogating StandardData data-type
+			// determine state space size by interrogating StandardData data-type
 			StandardData dataType = (StandardData) alignment.getDataType();
 			for (int i = 0; i < alignment.getSiteCount(); i++) {
 				int nrOfStates = 0;
@@ -167,7 +166,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 					nrOfStates = nrOfStatesPresented;
 				}
 				if (!stateSpaceMap.containsKey(nrOfStates)) {
-					stateSpaceMap.put(nrOfStates, new ArrayList<Integer>());
+					stateSpaceMap.put(nrOfStates, new ArrayList<>());
                     maxNrOfStates = Math.max(maxNrOfStates, nrOfStates);
 				}
 				stateSpaceMap.get(nrOfStates).add(i);
@@ -252,7 +251,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 			// create data type
 			DataType.Base dataType;
 			if (alignment.getDataType() instanceof StandardData) {
-				// determine state space size by interogating StandardData
+				// determine state space size by interrogating StandardData
 				// data-type
 				StandardData base = (StandardData) alignment.getDataType();
 				dataType = new StandardData();
