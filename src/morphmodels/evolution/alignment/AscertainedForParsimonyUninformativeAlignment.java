@@ -1,6 +1,7 @@
-package beast.evolution.alignment;
+package morphmodels.evolution.alignment;
 
-import beast.core.Input;
+import beast.base.core.Input;
+import beast.base.evolution.alignment.Alignment;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -19,6 +20,7 @@ public class AscertainedForParsimonyUninformativeAlignment extends Alignment {
                                                 // from the others
 
     @Override
+	protected
     void setupAscertainment() {
         isAscertained = isAscertainedInput.get();
 

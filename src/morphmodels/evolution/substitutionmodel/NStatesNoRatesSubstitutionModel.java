@@ -1,8 +1,9 @@
-package beast.evolution.substitutionmodel;
+package morphmodels.evolution.substitutionmodel;
 
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.Input.Validate;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.core.Input.Validate;
+import beast.base.evolution.substitutionmodel.*;
 
 /**
  * @author Luke Maurits

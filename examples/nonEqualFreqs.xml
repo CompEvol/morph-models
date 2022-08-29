@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<beast beautitemplate='Standard' beautistatus='' namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood:beast.util" version="2.0">
+<beast beautitemplate='Standard' beautistatus='' namespace="beast.pkgmgmt:beast.base.core:beast.base.inference:beast.base.evolution.alignment:beast.base.evolution.tree.coalescent:beast.base.util:beast.base.math:beast.evolution.nuc:beast.base.evolution.operator:beast.base.inference.operator:beast.base.evolution.sitemodel:beast.base.evolution.substitutionmodel:beast.base.evolution.likelihood:beast.base.util:beast.base.math" version="2.0">
 
 
-<map name="prior">beast.math.distributions.Prior</map>
+<map name="prior">beast.base.inference.distribution.Prior</map>
 
-<map name="taxonset">beast.evolution.alignment.TaxonSet</map>
-<map name="taxon">beast.evolution.alignment.Taxon</map>
+<map name="taxonset">beast.base.evolution.alignment.TaxonSet</map>
+<map name="taxon">beast.base.evolution.alignment.Taxon</map>
 
 <taxonset id="taxa">
   <taxon id="A"/>
@@ -15,11 +15,11 @@
 </taxonset>
 
 <data id="usertype.al" spec="AlignmentFromTrait">
-  <traitSet id="traitSet" spec="beast.evolution.tree.TraitSet" taxa="@taxa" traitname="discrete">
+  <traitSet id="traitSet" spec="beast.base.evolution.tree.TraitSet" taxa="@taxa" traitname="discrete">
     A=1,B=2,C=3,D=1
   </traitSet>
   <userDataType codeMap="1=0,2=1,3=2,?=0 1 2" codelength="-1" id="usertype"
-		spec="beast.evolution.datatype.UserDataType" states="3"/>
+		spec="beast.base.evolution.datatype.UserDataType" states="3"/>
 </data>
 
 <tree id="tsttree" name="stateNode">
@@ -28,7 +28,7 @@
   </taxonset>
 </tree>
 
-<init estimate="false" id="RandomTree.t:tst" initial="@tsttree" spec="beast.evolution.tree.RandomTree" taxa="@tst">
+<init estimate="false" id="RandomTree.t:tst" initial="@tsttree" spec="beast.base.evolution.tree.coalescent.RandomTree" taxa="@tst">
   <populationModel id="cpop" spec="ConstantPopulation">
     <parameter id="pop" name="popSize">1.0</parameter>
   </populationModel>
@@ -42,8 +42,8 @@
     <parameter id="frequencies" name="stateNode" spec="parameter.RealParameter" dimension="3" value=".3 .1 .6"/>
   </state>
   
-  <distribution id="posterior" spec="util.CompoundDistribution">
-    <distribution id="likelihood" spec="util.CompoundDistribution">
+  <distribution id="posterior" spec="beast.base.inference.CompoundDistribution">
+    <distribution id="likelihood" spec="beast.base.inference.CompoundDistribution">
 
       <distribution data="@usertype.al" id="treeLikelihood" spec="TreeLikelihood" tree="@tsttree">
         <siteModel id="SiteModel.s:tst" spec="SiteModel">
@@ -59,7 +59,7 @@
 	    
         </siteModel>
 	
-        <branchRateModel id="StrictClock" spec="beast.evolution.branchratemodel.StrictClockModel">
+        <branchRateModel id="StrictClock" spec="beast.base.evolution.branchratemodel.StrictClockModel">
           <parameter estimate="false" id="clockRate.c:tst" name="clock.rate">1.0</parameter>
         </branchRateModel>
       </distribution>
@@ -92,7 +92,7 @@
 	  sanitiseHeaders="true" sort="smart">
     <log idref="treeLikelihood"/>
     <log idref="treeLikelihood1"/>
-    <log id="TreeHeight.t:tst" spec="beast.evolution.tree.TreeHeightLogger" tree="@tsttree"/>
+    <log id="TreeHeight.t:tst" spec="beast.base.evolution.tree.TreeHeightLogger" tree="@tsttree"/>
     <log id="ldiff" spec='beast.util.Script' argnames="x y" expression='abs(x - y)'>
       <x idref='treeLikelihood'/>
       <x idref='treeLikelihood1'/>

@@ -1,10 +1,10 @@
 <beast version='2.0'
-       namespace='beast.app.beauti:beast.core:beast.evolution.branchratemodel:beast.evolution.speciation:beast.evolution.Tree.t:coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood:beast.evolution:beast.math.distributions'>
+       namespace='beast.app.beauti:beast.pkgmgmt:beast.base.core:beast.base.inference:beast.base.evolution.branchratemodel:beast.base.evolution.speciation:beast.evolution.Tree.t:coalescent:beast.base.util:beast.base.math:beast.evolution.nuc:beast.base.evolution.operator:beast.base.inference.operator:beast.base.evolution.sitemodel:beast.base.evolution.substitutionmodel:beast.base.evolution.likelihood:beast.evolution:beast.base.math.distributions'>
 
 <mergewith point='aux-partitions-panels'>
 		<alignmentProvider id="Add Morphological Data" spec='BeautiMorphModelAlignmentProvider' template='@MKTrait'/>
 
-        <subtemplate id='MKTrait' class='beast.evolution.alignment.FilteredAlignment' mainid='$(n)'
+        <subtemplate id='MKTrait' class='beast.base.evolution.alignment.FilteredAlignment' mainid='$(n)'
         suppressInputs = 'beast.evolution.substitutionmodel.LewisMK.stateNumber,
 			beast.evolution.substitutionmodel.LewisMK.datatype,
 			beast.evolution.substitutionmodel.LewisMK.frequencies,
@@ -13,27 +13,27 @@
 >
 <![CDATA[
             <!-- tree and its properties -->
-            <taxonset id='TaxonSet.$(n)' spec='beast.evolution.alignment.TaxonSet' alignment='@$(n)' />
-            <plugin spec='beast.evolution.tree.Tree' id='Tree.t:$(n)' taxonset='@TaxonSet.$(n)'/>
+            <taxonset id='TaxonSet.$(n)' spec='beast.base.evolution.alignment.TaxonSet' alignment='@$(n)' />
+            <plugin spec='beast.base.evolution.tree.Tree' id='Tree.t:$(n)' taxonset='@TaxonSet.$(n)'/>
 
-            <!--plugin spec='beast.evolution.tree.RandomTree' id='RandomTree.t:$(n)' estimate='false' trait='@datetrait.$(n)' initial='@Tree.t:$(n)'-->
-            <plugin spec='beast.evolution.tree.RandomTree' id='RandomTree.t:$(n)' estimate='false' initial='@Tree.t:$(n)'>
+            <!--plugin spec='beast.base.evolution.tree.coalescent.RandomTree' id='RandomTree.t:$(n)' estimate='false' trait='@datetrait.$(n)' initial='@Tree.t:$(n)'-->
+            <plugin spec='beast.base.evolution.tree.coalescent.RandomTree' id='RandomTree.t:$(n)' estimate='false' initial='@Tree.t:$(n)'>
                 <taxa idref='data'/>
                 <populationModel id='ConstantPopulation0.t:$(n)' spec='ConstantPopulation'>
             		<popSize id='randomPopSize.t:$(n)' spec='parameter.RealParameter' value='1'/>
 	            </populationModel>
             </plugin>
 
-            <plugin id='TreeHeight.t:$(n)' spec='beast.evolution.tree.TreeHeightLogger' tree='@Tree.t:$(n)'/>
+            <plugin id='TreeHeight.t:$(n)' spec='beast.base.evolution.tree.TreeHeightLogger' tree='@Tree.t:$(n)'/>
 
-            <logger id='treelog.t:$(n)' spec='beast.core.Logger' logEvery="1000" fileName="$(tree).trees" mode='tree'>
-	            <log id='TreeWithMetaDataLogger.t:$(n)' spec='beast.evolution.tree.TreeWithMetaDataLogger' tree='@Tree.t:$(n)'>
+            <logger id='treelog.t:$(n)' spec='beast.base.inference.Logger' logEvery="1000" fileName="$(tree).trees" mode='tree'>
+	            <log id='TreeWithMetaDataLogger.t:$(n)' spec='beast.base.evolution.tree.TreeWithMetaDataLogger' tree='@Tree.t:$(n)'>
 	            </log>
             </logger>
 
 			<distribution id="morphTreeLikelihood.$(n)" spec='TreeLikelihood' tree='@Tree.t:$(n)'>
-				<data spec="beast.evolution.alignment.FilteredAlignment" id='$(n)' filter="0-end">
-					<userDataType spec='beast.evolution.datatype.StandardData' id='morphDataType.$(n)' />
+				<data spec="beast.base.evolution.alignment.FilteredAlignment" id='$(n)' filter="0-end">
+					<userDataType spec='beast.base.evolution.datatype.StandardData' id='morphDataType.$(n)' />
 				</data>
 				<siteModel spec='SiteModel' id="SiteModel.s:$(n)" gammaCategoryCount='0'>
 				        <mutationRate        spec='parameter.RealParameter' id='mutationRate.s:$(n)' value='1.0' estimate='true'/>
@@ -41,7 +41,7 @@
                     <!-- MK subst model -->
 					<substModel spec="LewisMK" id="LewisMK.s:$(n)" datatype='@morphDataType.$(n)'/>
 				</siteModel>
-				<branchRateModel id="StrictClock.c:$(n)" spec="beast.evolution.branchratemodel.StrictClockModel">
+				<branchRateModel id="StrictClock.c:$(n)" spec="beast.base.evolution.branchratemodel.StrictClockModel">
 					<parameter id="clockRate.c:$(n)" name="clock.rate" value="1.0" estimate='false'/>
 				</branchRateModel>
 			</distribution>
@@ -52,16 +52,16 @@
             </plugin>
 
             <prior id='ClockPrior.c:$(n)' x='@clockRate.c:$(n)'>
-                <distr spec="beast.math.distributions.Uniform" upper='Infinity'/>
+                <distr spec="beast.base.inference.distribution.Uniform" upper='Infinity'/>
                 </prior>
             <prior id='MutationRatePrior.s:$(n)' x='@mutationRate.s:$(n)'>
                 <distr spec="OneOnX"/>
             </prior>
             <prior id='YuleBirthRatePrior.t:$(n)' x='@birthRate.t:$(n)'>
-                <distr spec="beast.math.distributions.Uniform" lower='0' upper='Infinity'/>
+                <distr spec="beast.base.inference.distribution.Uniform" lower='0' upper='Infinity'/>
             </prior>
             <prior id='GammaShapePrior.s:$(n)' x='@gammaShape.s:$(n)'>
-                <distr spec="beast.math.distributions.Exponential" mean='1'/>
+                <distr spec="beast.base.inference.distribution.Exponential" mean='1'/>
             </prior>
 
             <operator id='mutationRateScaler.s:$(n)' spec='ScaleOperator' scaleFactor="0.5" weight="0.1" parameter="@mutationRate.s:$(n)"/>
@@ -89,7 +89,7 @@
 ]]>
             <connect srcID='morphTreeLikelihood.$(n)'         targetID='likelihood' inputName='distribution' if="isInitializing"/>
             <connect srcID='YuleModel.t:$(n)'               targetID='prior' inputName='distribution' if="isInitializing"/>
-            <connect method="beast.app.beauti.SiteModelInputEditor.customConnector"/>
+            <connect method="beastfx.app.inputeditor.SiteModelInputEditor.customConnector"/>
 
             <connect srcID='treelog.t:$(n)'                 targetID='mcmc' inputName='logger' if='inposterior(Tree.t:$(n)) and Tree.t:$(n)/estimate=true'/>
             <connect srcID='RandomTree.t:$(n)'                targetID='mcmc' inputName='init'   if='inposterior(Tree.t:$(n))'/>

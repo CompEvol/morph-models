@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><beast beautitemplate='Standard' beautistatus='' namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" version="2.0">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><beast beautitemplate='Standard' beautistatus='' namespace="beast.pkgmgmt:beast.base.core:beast.base.inference:beast.base.evolution.alignment:beast.base.evolution.tree.coalescent:beast.base.util:beast.base.math:beast.evolution.nuc:beast.base.evolution.operator:beast.base.inference.operator:beast.base.evolution.sitemodel:beast.base.evolution.substitutionmodel:beast.base.evolution.likelihood" version="2.0">
 
 
     <data
@@ -59,23 +59,23 @@ id="M3982">
                         <sequence id="seq_Diplolaemus_darwinii" taxon="Diplolaemus_darwinii" totalcount="2" value="000000013020501?"/>
                         <sequence id="seq_Phenacosaurus_nicefori" taxon="Phenacosaurus_nicefori" totalcount="2" value="000?01114{23}?11100"/>
                         <sequence id="seq_Polychrus_acutirostris" taxon="Polychrus_acutirostris" totalcount="2" value="1000000101?1?100"/>
-                        <userDataType ambiguities="34 56 12 45 23 0123" id="StandardData.0" nrOfStates="10" spec="beast.evolution.datatype.StandardData">
-                            <charstatelabels characterName="  1  'Postfrontal bone (this study)' " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.0" spec="beast.evolution.datatype.UserDataType" states="2" value="present., absent."/>
-                            <charstatelabels characterName="  2  Parietal_foramen " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.01" spec="beast.evolution.datatype.UserDataType" states="2" value="at_fronto_parietal_suture., entirely_within_parietal."/>
-                            <charstatelabels characterName="  3  'Parietal roof and crests, ordered linear. (These states refer to ontogenetic end' " codeMap="0=0, 1=1, 2=2, ? =0 1 2 " id="UserDataType.02" spec="beast.evolution.datatype.UserDataType" states="3" value="'crests U-shaped (not meeting posteriorly), roof trapezoidal.', 'crests V-shaped (meeting posteriorly at occipital crest but not', 'crests Y-shaped (meeting posteriorly and forming midsagittal cr'"/>
-                            <charstatelabels characterName="  4  'Parietal posterior margin, unordered. (Related to character 3 but treated separa' " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.03" spec="beast.evolution.datatype.UserDataType" states="2" value="notched_posteriorly_and_not_extending_over_occipital_region_as, 'not notched posteriorly with a half-funnel-shaped portion exten'"/>
-                            <charstatelabels characterName="  5  'Dentary sculpturing, unordered' " codeMap="0=0, 1=1, 2=2, 3=3, 4=4, ? =0 1 2 3 4 " id="UserDataType.04" spec="beast.evolution.datatype.UserDataType" states="5" value="absent., 'present as irregular horizontal excavations (cristatellus type)', 'present as a single, forward-directed, semilunar excavation (cy', 'present as a series of 7-10 semilunar excavations (krugi type)', 'present as irregular rugosities on posterolateral surface (Cham'"/>
-                            <charstatelabels characterName="  6  'Splenial bone, ordered by step matrix A1' " codeMap="0=0, 1=1, 2=2, 3=3, 4=4, ? =0 1 2 3 4 " id="UserDataType.05" spec="beast.evolution.datatype.UserDataType" states="5" value="'large and broad, includes anterior mylohyoid foramen and anteri', 'small and narrow, extends from posterior border of single myloh', 'very small and narrow, restricted to lingual surface of mandibl', 'very small and narrow, restricted to ventral surface of mandibl', 'absent (e.g. A. sagrei).'"/>
-                            <charstatelabels characterName="  7  Angular_bone " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.06" spec="beast.evolution.datatype.UserDataType" states="2" value="present., absent."/>
-                            <charstatelabels characterName="  8  Palatine_teeth " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.07" spec="beast.evolution.datatype.UserDataType" states="2" value="present., absent."/>
-                            <charstatelabels characterName="  9  'Modal number of presacral vertebrae, ordered linear' " codeMap="0=0, 1=1, 2=2, 3=3, 4=4, 5=5, ? =0 1 2 3 4 5 " id="UserDataType.08" spec="beast.evolution.datatype.UserDataType" states="6" value="27., 26., 25., 24., 23., 22."/>
-                            <charstatelabels characterName="  10  'Modal number of lumbar vertebrae, ordered linear' " codeMap="0=0, 1=1, 2=2, 3=3, 4=4, 5=5, 6=6, ? =0 1 2 3 4 5 6 " id="UserDataType.09" spec="beast.evolution.datatype.UserDataType" states="7" value="0., l., 2., 3., 4., 5., 6."/>
-                            <charstatelabels characterName="  11  'Modal number of caudal vertebrae anterior to first autotomic vertebra, ordered l' " codeMap="0=0, 1=1, 2=2, 3=3, 4=4, 5=5, 6=6, ? =0 1 2 3 4 5 6 " id="UserDataType.010" spec="beast.evolution.datatype.UserDataType" states="7" value="11., 10., 9., 8., 7., 6., 5."/>
-                            <charstatelabels characterName="  12  Caudal_autotomy_septa " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.011" spec="beast.evolution.datatype.UserDataType" states="2" value="present., absent."/>
-                            <charstatelabels characterName="  13  'Postxiphisternal inscriptional rib formula, modal condition is given (attached c' " codeMap="0=0, 1=1, 2=2, 3=3, 4=4, 5=5, 6=6, 7=7, 8=8, 9=9, ? =0 1 2 3 4 5 6 7 8 9 " id="UserDataType.012" spec="beast.evolution.datatype.UserDataType" states="10" value="4_to_3., 5_to_1., 4_to_2., 5_to_0., 4_to_1., 3_to_2., 4_to_0., 3_to_1., 2_to_2., 1_to_3."/>
-                            <charstatelabels characterName="  14  'Caudal ribs, transverse processes, unordered' " codeMap="0=0, 1=1, 2=2, 3=3, ? =0 1 2 3 " id="UserDataType.013" spec="beast.evolution.datatype.UserDataType" states="4" value="present_on_caudal_vertebrae_extending_into_posterior_half_of_se, disappear_after_a_short_series_confined_to_caudal_vertebrae_on, present_on_caudal_vertebrae_extending_into_posterior_half_of_se, extend_into_posterior_half_of_caudal_series_with_the_processes"/>
-                            <charstatelabels characterName="  15  Interclavicle " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.014" spec="beast.evolution.datatype.UserDataType" states="2" value="lateral_processes_in_contact_with_clavicles_for_less_than_half, lateral_processes_in_contact_with_clavieles_for_more_than_half"/>
-                            <charstatelabels characterName="  16  'Parabasisphenoid (this study)' " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.015" spec="beast.evolution.datatype.UserDataType" states="2" value="basipterygoid_processes_lack_anteroventral_crests., basipterygoid_processes_with_anteroventral_crests_that_approach"/>
+                        <userDataType ambiguities="34 56 12 45 23 0123" id="StandardData.0" nrOfStates="10" spec="beast.base.evolution.datatype.StandardData">
+                            <charstatelabels characterName="  1  'Postfrontal bone (this study)' " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.0" spec="beast.base.evolution.datatype.UserDataType" states="2" value="present., absent."/>
+                            <charstatelabels characterName="  2  Parietal_foramen " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.01" spec="beast.base.evolution.datatype.UserDataType" states="2" value="at_fronto_parietal_suture., entirely_within_parietal."/>
+                            <charstatelabels characterName="  3  'Parietal roof and crests, ordered linear. (These states refer to ontogenetic end' " codeMap="0=0, 1=1, 2=2, ? =0 1 2 " id="UserDataType.02" spec="beast.base.evolution.datatype.UserDataType" states="3" value="'crests U-shaped (not meeting posteriorly), roof trapezoidal.', 'crests V-shaped (meeting posteriorly at occipital crest but not', 'crests Y-shaped (meeting posteriorly and forming midsagittal cr'"/>
+                            <charstatelabels characterName="  4  'Parietal posterior margin, unordered. (Related to character 3 but treated separa' " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.03" spec="beast.base.evolution.datatype.UserDataType" states="2" value="notched_posteriorly_and_not_extending_over_occipital_region_as, 'not notched posteriorly with a half-funnel-shaped portion exten'"/>
+                            <charstatelabels characterName="  5  'Dentary sculpturing, unordered' " codeMap="0=0, 1=1, 2=2, 3=3, 4=4, ? =0 1 2 3 4 " id="UserDataType.04" spec="beast.base.evolution.datatype.UserDataType" states="5" value="absent., 'present as irregular horizontal excavations (cristatellus type)', 'present as a single, forward-directed, semilunar excavation (cy', 'present as a series of 7-10 semilunar excavations (krugi type)', 'present as irregular rugosities on posterolateral surface (Cham'"/>
+                            <charstatelabels characterName="  6  'Splenial bone, ordered by step matrix A1' " codeMap="0=0, 1=1, 2=2, 3=3, 4=4, ? =0 1 2 3 4 " id="UserDataType.05" spec="beast.base.evolution.datatype.UserDataType" states="5" value="'large and broad, includes anterior mylohyoid foramen and anteri', 'small and narrow, extends from posterior border of single myloh', 'very small and narrow, restricted to lingual surface of mandibl', 'very small and narrow, restricted to ventral surface of mandibl', 'absent (e.g. A. sagrei).'"/>
+                            <charstatelabels characterName="  7  Angular_bone " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.06" spec="beast.base.evolution.datatype.UserDataType" states="2" value="present., absent."/>
+                            <charstatelabels characterName="  8  Palatine_teeth " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.07" spec="beast.base.evolution.datatype.UserDataType" states="2" value="present., absent."/>
+                            <charstatelabels characterName="  9  'Modal number of presacral vertebrae, ordered linear' " codeMap="0=0, 1=1, 2=2, 3=3, 4=4, 5=5, ? =0 1 2 3 4 5 " id="UserDataType.08" spec="beast.base.evolution.datatype.UserDataType" states="6" value="27., 26., 25., 24., 23., 22."/>
+                            <charstatelabels characterName="  10  'Modal number of lumbar vertebrae, ordered linear' " codeMap="0=0, 1=1, 2=2, 3=3, 4=4, 5=5, 6=6, ? =0 1 2 3 4 5 6 " id="UserDataType.09" spec="beast.base.evolution.datatype.UserDataType" states="7" value="0., l., 2., 3., 4., 5., 6."/>
+                            <charstatelabels characterName="  11  'Modal number of caudal vertebrae anterior to first autotomic vertebra, ordered l' " codeMap="0=0, 1=1, 2=2, 3=3, 4=4, 5=5, 6=6, ? =0 1 2 3 4 5 6 " id="UserDataType.010" spec="beast.base.evolution.datatype.UserDataType" states="7" value="11., 10., 9., 8., 7., 6., 5."/>
+                            <charstatelabels characterName="  12  Caudal_autotomy_septa " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.011" spec="beast.base.evolution.datatype.UserDataType" states="2" value="present., absent."/>
+                            <charstatelabels characterName="  13  'Postxiphisternal inscriptional rib formula, modal condition is given (attached c' " codeMap="0=0, 1=1, 2=2, 3=3, 4=4, 5=5, 6=6, 7=7, 8=8, 9=9, ? =0 1 2 3 4 5 6 7 8 9 " id="UserDataType.012" spec="beast.base.evolution.datatype.UserDataType" states="10" value="4_to_3., 5_to_1., 4_to_2., 5_to_0., 4_to_1., 3_to_2., 4_to_0., 3_to_1., 2_to_2., 1_to_3."/>
+                            <charstatelabels characterName="  14  'Caudal ribs, transverse processes, unordered' " codeMap="0=0, 1=1, 2=2, 3=3, ? =0 1 2 3 " id="UserDataType.013" spec="beast.base.evolution.datatype.UserDataType" states="4" value="present_on_caudal_vertebrae_extending_into_posterior_half_of_se, disappear_after_a_short_series_confined_to_caudal_vertebrae_on, present_on_caudal_vertebrae_extending_into_posterior_half_of_se, extend_into_posterior_half_of_caudal_series_with_the_processes"/>
+                            <charstatelabels characterName="  15  Interclavicle " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.014" spec="beast.base.evolution.datatype.UserDataType" states="2" value="lateral_processes_in_contact_with_clavicles_for_less_than_half, lateral_processes_in_contact_with_clavieles_for_more_than_half"/>
+                            <charstatelabels characterName="  16  'Parabasisphenoid (this study)' " codeMap="0=0, 1=1, ? =0 1 " id="UserDataType.015" spec="beast.base.evolution.datatype.UserDataType" states="2" value="basipterygoid_processes_lack_anteroventral_crests., basipterygoid_processes_with_anteroventral_crests_that_approach"/>
                         </userDataType>
                     </data>
 
@@ -87,16 +87,16 @@ id="M3982">
 
 
     
-<map name="Uniform">beast.math.distributions.Uniform</map>
-<map name="Exponential">beast.math.distributions.Exponential</map>
-<map name="LogNormal">beast.math.distributions.LogNormalDistributionModel</map>
-<map name="Normal">beast.math.distributions.Normal</map>
-<map name="Beta">beast.math.distributions.Beta</map>
-<map name="Gamma">beast.math.distributions.Gamma</map>
-<map name="LaplaceDistribution">beast.math.distributions.LaplaceDistribution</map>
-<map name="prior">beast.math.distributions.Prior</map>
-<map name="InverseGamma">beast.math.distributions.InverseGamma</map>
-<map name="OneOnX">beast.math.distributions.OneOnX</map>
+<map name="Uniform">beast.base.inference.distribution.Uniform</map>
+<map name="Exponential">beast.base.inference.distribution.Exponential</map>
+<map name="LogNormal">beast.base.inference.distribution.LogNormalDistributionModel</map>
+<map name="Normal">beast.base.inference.distribution.Normal</map>
+<map name="Beta">beast.base.inference.distribution.Beta</map>
+<map name="Gamma">beast.base.inference.distribution.Gamma</map>
+<map name="LaplaceDistribution">beast.base.inference.distribution.LaplaceDistribution</map>
+<map name="prior">beast.base.inference.distribution.Prior</map>
+<map name="InverseGamma">beast.base.inference.distribution.InverseGamma</map>
+<map name="OneOnX">beast.base.inference.distribution.OneOnX</map>
 
 
 <run chainLength="10000000" id="mcmc" spec="MCMC">
@@ -106,27 +106,27 @@ id="M3982">
                 <alignment filter="1,2,4,7,8,12,15,16" id="M39822" spec="FilteredAlignment">
                     <data
 idref="M3982"/>
-                    <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39822" nrOfStates="2" spec="beast.evolution.datatype.StandardData"/>
+                    <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39822" nrOfStates="2" spec="beast.base.evolution.datatype.StandardData"/>
                 </alignment>
             </taxonset>
         </tree>
         <parameter id="birthRate.t:M3982" name="stateNode">1.0</parameter>
     </state>
 
-    <init estimate="false" id="RandomTree.t:M3982" initial="@Tree.t:M3982" spec="beast.evolution.tree.RandomTree" taxa="@M39822">
+    <init estimate="false" id="RandomTree.t:M3982" initial="@Tree.t:M3982" spec="beast.base.evolution.tree.coalescent.RandomTree" taxa="@M39822">
         <populationModel id="ConstantPopulation0.t:M3982" spec="ConstantPopulation">
             <parameter id="randomPopSize.t:M3982" name="popSize">1.0</parameter>
         </populationModel>
     </init>
 
-    <distribution id="posterior" spec="util.CompoundDistribution">
-        <distribution id="prior" spec="util.CompoundDistribution">
-            <distribution birthDiffRate="@birthRate.t:M3982" id="YuleModel.t:M3982" spec="beast.evolution.speciation.YuleModel" tree="@Tree.t:M3982"/>
+    <distribution id="posterior" spec="beast.base.inference.CompoundDistribution">
+        <distribution id="prior" spec="beast.base.inference.CompoundDistribution">
+            <distribution birthDiffRate="@birthRate.t:M3982" id="YuleModel.t:M3982" spec="beast.base.evolution.speciation.YuleModel" tree="@Tree.t:M3982"/>
             <prior id="YuleBirthRatePrior.t:M3982" name="distribution" x="@birthRate.t:M3982">
                 <Uniform id="Uniform.0" name="distr" upper="Infinity"/>
             </prior>
         </distribution>
-        <distribution id="likelihood" spec="util.CompoundDistribution">
+        <distribution id="likelihood" spec="beast.base.inference.CompoundDistribution">
             <distribution data="@M39822" id="morphTreeLikelihood.M39822" spec="TreeLikelihood" tree="@Tree.t:M3982">
                 <siteModel gammaCategoryCount="1" id="morphSiteModel.s:M39822" spec="SiteModel">
                     <parameter estimate="false" id="mutationRate.s:M39822" name="mutationRate">1.0</parameter>
@@ -134,7 +134,7 @@ idref="M3982"/>
                     <parameter estimate="false" id="proportionInvariant.s:M39822" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
                     <substModel datatype="@morphDataType.M39822" id="LewisMK.s:M39822" spec="LewisMK"/>
                 </siteModel>
-                <branchRateModel id="StrictClockModel.c:M3982" spec="beast.evolution.branchratemodel.StrictClockModel">
+                <branchRateModel id="StrictClockModel.c:M3982" spec="beast.base.evolution.branchratemodel.StrictClockModel">
                     <parameter estimate="false" id="clockRate.c:M3982" name="clock.rate">1.0</parameter>
                 </branchRateModel>
             </distribution>
@@ -144,7 +144,7 @@ data="@M3982"
 filter="3"
 id="M39823"
 spec="FilteredAlignment">
-                    <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39823" nrOfStates="3" spec="beast.evolution.datatype.StandardData"/>
+                    <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39823" nrOfStates="3" spec="beast.base.evolution.datatype.StandardData"/>
                 </data>
                 <siteModel gammaCategoryCount="1" id="morphSiteModel.s:M39823" spec="SiteModel">
                     <parameter estimate="false" id="mutationRate.s:M39823" name="mutationRate">1.0</parameter>
@@ -159,7 +159,7 @@ data="@M3982"
 filter="14"
 id="M39824"
 spec="FilteredAlignment">
-                    <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39824" nrOfStates="4" spec="beast.evolution.datatype.StandardData"/>
+                    <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39824" nrOfStates="4" spec="beast.base.evolution.datatype.StandardData"/>
                 </data>
                 <siteModel gammaCategoryCount="1" id="morphSiteModel.s:M39824" spec="SiteModel">
                     <parameter estimate="false" id="mutationRate.s:M39824" name="mutationRate">1.0</parameter>
@@ -174,7 +174,7 @@ data="@M3982"
 filter="5,6"
 id="M39825"
 spec="FilteredAlignment">
-                    <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39825" nrOfStates="5" spec="beast.evolution.datatype.StandardData"/>
+                    <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39825" nrOfStates="5" spec="beast.base.evolution.datatype.StandardData"/>
                 </data>
                 <siteModel gammaCategoryCount="1" id="morphSiteModel.s:M39825" spec="SiteModel">
                     <parameter estimate="false" id="mutationRate.s:M39825" name="mutationRate">1.0</parameter>
@@ -189,7 +189,7 @@ data="@M3982"
 filter="9"
 id="M39826"
 spec="FilteredAlignment">
-                    <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39826" nrOfStates="6" spec="beast.evolution.datatype.StandardData"/>
+                    <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39826" nrOfStates="6" spec="beast.base.evolution.datatype.StandardData"/>
                 </data>
                 <siteModel gammaCategoryCount="1" id="morphSiteModel.s:M39826" spec="SiteModel">
                     <parameter estimate="false" id="mutationRate.s:M39826" name="mutationRate">1.0</parameter>
@@ -204,7 +204,7 @@ data="@M3982"
 filter="10,11"
 id="M39827"
 spec="FilteredAlignment">
-                    <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39827" nrOfStates="7" spec="beast.evolution.datatype.StandardData"/>
+                    <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39827" nrOfStates="7" spec="beast.base.evolution.datatype.StandardData"/>
                 </data>
                 <siteModel gammaCategoryCount="1" id="morphSiteModel.s:M39827" spec="SiteModel">
                     <parameter estimate="false" id="mutationRate.s:M39827" name="mutationRate">1.0</parameter>
@@ -219,7 +219,7 @@ data="@M3982"
 filter="13"
 id="M398210"
 spec="FilteredAlignment">
-                    <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M398210" nrOfStates="10" spec="beast.evolution.datatype.StandardData"/>
+                    <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M398210" nrOfStates="10" spec="beast.base.evolution.datatype.StandardData"/>
                 </data>
                 <siteModel gammaCategoryCount="1" id="morphSiteModel.s:M398210" spec="SiteModel">
                     <parameter estimate="false" id="mutationRate.s:M398210" name="mutationRate">1.0</parameter>

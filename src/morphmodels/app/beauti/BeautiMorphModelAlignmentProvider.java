@@ -1,6 +1,7 @@
-package beast.app.beauti;
+package morphmodels.app.beauti;
 
-import beast.core.Description;
+import beast.base.core.Description;
+import beast.base.core.ProgramStatus;
 
 import java.io.File;
 import java.util.*;
@@ -8,32 +9,30 @@ import java.util.*;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
-import beast.app.draw.ExtensionFileFilter;
-import beast.core.BEASTInterface;
-import beast.evolution.alignment.Alignment;
-import beast.evolution.alignment.FilteredAlignment;
-import beast.evolution.alignment.Sequence;
-import beast.evolution.datatype.DataType;
-import beast.evolution.datatype.StandardData;
-import beast.evolution.datatype.UserDataType;
-import beast.util.NexusParser;
+import beastfx.app.inputeditor.BeautiAlignmentProvider;
+import beastfx.app.inputeditor.BeautiDoc;
+import beastfx.app.util.ExtensionFileFilter;
+import beastfx.app.util.FXUtils;
+import beast.base.core.BEASTInterface;
+import beast.base.evolution.alignment.Alignment;
+import beast.base.evolution.alignment.FilteredAlignment;
+import beast.base.evolution.alignment.Sequence;
+import beast.base.evolution.datatype.DataType;
+import beast.base.evolution.datatype.StandardData;
+import beast.base.evolution.datatype.UserDataType;
+import beast.base.parser.NexusParser;
+import beast.base.parser.PartitionContext;
 
 @Description("Class for creating new partitions for morphological data to be edited by AlignmentListInputEditor")
 public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 
 	@Override
 	public List<BEASTInterface> getAlignments(BeautiDoc doc) {
-		JFileChooser fileChooser = new JFileChooser(Beauti.g_sDir);
 		String[] exts = { ".nex", ".nxs", ".nexus" };
-		fileChooser.addChoosableFileFilter(new ExtensionFileFilter(exts, "Nexus file (*.nex)"));
+		File [] files = FXUtils.getLoadFiles("Load Alignment File",
+                new File(ProgramStatus.g_sDir), "Alignment files", exts);
 
-		fileChooser.setDialogTitle("Load Sequence");
-		fileChooser.setMultiSelectionEnabled(true);
-		int rval = fileChooser.showOpenDialog(null);
-
-		if (rval == JFileChooser.APPROVE_OPTION) {
-
-			File[] files = fileChooser.getSelectedFiles();
+		if (files != null && files.length > 0) {
 
 			// split alignments into filtered alignments -- one for each state
 			// space size
@@ -54,7 +53,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 		for (File file : files) {
 			String fileName = file.getName();
 			// if (sFileName.lastIndexOf('/') > 0) {
-			// Beauti.g_sDir = sFileName.substring(0,
+			// ProgramStatus.g_sDir = sFileName.substring(0,
 			// sFileName.lastIndexOf('/'));
 			// }
 			if (fileName.toLowerCase().endsWith(".nex") || fileName.toLowerCase().endsWith(".nxs") || fileName.toLowerCase().endsWith(".nexus")) {
@@ -333,7 +332,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 	}
 
 	@Override
-	protected int matches(Alignment alignment) {
+	public int matches(Alignment alignment) {
 		if (alignment.userDataTypeInput.get() != null && alignment.userDataTypeInput.get() instanceof StandardData) {
 			return 20;
 		}
