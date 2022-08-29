@@ -1,3 +1,15 @@
-<package name='MM' version='1.1.0'>
-	<depends on='beast2' atleast='2.5.0'/>
+<package name='MM' version='1.2.0'>
+        <depends on='BEAST.base' atleast='2.7.0'/>
+        <depends on='BEAST.app' atleast='2.7.0'/>
+
+   <service type="beast.base.core.BEASTInterface">
+        <provider classname="morphmodels.app.beauti.BeautiMorphModelAlignmentProvider"/>
+        <provider classname="morphmodels.evolution.alignment.AscertainedForParsimonyUninformativeAlignment"/>
+        <provider classname="morphmodels.evolution.alignment.AscertainedForParsimonyUninformativeFilteredAlignment"/>
+        <provider classname="morphmodels.evolution.substitutionmodel.LewisMK"/>
+        <provider classname="morphmodels.evolution.substitutionmodel.NestedOrdinal"/>
+        <provider classname="morphmodels.evolution.substitutionmodel.NStatesNoRatesSubstitutionModel"/>
+        <provider classname="morphmodels.evolution.substitutionmodel.Ordinal"/>
+    </service>
+
 </package>

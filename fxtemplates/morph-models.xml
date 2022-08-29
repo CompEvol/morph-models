@@ -2,13 +2,13 @@
        namespace='beast.app.beauti:beast.pkgmgmt:beast.base.core:beast.base.inference:beast.base.evolution.branchratemodel:beast.base.evolution.speciation:beast.evolution.Tree.t:coalescent:beast.base.util:beast.base.math:beast.evolution.nuc:beast.base.evolution.operator:beast.base.inference.operator:beast.base.evolution.sitemodel:beast.base.evolution.substitutionmodel:beast.base.evolution.likelihood:beast.evolution:beast.base.math.distributions'>
 
 <mergewith point='aux-partitions-panels'>
-		<alignmentProvider id="Add Morphological Data" spec='BeautiMorphModelAlignmentProvider' template='@MKTrait'/>
+		<alignmentProvider id="Add Morphological Data" spec='morphmodels.app.beauti.BeautiMorphModelAlignmentProvider' template='@MKTrait'/>
 
         <subtemplate id='MKTrait' class='beast.base.evolution.alignment.FilteredAlignment' mainid='$(n)'
-        suppressInputs = 'beast.evolution.substitutionmodel.LewisMK.stateNumber,
-			beast.evolution.substitutionmodel.LewisMK.datatype,
-			beast.evolution.substitutionmodel.LewisMK.frequencies,
-			beast.evolution.substitutionmodel.LewisMK.proportionInvariant'
+        suppressInputs = 'morphmodels.evolution.substitutionmodel.LewisMK.stateNumber,
+			morphmodels.evolution.substitutionmodel.LewisMK.datatype,
+			morphmodels.evolution.substitutionmodel.LewisMK.frequencies,
+			morphmodels.evolution.substitutionmodel.LewisMK.proportionInvariant'
 
 >
 <![CDATA[
@@ -27,7 +27,7 @@
             <plugin id='TreeHeight.t:$(n)' spec='beast.base.evolution.tree.TreeHeightLogger' tree='@Tree.t:$(n)'/>
 
             <logger id='treelog.t:$(n)' spec='beast.base.inference.Logger' logEvery="1000" fileName="$(tree).trees" mode='tree'>
-	            <log id='TreeWithMetaDataLogger.t:$(n)' spec='beast.base.evolution.tree.TreeWithMetaDataLogger' tree='@Tree.t:$(n)'>
+	            <log id='TreeWithMetaDataLogger.t:$(n)' spec='beast.base.evolution.TreeWithMetaDataLogger' tree='@Tree.t:$(n)'>
 	            </log>
             </logger>
 
@@ -39,7 +39,7 @@
 				        <mutationRate        spec='parameter.RealParameter' id='mutationRate.s:$(n)' value='1.0' estimate='true'/>
 				        <shape               spec='parameter.RealParameter' id='gammaShape.s:$(n)' value='1.0' estimate='false'/>
                     <!-- MK subst model -->
-					<substModel spec="LewisMK" id="LewisMK.s:$(n)" datatype='@morphDataType.$(n)'/>
+					<substModel spec="morphmodels.evolution.substitutionmodel.LewisMK" id="LewisMK.s:$(n)" datatype='@morphDataType.$(n)'/>
 				</siteModel>
 				<branchRateModel id="StrictClock.c:$(n)" spec="beast.base.evolution.branchratemodel.StrictClockModel">
 					<parameter id="clockRate.c:$(n)" name="clock.rate" value="1.0" estimate='false'/>
@@ -143,9 +143,9 @@
 <mergewith point='substModelTemplates'>
 
     <!-- LewisMK substitution model -->
-    <subtemplate id='LewisMK' class='beast.evolution.substitutionmodel.LewisMK' mainid='LewisMK.s:$(n)'>
+    <subtemplate id='LewisMK' class='morphmodels.evolution.substitutionmodel.LewisMK' mainid='LewisMK.s:$(n)'>
 <![CDATA[
-    <plugin spec='LewisMK' id='LewisMK.s:$(n)'/>
+    <plugin spec='morphmodels.evolution.substitutionmodel.LewisMK' id='LewisMK.s:$(n)'/>
 ]]>
     </subtemplate>
 </mergewith>

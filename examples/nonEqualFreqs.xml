@@ -14,7 +14,7 @@
   <taxon id="D"/>
 </taxonset>
 
-<data id="usertype.al" spec="AlignmentFromTrait">
+<data id="usertype.al" spec="beastclassic.evolution.alignment.AlignmentFromTrait">
   <traitSet id="traitSet" spec="beast.base.evolution.tree.TraitSet" taxa="@taxa" traitname="discrete">
     A=1,B=2,C=3,D=1
   </traitSet>
@@ -51,7 +51,7 @@
           <parameter estimate="false" id="gam" name="shape">1.0</parameter>
           <parameter estimate="false" id="pro" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
 	  
-          <substModel id="mk" spec="LewisMK" datatype="@usertype">
+          <substModel id="mk" spec="morphmodels.evolution.substitutionmodel.LewisMK" datatype="@usertype">
               <frequencies id="freqs" spec="Frequencies">
 		<frequencies idref="frequencies"/>
 	      </frequencies>
@@ -70,7 +70,7 @@
           <parameter idref="gam" name="shape"/>
           <parameter idref="pro" name="proportionInvariant"/>
 
-            <substModel id="svs" spec="SVSGeneralSubstitutionModel">
+            <substModel id="svs" spec="beastclassic.evolution.substitutionmodel.SVSGeneralSubstitutionModel">
 	      <parameter name="rateIndicator" spec="parameter.BooleanParameter" dimension="3" value="true true true"/>
 	      <parameter name="rates" spec="parameter.RealParameter" dimension="3" value="1.0 1.0 1.0"/>
               <frequencies idref="freqs"/>
@@ -93,18 +93,21 @@
     <log idref="treeLikelihood"/>
     <log idref="treeLikelihood1"/>
     <log id="TreeHeight.t:tst" spec="beast.base.evolution.tree.TreeHeightLogger" tree="@tsttree"/>
+    <!--
     <log id="ldiff" spec='beast.util.Script' argnames="x y" expression='abs(x - y)'>
       <x idref='treeLikelihood'/>
       <x idref='treeLikelihood1'/>
     </log>
-    
+    -->
   </logger>
 
   <logger id="screenlog" logEvery="1">
     <log idref="treeLikelihood"/>
     <log idref="treeLikelihood1"/>
     <log idref="TreeHeight.t:tst" />
+    <!--
     <log idref="ldiff"/>
+  -->
   </logger>
 
 </run>

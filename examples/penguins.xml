@@ -461,7 +461,7 @@ Pygoscelis_grandis_4.5=4.5                <taxa id="TaxonSet.penguins_morph2" sp
             <distribution id="morphTreeLikelihood.penguins_morph2" spec="TreeLikelihood" data="@penguins_morph2" tree="@Tree.t:tree">
                 <siteModel id="morphSiteModel.s:penguins_morph2" spec="SiteModel" gammaCategoryCount="4" shape="@gammaShape.s:penguins_morph2">
                     <parameter id="mutationRate.s:penguins_morph2" estimate="false" name="mutationRate">1.0</parameter>
-                    <substModel id="LewisMK.s:penguins_morph2" spec="LewisMK" datatype="@morphDataType.penguins_morph2"/>
+                    <substModel id="LewisMK.s:penguins_morph2" spec="morphmodels.evolution.substitutionmodel.LewisMK" datatype="@morphDataType.penguins_morph2"/>
                 </siteModel>
                 <branchRateModel id="RelaxedClock.c:penguins_morph" spec="beast.base.evolution.branchratemodel.UCRelaxedClockModel" clock.rate="@ucldMean.c:penguins_morph" rateCategories="@rateCategories.c:penguins_morph" tree="@Tree.t:tree">
                     <LogNormal id="LogNormalDistributionModel.c:penguins_morph" S="@ucldStdev.c:penguins_morph" meanInRealSpace="true" name="distr">
@@ -480,7 +480,7 @@ filter="5,8,12,15,31-32,34,44,56,58,71-74,76,83,86,88,93-94,96-97,104,109,117-11
                 <!-- 4 gamma categories, gammaShape.s:penguins_morph2 is added and gammaShape.s:penguins_morph3 removed-->
                 <siteModel id="morphSiteModel.s:penguins_morph3" spec="SiteModel" gammaCategoryCount="4" shape="@gammaShape.s:penguins_morph2">
                     <parameter id="mutationRate.s:penguins_morph3" estimate="false" name="mutationRate">1.0</parameter>
-                    <substModel id="LewisMK.s:penguins_morph3" spec="LewisMK" datatype="@morphDataType.penguins_morph3"/>
+                    <substModel id="LewisMK.s:penguins_morph3" spec="morphmodels.evolution.substitutionmodel.LewisMK" datatype="@morphDataType.penguins_morph3"/>
                 </siteModel>
             </distribution>
             <distribution id="morphTreeLikelihood.penguins_morph4" spec="TreeLikelihood" branchRateModel="@RelaxedClock.c:penguins_morph" tree="@Tree.t:tree">
@@ -494,7 +494,7 @@ filter="1,4,35,38-39,42,60,63-64,100,136,166,205">
                 <!-- 4 gamma categories, gammaShape.s:penguins_morph2 is added and gammaShape.s:penguins_morph4 removed-->
                 <siteModel id="morphSiteModel.s:penguins_morph4" spec="SiteModel" gammaCategoryCount="4" shape="@gammaShape.s:penguins_morph2">
                     <parameter id="mutationRate.s:penguins_morph4" estimate="false" name="mutationRate">1.0</parameter>
-                    <substModel id="LewisMK.s:penguins_morph4" spec="LewisMK" datatype="@morphDataType.penguins_morph4"/>
+                    <substModel id="LewisMK.s:penguins_morph4" spec="morphmodels.evolution.substitutionmodel.LewisMK" datatype="@morphDataType.penguins_morph4"/>
                 </siteModel>
             </distribution>
             <distribution id="morphTreeLikelihood.penguins_morph5" spec="TreeLikelihood" branchRateModel="@RelaxedClock.c:penguins_morph" tree="@Tree.t:tree">
@@ -508,7 +508,7 @@ filter="13,16,41,66">
                 <!-- 4 gamma categories, gammaShape.s:penguins_morph2 is added and gammaShape.s:penguins_morph5 removed-->
                 <siteModel id="morphSiteModel.s:penguins_morph5" spec="SiteModel" gammaCategoryCount="4" shape="@gammaShape.s:penguins_morph2">
                     <parameter id="mutationRate.s:penguins_morph5" estimate="false" name="mutationRate">1.0</parameter>
-                    <substModel id="LewisMK.s:penguins_morph5" spec="LewisMK" datatype="@morphDataType.penguins_morph5"/>
+                    <substModel id="LewisMK.s:penguins_morph5" spec="morphmodels.evolution.substitutionmodel.LewisMK" datatype="@morphDataType.penguins_morph5"/>
                 </siteModel>
             </distribution>
             <distribution id="morphTreeLikelihood.penguins_morph6" spec="TreeLikelihood" branchRateModel="@RelaxedClock.c:penguins_morph" tree="@Tree.t:tree">
@@ -522,7 +522,7 @@ filter="11,21,124,173">
                 <!-- 4 gamma categories, gammaShape.s:penguins_morph2 is added and gammaShape.s:penguins_morph6 removed-->
                 <siteModel id="morphSiteModel.s:penguins_morph6" spec="SiteModel" gammaCategoryCount="4" shape="@gammaShape.s:penguins_morph2">
                     <parameter id="mutationRate.s:penguins_morph6" estimate="false" name="mutationRate">1.0</parameter>
-                    <substModel id="LewisMK.s:penguins_morph6" spec="LewisMK" datatype="@morphDataType.penguins_morph6"/>
+                    <substModel id="LewisMK.s:penguins_morph6" spec="morphmodels.evolution.substitutionmodel.LewisMK" datatype="@morphDataType.penguins_morph6"/>
                 </siteModel>
             </distribution>
             <distribution id="morphTreeLikelihood.penguins_morph7" spec="TreeLikelihood" branchRateModel="@RelaxedClock.c:penguins_morph" tree="@Tree.t:tree">
@@ -536,7 +536,7 @@ filter="9">
                 <!-- 4 gamma categories, gammaShape.s:penguins_morph2 is added and gammaShape.s:penguins_morph7 removed-->
                 <siteModel id="morphSiteModel.s:penguins_morph7" spec="SiteModel" gammaCategoryCount="4" shape="@gammaShape.s:penguins_morph2">
                     <parameter id="mutationRate.s:penguins_morph7" estimate="false" name="mutationRate">1.0</parameter>
-                    <substModel id="LewisMK.s:penguins_morph7" spec="LewisMK" datatype="@morphDataType.penguins_morph7"/>
+                    <substModel id="LewisMK.s:penguins_morph7" spec="morphmodels.evolution.substitutionmodel.LewisMK" datatype="@morphDataType.penguins_morph7"/>
                 </siteModel>
             </distribution>
             <distribution id="treeLikelihood.penguins_dna" spec="TreeLikelihood" tree="@Tree.t:tree">
@@ -670,7 +670,7 @@ filter="9">
     </logger>
 
     <logger id="treelog.t:tree" fileName="penguins.trees" logEvery="10000" mode="tree">
-        <log id="TreeWithMetaDataLogger.t:tree" spec="beast.base.evolution.tree.TreeWithMetaDataLogger" branchratemodel="@RelaxedClock.c:penguins_morph" tree="@Tree.t:tree"/>
+        <log id="TreeWithMetaDataLogger.t:tree" spec="beast.base.evolution.TreeWithMetaDataLogger" branchratemodel="@RelaxedClock.c:penguins_morph" tree="@Tree.t:tree"/>
     </logger>
 
 </run>

@@ -132,7 +132,7 @@ idref="M3982"/>
                     <parameter estimate="false" id="mutationRate.s:M39822" name="mutationRate">1.0</parameter>
                     <parameter estimate="false" id="gammaShape.s:M39822" name="shape">1.0</parameter>
                     <parameter estimate="false" id="proportionInvariant.s:M39822" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
-                    <substModel datatype="@morphDataType.M39822" id="LewisMK.s:M39822" spec="LewisMK"/>
+                    <substModel datatype="@morphDataType.M39822" id="LewisMK.s:M39822" spec="morphmodels.evolution.substitutionmodel.LewisMK"/>
                 </siteModel>
                 <branchRateModel id="StrictClockModel.c:M3982" spec="beast.base.evolution.branchratemodel.StrictClockModel">
                     <parameter estimate="false" id="clockRate.c:M3982" name="clock.rate">1.0</parameter>
@@ -150,7 +150,7 @@ spec="FilteredAlignment">
                     <parameter estimate="false" id="mutationRate.s:M39823" name="mutationRate">1.0</parameter>
                     <parameter estimate="false" id="gammaShape.s:M39823" name="shape">1.0</parameter>
                     <parameter estimate="false" id="proportionInvariant.s:M39823" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
-                    <substModel datatype="@morphDataType.M39823" id="LewisMK.s:M39823" spec="LewisMK"/>
+                    <substModel datatype="@morphDataType.M39823" id="LewisMK.s:M39823" spec="morphmodels.evolution.substitutionmodel.LewisMK"/>
                 </siteModel>
             </distribution>
             <distribution branchRateModel="@StrictClockModel.c:M3982" id="morphTreeLikelihood.M39824" spec="TreeLikelihood" tree="@Tree.t:M3982">
@@ -165,7 +165,7 @@ spec="FilteredAlignment">
                     <parameter estimate="false" id="mutationRate.s:M39824" name="mutationRate">1.0</parameter>
                     <parameter estimate="false" id="gammaShape.s:M39824" name="shape">1.0</parameter>
                     <parameter estimate="false" id="proportionInvariant.s:M39824" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
-                    <substModel datatype="@morphDataType.M39824" id="LewisMK.s:M39824" spec="LewisMK"/>
+                    <substModel datatype="@morphDataType.M39824" id="LewisMK.s:M39824" spec="morphmodels.evolution.substitutionmodel.LewisMK"/>
                 </siteModel>
             </distribution>
             <distribution branchRateModel="@StrictClockModel.c:M3982" id="morphTreeLikelihood.M39825" spec="TreeLikelihood" tree="@Tree.t:M3982">
@@ -180,7 +180,7 @@ spec="FilteredAlignment">
                     <parameter estimate="false" id="mutationRate.s:M39825" name="mutationRate">1.0</parameter>
                     <parameter estimate="false" id="gammaShape.s:M39825" name="shape">1.0</parameter>
                     <parameter estimate="false" id="proportionInvariant.s:M39825" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
-                    <substModel datatype="@morphDataType.M39825" id="LewisMK.s:M39825" spec="LewisMK"/>
+                    <substModel datatype="@morphDataType.M39825" id="LewisMK.s:M39825" spec="morphmodels.evolution.substitutionmodel.LewisMK"/>
                 </siteModel>
             </distribution>
             <distribution branchRateModel="@StrictClockModel.c:M3982" id="morphTreeLikelihood.M39826" spec="TreeLikelihood" tree="@Tree.t:M3982">
@@ -195,7 +195,7 @@ spec="FilteredAlignment">
                     <parameter estimate="false" id="mutationRate.s:M39826" name="mutationRate">1.0</parameter>
                     <parameter estimate="false" id="gammaShape.s:M39826" name="shape">1.0</parameter>
                     <parameter estimate="false" id="proportionInvariant.s:M39826" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
-                    <substModel datatype="@morphDataType.M39826" id="LewisMK.s:M39826" spec="LewisMK"/>
+                    <substModel datatype="@morphDataType.M39826" id="LewisMK.s:M39826" spec="morphmodels.evolution.substitutionmodel.LewisMK"/>
                 </siteModel>
             </distribution>
             <distribution branchRateModel="@StrictClockModel.c:M3982" id="morphTreeLikelihood.M39827" spec="TreeLikelihood" tree="@Tree.t:M3982">
@@ -210,7 +210,7 @@ spec="FilteredAlignment">
                     <parameter estimate="false" id="mutationRate.s:M39827" name="mutationRate">1.0</parameter>
                     <parameter estimate="false" id="gammaShape.s:M39827" name="shape">1.0</parameter>
                     <parameter estimate="false" id="proportionInvariant.s:M39827" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
-                    <substModel datatype="@morphDataType.M39827" id="LewisMK.s:M39827" spec="LewisMK"/>
+                    <substModel datatype="@morphDataType.M39827" id="LewisMK.s:M39827" spec="morphmodels.evolution.substitutionmodel.LewisMK"/>
                 </siteModel>
             </distribution>
             <distribution branchRateModel="@StrictClockModel.c:M3982" id="morphTreeLikelihood.M398210" spec="TreeLikelihood" tree="@Tree.t:M3982">
@@ -225,7 +225,7 @@ spec="FilteredAlignment">
                     <parameter estimate="false" id="mutationRate.s:M398210" name="mutationRate">1.0</parameter>
                     <parameter estimate="false" id="gammaShape.s:M398210" name="shape">1.0</parameter>
                     <parameter estimate="false" id="proportionInvariant.s:M398210" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
-                    <substModel datatype="@morphDataType.M398210" id="LewisMK.s:M398210" spec="LewisMK"/>
+                    <substModel datatype="@morphDataType.M398210" id="LewisMK.s:M398210" spec="morphmodels.evolution.substitutionmodel.LewisMK"/>
                 </siteModel>
             </distribution>
         </distribution>
