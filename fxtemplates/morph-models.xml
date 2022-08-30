@@ -143,7 +143,11 @@
 <mergewith point='substModelTemplates'>
 
     <!-- LewisMK substitution model -->
-    <subtemplate id='LewisMK' class='morphmodels.evolution.substitutionmodel.LewisMK' mainid='LewisMK.s:$(n)'>
+    <subtemplate id='LewisMK' class='morphmodels.evolution.substitutionmodel.LewisMK' mainid='LewisMK.s:$(n)'
+	    suppressInputs='morphmodels.evolution.substitutionmodel.LewisMK.stateNumber,
+			morphmodels.evolution.substitutionmodel.LewisMK.datatype,
+			morphmodels.evolution.substitutionmodel.LewisMK.frequencies,
+			morphmodels.evolution.substitutionmodel.LewisMK.proportionInvariant'>
 <![CDATA[
     <plugin spec='morphmodels.evolution.substitutionmodel.LewisMK' id='LewisMK.s:$(n)'/>
 ]]>

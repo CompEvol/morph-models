@@ -1,18 +1,19 @@
 package morphmodels.app.beauti;
 
+
 import beast.base.core.Description;
 import beast.base.core.ProgramStatus;
 
 import java.io.File;
 import java.util.*;
 
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 
 import beastfx.app.inputeditor.BeautiAlignmentProvider;
 import beastfx.app.inputeditor.BeautiDoc;
+import beastfx.app.util.Alert;
 import beastfx.app.util.ExtensionFileFilter;
 import beastfx.app.util.FXUtils;
+import javafx.scene.control.ButtonType;
 import beast.base.core.BEASTInterface;
 import beast.base.evolution.alignment.Alignment;
 import beast.base.evolution.alignment.FilteredAlignment;
@@ -85,7 +86,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 										+ parser.filteredAlignments.get(i % 10000 - 1).getID() + "<br/>";
 							}
 							overlaps += "The first thing you might want to do is delete some of these partitions.</html>";
-							JOptionPane.showMessageDialog(null, overlaps);
+							Alert.showMessageDialog(null, overlaps);
 						}
 						/** add alignments **/
 						for (Alignment data : parser.filteredAlignments) {
@@ -96,7 +97,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 					}
 				} catch (Exception ex) {
 					ex.printStackTrace();
-					JOptionPane.showMessageDialog(null, "Loading of " + fileName + " failed: " + ex.getMessage());
+					Alert.showMessageDialog(null, "Loading of " + fileName + " failed: " + ex.getMessage());
 					return null;
 				}
 			}
@@ -105,12 +106,14 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
         //"to apply different substitution models for each partition?", "Data partition with respect to the number of states", 0);
 
 		List<BEASTInterface> filteredAlignments = new ArrayList<>();
-		int condition = JOptionPane.showConfirmDialog(null, "Would you like to condition on recording variable characters only (Mkv)?", "Conditioning on variable characters", 0);
+		ButtonType condition = Alert.showConfirmDialog(null, 
+				"Would you like to condition on recording variable characters only (Mkv)?", 
+				"Conditioning on variable characters", Alert.YES_NO_OPTION);
 		if (partitions == 0) {
 		    try {
 		        for (BEASTInterface o : selectedPlugins) {
 		            if (o instanceof Alignment) {
-		                if (condition == 0) {
+		                if (condition.toString().toLowerCase().contains("yes")) {
 		                    processAlignment((Alignment) o, filteredAlignments, true, doc);
 		                }  else {
 		                    processAlignment((Alignment) o, filteredAlignments, false, doc);
@@ -118,7 +121,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 		            }
 		        }
 		    } catch (Exception e) {
-		        JOptionPane.showMessageDialog(null, "Something went wrong converting the alignment: " + e.getMessage());
+		    	Alert.showMessageDialog(null, "Something went wrong converting the alignment: " + e.getMessage());
 		        e.printStackTrace();
 		        return null;
 		    }
