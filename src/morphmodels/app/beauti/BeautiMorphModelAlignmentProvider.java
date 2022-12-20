@@ -29,7 +29,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 
 	@Override
 	public List<BEASTInterface> getAlignments(BeautiDoc doc) {
-		String[] exts = { ".nex", ".nxs", ".nexus" };
+		String[] exts = { "nex", "nxs", "nexus" };
 		File [] files = FXUtils.getLoadFiles("Load Alignment File",
                 new File(ProgramStatus.g_sDir), "Alignment files", exts);
 
