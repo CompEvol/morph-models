@@ -47,6 +47,8 @@
         <beast.version>2.8.0-SNAPSHOT</beast.version>
         <javafx.version>25.0.2</javafx.version>
         <junit.version>5.8.2</junit.version>
+        <beast.main>beastfx.app.beauti.Beauti</beast.main>
+        <beast.args/>
         <beast.pkg.name>MM</beast.pkg.name>
         <beast.pkg.version>1.3.0</beast.pkg.version>
     </properties>

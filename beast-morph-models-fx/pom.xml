@@ -41,6 +41,20 @@
 
     <build>
         <plugins>
+            <!-- Run BEAUti with morph-models on module path:
+                 mvn -pl beast-morph-models-fx exec:exec
+                 mvn -pl beast-morph-models-fx exec:exec -Dbeast.main=beast.base.minimal.BeastMain -Dbeast.args="examples/M3982.xml" -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <executable>java</executable>
+                    <workingDirectory>${maven.multiModuleProjectDirectory}</workingDirectory>
+                    <commandlineArgs>--module-path %classpath -m beast.fx/${beast.main} ${beast.args}</commandlineArgs>
+                </configuration>
+            </plugin>
+
             <!-- Assemble BEAST package ZIP -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

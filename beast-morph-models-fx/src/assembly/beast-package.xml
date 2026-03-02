@@ -31,7 +31,7 @@
     <fileSets>
         <!-- fxtemplates/ -->
         <fileSet>
-            <directory>${project.basedir}/src/main/resources/fxtemplates</directory>
+            <directory>${project.basedir}/src/main/resources/beast.morph.models.fx/fxtemplates</directory>
             <outputDirectory>/fxtemplates</outputDirectory>
         </fileSet>
         <!-- examples/ from project root (excluding legacy directories) -->
