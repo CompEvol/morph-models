@@ -15,12 +15,16 @@
         </file>
     </files>
 
-    <!-- Module JARs + runtime deps (BEAST core and JavaFX are provided scope, so excluded) -->
+    <!-- Module JARs only (BEAST core, JavaFX, and their transitive deps are provided by the runtime) -->
     <dependencySets>
         <dependencySet>
             <outputDirectory>/lib</outputDirectory>
             <useProjectArtifact>true</useProjectArtifact>
             <scope>runtime</scope>
+            <includes>
+                <include>io.github.compevol:beast-morph-models</include>
+                <include>io.github.compevol:beast-morph-models-fx</include>
+            </includes>
         </dependencySet>
     </dependencySets>
 

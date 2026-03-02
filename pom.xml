@@ -53,24 +53,21 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- BEAST 3 modules (provided by the BEAST runtime environment) -->
+            <!-- BEAST 3 modules -->
             <dependency>
                 <groupId>io.github.compevol</groupId>
                 <artifactId>beast-pkgmgmt</artifactId>
                 <version>${beast.version}</version>
-                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>io.github.compevol</groupId>
                 <artifactId>beast-base</artifactId>
                 <version>${beast.version}</version>
-                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>io.github.compevol</groupId>
                 <artifactId>beast-fx</artifactId>
                 <version>${beast.version}</version>
-                <scope>provided</scope>
             </dependency>
 
             <!-- Internal modules -->
@@ -80,12 +77,11 @@
                 <version>${project.version}</version>
             </dependency>
 
-            <!-- JavaFX (provided by the BEAST runtime environment) -->
+            <!-- JavaFX -->
             <dependency>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-controls</artifactId>
                 <version>${javafx.version}</version>
-                <scope>provided</scope>
             </dependency>
 
             <!-- Testing -->
