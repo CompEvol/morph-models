@@ -11,7 +11,7 @@ import java.util.*;
 import beastfx.app.inputeditor.BeautiAlignmentProvider;
 import beastfx.app.inputeditor.BeautiDoc;
 import beastfx.app.util.Alert;
-import beastfx.app.util.ExtensionFileFilter;
+
 import beastfx.app.util.FXUtils;
 import javafx.scene.control.ButtonType;
 import beast.base.core.BEASTInterface;

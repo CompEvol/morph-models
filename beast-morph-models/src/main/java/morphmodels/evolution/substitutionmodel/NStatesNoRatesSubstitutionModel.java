@@ -3,27 +3,18 @@ package morphmodels.evolution.substitutionmodel;
 import beast.base.core.Description;
 import beast.base.core.Input;
 import beast.base.core.Input.Validate;
-import beast.base.evolution.substitutionmodel.*;
+import beast.base.spec.evolution.substitutionmodel.BasicGeneralSubstitutionModel;
 
 /**
  * @author Luke Maurits
  */
-@Description("A simple subclass of GeneralSubstitutionModel which does not require a rates input and does require a number of states input.")
-public class NStatesNoRatesSubstitutionModel extends GeneralSubstitutionModel {
+@Description("A simple subclass of BasicGeneralSubstitutionModel which does not require a rates input and does require a number of states input.")
+public abstract class NStatesNoRatesSubstitutionModel extends BasicGeneralSubstitutionModel {
 
     // Number of states input is required
     public Input<Integer> nrOfStatesInput = new Input<Integer>("stateNumber", "the number of character states", Validate.REQUIRED);
 
-    public NStatesNoRatesSubstitutionModel() {
-        // Rates input is *not* required
-        ratesInput.setRule(Validate.OPTIONAL);
-    }
-
     @Override
-    // Minimally changed from parent implementation:
-    // Derive nrOfStates from the appropriate input, not freqs.
-    // Ensure frequencies has correct length.
-    // Do not check dimension of rates parameter.
     public void initAndValidate() {
         nrOfStates = nrOfStatesInput.get();
         frequencies = frequenciesInput.get();

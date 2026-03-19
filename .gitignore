@@ -2,3 +2,9 @@
 /.idea
 /morph-models.iml
 /out
+
+# Maven build output
+target/
+
+# Package ZIPs
+*.v*.zip

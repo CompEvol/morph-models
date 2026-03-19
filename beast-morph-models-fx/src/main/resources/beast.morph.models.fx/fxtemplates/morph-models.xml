@@ -1,5 +1,5 @@
 <beast version='2.0'
-       namespace='beast.app.beauti:beast.pkgmgmt:beast.base.core:beast.base.inference:beast.base.evolution.branchratemodel:beast.base.evolution.speciation:beast.evolution.Tree.t:coalescent:beast.base.util:beast.base.math:beast.evolution.nuc:beast.base.evolution.operator:beast.base.inference.operator:beast.base.evolution.sitemodel:beast.base.evolution.substitutionmodel:beast.base.evolution.likelihood:beast.evolution:beast.base.math.distributions'>
+       namespace='morphmodels.evolution.substitutionmodel:morphmodels.evolution.alignment:morphmodels.app.beauti:beastfx.app.beauti:beastfx.app.inputeditor:beast.pkgmgmt:beast.base.core:beast.base.inference:beast.base.evolution.branchratemodel:beast.base.evolution.speciation:beast.base.evolution.tree.coalescent:beast.base.util:beast.base.math:beast.evolution.nuc:beast.base.evolution.operator:beast.base.inference.operator:beast.base.evolution.operator.kernel:beast.base.spec.evolution.sitemodel:beast.base.evolution.substitutionmodel:beast.base.evolution.likelihood:beast.evolution:beast.base.inference.distribution'>
 
 <mergewith point='aux-partitions-panels'>
 		<alignmentProvider id="Add Morphological Data" spec='morphmodels.app.beauti.BeautiMorphModelAlignmentProvider' template='@MKTrait'/>
@@ -16,7 +16,6 @@
             <taxonset id='TaxonSet.$(n)' spec='beast.base.evolution.alignment.TaxonSet' alignment='@$(n)' />
             <plugin spec='beast.base.evolution.tree.Tree' id='Tree.t:$(n)' taxonset='@TaxonSet.$(n)'/>
 
-            <!--plugin spec='beast.base.evolution.tree.coalescent.RandomTree' id='RandomTree.t:$(n)' estimate='false' trait='@datetrait.$(n)' initial='@Tree.t:$(n)'-->
             <plugin spec='beast.base.evolution.tree.coalescent.RandomTree' id='RandomTree.t:$(n)' estimate='false' initial='@Tree.t:$(n)'>
                 <taxa idref='data'/>
                 <populationModel id='ConstantPopulation0.t:$(n)' spec='ConstantPopulation'>
@@ -27,64 +26,65 @@
             <plugin id='TreeHeight.t:$(n)' spec='beast.base.evolution.tree.TreeHeightLogger' tree='@Tree.t:$(n)'/>
 
             <logger id='treelog.t:$(n)' spec='beast.base.inference.Logger' logEvery="1000" fileName="$(tree).trees" mode='tree'>
-	            <log id='TreeWithMetaDataLogger.t:$(n)' spec='beast.base.evolution.TreeWithMetaDataLogger' tree='@Tree.t:$(n)'>
-	            </log>
+	            <log id='TreeWithMetaDataLogger.t:$(n)' spec='beast.base.spec.evolution.TreeWithMetaDataLogger' tree='@Tree.t:$(n)'/>
             </logger>
 
-			<distribution id="morphTreeLikelihood.$(n)" spec='TreeLikelihood' tree='@Tree.t:$(n)'>
+			<distribution id="morphTreeLikelihood.$(n)" spec='beast.base.spec.evolution.likelihood.TreeLikelihood' tree='@Tree.t:$(n)'>
 				<data spec="beast.base.evolution.alignment.FilteredAlignment" id='$(n)' filter="0-end">
 					<userDataType spec='beast.base.evolution.datatype.StandardData' id='morphDataType.$(n)' />
 				</data>
-				<siteModel spec='SiteModel' id="SiteModel.s:$(n)" gammaCategoryCount='0'>
-				        <mutationRate        spec='parameter.RealParameter' id='mutationRate.s:$(n)' value='1.0' estimate='true'/>
-				        <shape               spec='parameter.RealParameter' id='gammaShape.s:$(n)' value='1.0' estimate='false'/>
+				<siteModel spec='beast.base.spec.evolution.sitemodel.SiteModel' id="SiteModel.s:$(n)" gammaCategoryCount='0'>
+				        <mutationRate spec='beast.base.spec.inference.parameter.RealScalarParam' domain="PositiveReal" id='mutationRate.s:$(n)' value='1.0' estimate='true'/>
+				        <shape spec='beast.base.spec.inference.parameter.RealScalarParam' domain="PositiveReal" id='gammaShape.s:$(n)' value='1.0' estimate='false'/>
                     <!-- MK subst model -->
 					<substModel spec="morphmodels.evolution.substitutionmodel.LewisMK" id="LewisMK.s:$(n)" datatype='@morphDataType.$(n)'/>
 				</siteModel>
 				<branchRateModel id="StrictClock.c:$(n)" spec="beast.base.evolution.branchratemodel.StrictClockModel">
-					<parameter id="clockRate.c:$(n)" name="clock.rate" value="1.0" estimate='false'/>
+					<clock.rate id="clockRate.c:$(n)" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0" estimate='false'/>
 				</branchRateModel>
 			</distribution>
 
             <!-- default tree prior -->
-            <plugin spec='YuleModel' id="YuleModel.t:$(n)" tree='@Tree.t:$(n)'>
-                <parameter name='birthDiffRate' id="birthRate.t:$(n)" value='1.0' estimate='true'/>
+            <plugin spec='beast.base.spec.evolution.speciation.YuleModel' id="YuleModel.t:$(n)" tree='@Tree.t:$(n)'>
+                <parameter name='birthDiffRate' spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" id="birthRate.t:$(n)" value='1.0'/>
             </plugin>
 
-            <prior id='ClockPrior.c:$(n)' x='@clockRate.c:$(n)'>
-                <distr spec="beast.base.inference.distribution.Uniform" upper='Infinity'/>
-                </prior>
-            <prior id='MutationRatePrior.s:$(n)' x='@mutationRate.s:$(n)'>
-                <distr spec="OneOnX"/>
-            </prior>
-            <prior id='YuleBirthRatePrior.t:$(n)' x='@birthRate.t:$(n)'>
-                <distr spec="beast.base.inference.distribution.Uniform" lower='0' upper='Infinity'/>
-            </prior>
-            <prior id='GammaShapePrior.s:$(n)' x='@gammaShape.s:$(n)'>
-                <distr spec="beast.base.inference.distribution.Exponential" mean='1'/>
-            </prior>
+            <distribution id='ClockPrior.c:$(n)' spec='beast.base.spec.inference.distribution.Gamma' param='@clockRate.c:$(n)'>
+                <alpha spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="0.01" estimate="false"/>
+                <theta spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="100.0" estimate="false"/>
+            </distribution>
+            <distribution id='MutationRatePrior.s:$(n)' spec='beast.base.spec.inference.distribution.Gamma' param='@mutationRate.s:$(n)'>
+                <alpha spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="0.01" estimate="false"/>
+                <theta spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="100.0" estimate="false"/>
+            </distribution>
+            <distribution id='YuleBirthRatePrior.t:$(n)' spec='beast.base.spec.inference.distribution.Gamma' param='@birthRate.t:$(n)'>
+                <alpha spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="0.01" estimate="false"/>
+                <theta spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="100.0" estimate="false"/>
+            </distribution>
+            <distribution id='GammaShapePrior.s:$(n)' spec='beast.base.spec.inference.distribution.Exponential' param='@gammaShape.s:$(n)'>
+                <mean spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0" estimate="false"/>
+            </distribution>
 
-            <operator id='mutationRateScaler.s:$(n)' spec='ScaleOperator' scaleFactor="0.5" weight="0.1" parameter="@mutationRate.s:$(n)"/>
-            <operator id='gammaShapeScaler.s:$(n)' spec='ScaleOperator' scaleFactor="0.5" weight="0.1" parameter="@gammaShape.s:$(n)"/>
+            <operator id='mutationRateScaler.s:$(n)' spec='beast.base.spec.inference.operator.ScaleOperator' scaleFactor="0.5" weight="0.1" parameter="@mutationRate.s:$(n)"/>
+            <operator id='gammaShapeScaler.s:$(n)' spec='beast.base.spec.inference.operator.ScaleOperator' scaleFactor="0.5" weight="0.1" parameter="@gammaShape.s:$(n)"/>
 
             <operator id='allTipDatesRandomWalker.t:$(n)' spec='TipDatesRandomWalker' windowSize="1" weight="0" tree="@Tree.t:$(n)"/>
 
-            <operator id='YuleModelTreeScaler.t:$(n)' spec='ScaleOperator' scaleFactor="0.5" weight="3" tree="@Tree.t:$(n)"/>
-            <operator id='YuleModelTreeRootScaler.t:$(n)' spec='ScaleOperator' scaleFactor="0.5" weight="3" tree="@Tree.t:$(n)" rootOnly='true'/>
-            <operator id='YuleModelUniformOperator.t:$(n)' spec='Uniform' weight="30" tree="@Tree.t:$(n)"/>
-            <operator id='YuleModelSubtreeSlide.t:$(n)' spec='SubtreeSlide' weight="15" gaussian="true" size="1.0" tree="@Tree.t:$(n)"/>
+            <operator id="YuleModelTreeScaler.t:$(n)" spec="beast.base.spec.evolution.operator.UpDownOperator" up="@Tree.t:$(n)" weight="4.0" scaleFactor="0.1"/>
+            <operator id='YuleModelTreeRootScaler.t:$(n)' spec='kernel.BactrianScaleOperator' scaleFactor="0.5" weight="3" tree="@Tree.t:$(n)" rootOnly='true'/>
+            <operator id='YuleModelUniformOperator.t:$(n)' spec='kernel.BactrianNodeOperator' weight="30" tree="@Tree.t:$(n)"/>
+            <operator id='YuleModelSubtreeSlide.t:$(n)' spec='kernel.BactrianSubtreeSlide' weight="15" size="1.0" tree="@Tree.t:$(n)"/>
             <operator id='YuleModelNarrow.t:$(n)' spec='Exchange' isNarrow='true' weight="15" tree="@Tree.t:$(n)"/>
             <operator id='YuleModelWide.t:$(n)' spec='Exchange' isNarrow='false' weight="3" tree="@Tree.t:$(n)"/>
             <operator id='YuleModelWilsonBalding.t:$(n)' spec='WilsonBalding' weight="3" tree="@Tree.t:$(n)"/>
 
-            <operator id='YuleBirthRateScaler.t:$(n)' spec='ScaleOperator' scaleFactor="0.75" weight="3" parameter="@birthRate.t:$(n)"/>
+            <operator id='YuleBirthRateScaler.t:$(n)' spec='beast.base.spec.inference.operator.ScaleOperator' scaleFactor="0.75" weight="3" parameter="@birthRate.t:$(n)"/>
 
-            <operator id='StrictClockRateScaler.c:$(n)' spec='ScaleOperator' scaleFactor="0.75" weight="3" parameter='@clockRate.c:$(n)'/>
-            <!-- need updown operator for clockRate?!? Also in SubstModel.xml -->
-            <upDownOperator id='strictClockUpDownOperator.c:$(n)' spec='UpDownOperator' scaleFactor="0.75" weight="3">
+            <operator id='StrictClockRateScaler.c:$(n)' spec='beast.base.spec.inference.operator.ScaleOperator' scaleFactor="0.75" weight="3" parameter='@clockRate.c:$(n)'/>
+            <operator id='strictClockUpDownOperator.c:$(n)' spec='beast.base.spec.evolution.operator.UpDownOperator' scaleFactor="0.75" weight="3">
                 <up idref="clockRate.c:$(n)"/>
                 <down idref="Tree.t:$(n)"/>
-            </upDownOperator>
+            </operator>
 
 ]]>
             <connect srcID='morphTreeLikelihood.$(n)'         targetID='likelihood' inputName='distribution' if="isInitializing"/>
@@ -116,7 +116,7 @@
 
             <connect srcID='allTipDatesRandomWalker.t:$(n)'   targetID='mcmc' inputName='operator' if='inposterior(Tree.t:$(n)) and Tree.t:$(n)/estimate=true and allTipDatesRandomWalker.t:$(n)/weight!=0.0'>Estimates tip dates for tree t:$(n)</connect>
 
-            <connect if="inposterior(YuleModel.t:$(n)) and Tree.t:$(n)/estimate=true" inputName="operator" srcID="YuleModelTreeScaler.t:$(n)" targetID="mcmc">Scales all internal nodes for tree t:$(n)</connect>
+            <connect if="inposterior(YuleModel.t:$(n)) and Tree.t:$(n)/estimate=true" inputName="operator" srcID="YuleModelTreeScaler.t:$(n)" targetID="mcmc">Scale internal nodes for tree t:$(n)</connect>
             <connect if="inposterior(YuleModel.t:$(n)) and Tree.t:$(n)/estimate=true" inputName="operator" srcID="YuleModelTreeRootScaler.t:$(n)" targetID="mcmc">Scales root node for tree t:$(n)</connect>
             <connect if="inposterior(YuleModel.t:$(n)) and Tree.t:$(n)/estimate=true" inputName="operator" srcID="YuleModelUniformOperator.t:$(n)" targetID="mcmc">Draws new internal node heights uniformally for tree t:$(n)</connect>
             <connect if="inposterior(YuleModel.t:$(n)) and Tree.t:$(n)/estimate=true" inputName="operator" srcID="YuleModelSubtreeSlide.t:$(n)" targetID="mcmc">Performs subtree slide rearrangement of tree t:$(n)</connect>
@@ -155,4 +155,3 @@
 </mergewith>
 
 </beast>
-
