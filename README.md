@@ -5,11 +5,6 @@ Models for discrete morphological character data in [BEAST 3](https://github.com
 
 Implements the Lewis MK and MKv substitution models (Lewis, 2001), along with ordinal and nested ordinal variants for ordered character data.
 
-## Modules
-
-- **beast-morph-models** — core substitution models and alignment classes (depends on `beast-base`)
-- **beast-morph-models-fx** — BEAUti integration (depends on `beast-fx`)
-
 ## Substitution models
 
 | Class | Description |
@@ -20,29 +15,14 @@ Implements the Lewis MK and MKv substitution models (Lewis, 2001), along with or
 
 ## Building
 
-BEAST 3 dependencies are resolved from [GitHub Packages](https://github.com/CompEvol/beast3/packages) (or Maven Central, if published there). For GitHub Packages, add a [personal access token](https://github.com/settings/tokens) (classic) with `read:packages` scope to `~/.m2/settings.xml`:
-
-```xml
-<settings>
-  <servers>
-    <server>
-      <id>github</id>
-      <username>YOUR_GITHUB_USERNAME</username>
-      <password>YOUR_GITHUB_PAT</password>
-    </server>
-  </servers>
-</settings>
-```
-
-Then build morph-models:
+BEAST 3 dependencies are resolved from [Maven Central](https://central.sonatype.com/namespace/io.github.compevol) — no extra configuration needed.
 
 ```bash
-cd ~/Git/morph-models
 mvn compile
-mvn test -pl beast-morph-models
+mvn test
 ```
 
-Alternatively, you can install BEAST 3 from source (no GitHub auth needed):
+To develop against an unreleased SNAPSHOT, install BEAST 3 from source:
 
 ```bash
 cd ~/Git/beast3
@@ -53,10 +33,10 @@ mvn install -DskipTests
 
 ```bash
 # Validate an XML
-mvn -pl beast-morph-models exec:exec -Dbeast.args="-validate examples/M3982.xml"
+mvn exec:exec -Dbeast.args="-validate examples/M3982.xml"
 
 # Run an analysis
-mvn -pl beast-morph-models exec:exec -Dbeast.args="-overwrite examples/M3982.xml"
+mvn exec:exec -Dbeast.args="-overwrite examples/M3982.xml"
 ```
 
 ## Examples
@@ -68,7 +48,7 @@ mvn -pl beast-morph-models exec:exec -Dbeast.args="-overwrite examples/M3982.xml
 
 ### ZIP / CBAN
 
-The existing `release.sh` script builds a BEAST package ZIP and optionally
+The `release.sh` script builds a BEAST package ZIP and optionally
 creates a GitHub release for submission to [CBAN](https://github.com/CompEvol/CBAN):
 
 ```bash
@@ -78,23 +58,18 @@ creates a GitHub release for submission to [CBAN](https://github.com/CompEvol/CB
 
 ### Maven Central
 
-```bash
-mvn clean deploy -Prelease
-```
-
-This builds the JARs (with `version.xml` embedded for service discovery), generates
-sources and javadoc JARs, signs everything with GPG, and uploads to Maven Central.
+Pushing a `v*` tag triggers the CI workflow to publish to Maven Central.
 
 BEAST 3 users can then install with:
 
 ```
-Package Manager > Install from Maven > io.github.compevol:beast-morph-models:1.3.0
+Package Manager > Install from Maven > io.github.compevol:morph-models:1.3.0
 ```
 
 Or from the command line:
 
 ```bash
-packagemanager -maven io.github.compevol:beast-morph-models:1.3.0
+packagemanager -maven io.github.compevol:morph-models:1.3.0
 ```
 
 ## References

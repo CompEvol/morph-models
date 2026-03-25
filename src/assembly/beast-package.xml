@@ -10,20 +10,19 @@
     <!-- version.xml from project root -->
     <files>
         <file>
-            <source>${project.parent.basedir}/version.xml</source>
+            <source>${project.basedir}/version.xml</source>
             <outputDirectory>/</outputDirectory>
         </file>
     </files>
 
-    <!-- Module JARs only (BEAST core, JavaFX, and their transitive deps are provided by the runtime) -->
+    <!-- Module JAR only (BEAST core, JavaFX, and their transitive deps are provided by the runtime) -->
     <dependencySets>
         <dependencySet>
             <outputDirectory>/lib</outputDirectory>
             <useProjectArtifact>true</useProjectArtifact>
             <scope>runtime</scope>
             <includes>
-                <include>io.github.compevol:beast-morph-models</include>
-                <include>io.github.compevol:beast-morph-models-fx</include>
+                <include>io.github.compevol:morph-models</include>
             </includes>
         </dependencySet>
     </dependencySets>
@@ -31,12 +30,12 @@
     <fileSets>
         <!-- fxtemplates/ -->
         <fileSet>
-            <directory>${project.basedir}/src/main/resources/beast.morph.models.fx/fxtemplates</directory>
+            <directory>${project.basedir}/src/main/resources/morph.models/fxtemplates</directory>
             <outputDirectory>/fxtemplates</outputDirectory>
         </fileSet>
-        <!-- examples/ from project root (excluding legacy directories) -->
+        <!-- examples/ -->
         <fileSet>
-            <directory>${project.parent.basedir}/examples</directory>
+            <directory>${project.basedir}/examples</directory>
             <outputDirectory>/examples</outputDirectory>
             <excludes>
                 <exclude>legacy*/**</exclude>
