@@ -63,13 +63,13 @@ Pushing a `v*` tag triggers the CI workflow to publish to Maven Central.
 BEAST 3 users can then install with:
 
 ```
-Package Manager > Install from Maven > io.github.compevol:morph-models:1.3.0
+Package Manager > Install from Maven > io.github.compevol:morph-models:1.3.0-beta2
 ```
 
 Or from the command line:
 
 ```bash
-packagemanager -maven io.github.compevol:morph-models:1.3.0
+packagemanager -maven io.github.compevol:morph-models:1.3.0-beta2
 ```
 
 ## References
