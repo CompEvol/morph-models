@@ -13,6 +13,12 @@
             <source>${project.basedir}/version.xml</source>
             <outputDirectory>/</outputDirectory>
         </file>
+        <!-- Source JAR at top level (BEAST convention: PKG_NAME.src.jar) -->
+        <file>
+            <source>${project.build.directory}/${project.build.finalName}-sources.jar</source>
+            <destName>${beast.pkg.name}.src.jar</destName>
+            <outputDirectory>/</outputDirectory>
+        </file>
     </files>
 
     <!-- Module JAR only (BEAST core, JavaFX, and their transitive deps are provided by the runtime) -->
