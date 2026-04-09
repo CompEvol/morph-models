@@ -15,8 +15,8 @@
 
     <licenses>
         <license>
-            <name>GNU Lesser General Public License v3.0</name>
-            <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <name>GNU Lesser General Public License v2.1</name>
+            <url>https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</url>
         </license>
     </licenses>
 
@@ -38,7 +38,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.release>25</maven.compiler.release>
 
-        <beast.version>2.8.0-beta2</beast.version>
+        <beast.version>2.8.0-beta4</beast.version>
         <javafx.version>25.0.2</javafx.version>
         <beast.module>beast.base</beast.module>
         <beast.main>beast.base.minimal.BeastMain</beast.main>
@@ -100,7 +100,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.1.2</version>
+                <version>3.5.2</version>
                 <configuration>
                     <workingDirectory>${project.build.testOutputDirectory}</workingDirectory>
                     <argLine>

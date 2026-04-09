@@ -1,10 +1,24 @@
-# IntelliJ files
-/.idea
-/morph-models.iml
-/out
+.DS_Store
 
-# Maven build output
+# Build output
+/out
+/bin
 target/
+**/target/
+
+# IntelliJ
+/.idea
+*.iml
+
+# Eclipse
+.classpath
+.project
+/build
+
+# BEAST run output
+*.log
+*.trees
+*.xml.state
 
 # Package ZIPs
 *.v*.zip
