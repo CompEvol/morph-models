@@ -1,7 +1,7 @@
 package morphmodels.evolution.alignment;
 
 import beast.base.core.Input;
-import beast.base.evolution.alignment.FilteredAlignment;
+import beast.base.spec.evolution.alignment.FilteredAlignment;
 
 import java.util.HashSet;
 import java.util.Set;
