@@ -16,10 +16,10 @@
             <taxonset id='TaxonSet.$(n)' spec='beast.base.evolution.alignment.TaxonSet' alignment='@$(n)' />
             <plugin spec='beast.base.evolution.tree.Tree' id='Tree.t:$(n)' taxonset='@TaxonSet.$(n)'/>
 
-            <plugin spec='beast.base.evolution.tree.coalescent.RandomTree' id='RandomTree.t:$(n)' estimate='false' initial='@Tree.t:$(n)'>
+            <plugin spec='beast.base.spec.evolution.tree.coalescent.RandomTree' id='RandomTree.t:$(n)' estimate='false' initial='@Tree.t:$(n)'>
                 <taxa idref='data'/>
                 <populationModel id='ConstantPopulation0.t:$(n)' spec='ConstantPopulation'>
-            		<popSize id='randomPopSize.t:$(n)' spec='parameter.RealParameter' value='1'/>
+            		<popSize id='randomPopSize.t:$(n)' spec='beast.base.spec.inference.parameter.RealScalarParam' domain="PositiveReal" value='1'/>
 	            </populationModel>
             </plugin>
 
@@ -30,7 +30,7 @@
             </logger>
 
 			<distribution id="morphTreeLikelihood.$(n)" spec='beast.base.spec.evolution.likelihood.TreeLikelihood' tree='@Tree.t:$(n)'>
-				<data spec="beast.base.evolution.alignment.FilteredAlignment" id='$(n)' filter="0-end">
+				<data spec="beast.base.spec.evolution.alignment.FilteredAlignment" id='$(n)' filter="0-end">
 					<userDataType spec='beast.base.evolution.datatype.StandardData' id='morphDataType.$(n)' />
 				</data>
 				<siteModel spec='beast.base.spec.evolution.sitemodel.SiteModel' id="SiteModel.s:$(n)" gammaCategoryCount='0'>
