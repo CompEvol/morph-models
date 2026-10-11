@@ -4,7 +4,7 @@
 <mergewith point='aux-partitions-panels'>
 		<alignmentProvider id="Add Morphological Data" spec='morphmodels.app.beauti.BeautiMorphModelAlignmentProvider' template='@MKTrait'/>
 
-        <subtemplate id='MKTrait' class='beast.base.evolution.alignment.FilteredAlignment' mainid='$(n)'
+        <subtemplate id='MKTrait' class='beast.base.spec.evolution.alignment.FilteredAlignment' mainid='$(n)'
         suppressInputs = 'morphmodels.evolution.substitutionmodel.LewisMK.stateNumber,
 			morphmodels.evolution.substitutionmodel.LewisMK.datatype,
 			morphmodels.evolution.substitutionmodel.LewisMK.frequencies,
@@ -18,7 +18,7 @@
 
             <plugin spec='beast.base.spec.evolution.tree.coalescent.RandomTree' id='RandomTree.t:$(n)' estimate='false' initial='@Tree.t:$(n)'>
                 <taxa idref='data'/>
-                <populationModel id='ConstantPopulation0.t:$(n)' spec='ConstantPopulation'>
+                <populationModel id='ConstantPopulation0.t:$(n)' spec='beast.base.spec.evolution.tree.coalescent.ConstantPopulation'>
             		<popSize id='randomPopSize.t:$(n)' spec='beast.base.spec.inference.parameter.RealScalarParam' domain="PositiveReal" value='1'/>
 	            </populationModel>
             </plugin>
@@ -89,7 +89,7 @@
 ]]>
             <connect srcID='morphTreeLikelihood.$(n)'         targetID='likelihood' inputName='distribution' if="isInitializing"/>
             <connect srcID='YuleModel.t:$(n)'               targetID='prior' inputName='distribution' if="isInitializing"/>
-            <connect method="beastfx.app.inputeditor.SiteModelInputEditor.customConnector"/>
+            <connect method="beastfx.app.inputeditor.spec.SiteModelInputEditor.customConnector"/>
 
             <connect srcID='treelog.t:$(n)'                 targetID='mcmc' inputName='logger' if='inposterior(Tree.t:$(n)) and Tree.t:$(n)/estimate=true'/>
             <connect srcID='RandomTree.t:$(n)'                targetID='mcmc' inputName='init'   if='inposterior(Tree.t:$(n))'/>

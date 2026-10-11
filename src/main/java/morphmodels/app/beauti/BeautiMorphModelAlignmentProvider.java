@@ -16,7 +16,7 @@ import beastfx.app.util.FXUtils;
 import javafx.scene.control.ButtonType;
 import beast.base.core.BEASTInterface;
 import beast.base.evolution.alignment.Alignment;
-import beast.base.evolution.alignment.FilteredAlignment;
+import beast.base.spec.evolution.alignment.FilteredAlignment;
 import beast.base.evolution.alignment.Sequence;
 import beast.base.evolution.datatype.DataType;
 import beast.base.evolution.datatype.StandardData;
@@ -324,7 +324,7 @@ public class BeautiMorphModelAlignmentProvider extends BeautiAlignmentProvider {
 		Set<Integer> states = new HashSet<Integer>();
 		DataType dataType = alignment.getDataType();
 		for (int k : pattern) {
-			if (k >= 0 && !dataType.getCode(k).equals("?") && !dataType.getCode(k).equals("-")) {
+			if (k >= 0 && !dataType.getCharacter(k).equals("?") && !dataType.getCharacter(k).equals("-")) {
 				for (int m:dataType.getStatesForCode(k)) {
 					states.add(m);
 				}

@@ -90,7 +90,7 @@ id="M3982">
     <state id="state" storeEvery="5000">
         <tree id="Tree.t:M3982" name="stateNode">
             <taxonset id="TaxonSet.M39822" spec="TaxonSet">
-                <alignment filter="1,2,4,7,8,12,15,16" id="M39822" spec="FilteredAlignment">
+                <alignment filter="1,2,4,7,8,12,15,16" id="M39822" spec="beast.base.spec.evolution.alignment.FilteredAlignment">
                     <data idref="M3982"/>
                     <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39822" nrOfStates="2" spec="StandardData"/>
                 </alignment>
@@ -130,7 +130,7 @@ id="M3982">
 
             <distribution branchRateModel="@StrictClockModel.c:M3982" id="morphTreeLikelihood.M39823"
                          spec="beast.base.spec.evolution.likelihood.TreeLikelihood" tree="@Tree.t:M3982">
-                <data data="@M3982" filter="3" id="M39823" spec="FilteredAlignment">
+                <data data="@M3982" filter="3" id="M39823" spec="beast.base.spec.evolution.alignment.FilteredAlignment">
                     <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39823" nrOfStates="3" spec="StandardData"/>
                 </data>
                 <siteModel id="morphSiteModel.s:M39823"
@@ -141,7 +141,7 @@ id="M3982">
 
             <distribution branchRateModel="@StrictClockModel.c:M3982" id="morphTreeLikelihood.M39824"
                          spec="beast.base.spec.evolution.likelihood.TreeLikelihood" tree="@Tree.t:M3982">
-                <data data="@M3982" filter="14" id="M39824" spec="FilteredAlignment">
+                <data data="@M3982" filter="14" id="M39824" spec="beast.base.spec.evolution.alignment.FilteredAlignment">
                     <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39824" nrOfStates="4" spec="StandardData"/>
                 </data>
                 <siteModel id="morphSiteModel.s:M39824"
@@ -152,7 +152,7 @@ id="M3982">
 
             <distribution branchRateModel="@StrictClockModel.c:M3982" id="morphTreeLikelihood.M39825"
                          spec="beast.base.spec.evolution.likelihood.TreeLikelihood" tree="@Tree.t:M3982">
-                <data data="@M3982" filter="5,6" id="M39825" spec="FilteredAlignment">
+                <data data="@M3982" filter="5,6" id="M39825" spec="beast.base.spec.evolution.alignment.FilteredAlignment">
                     <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39825" nrOfStates="5" spec="StandardData"/>
                 </data>
                 <siteModel id="morphSiteModel.s:M39825"
@@ -163,7 +163,7 @@ id="M3982">
 
             <distribution branchRateModel="@StrictClockModel.c:M3982" id="morphTreeLikelihood.M39826"
                          spec="beast.base.spec.evolution.likelihood.TreeLikelihood" tree="@Tree.t:M3982">
-                <data data="@M3982" filter="9" id="M39826" spec="FilteredAlignment">
+                <data data="@M3982" filter="9" id="M39826" spec="beast.base.spec.evolution.alignment.FilteredAlignment">
                     <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39826" nrOfStates="6" spec="StandardData"/>
                 </data>
                 <siteModel id="morphSiteModel.s:M39826"
@@ -174,7 +174,7 @@ id="M3982">
 
             <distribution branchRateModel="@StrictClockModel.c:M3982" id="morphTreeLikelihood.M39827"
                          spec="beast.base.spec.evolution.likelihood.TreeLikelihood" tree="@Tree.t:M3982">
-                <data data="@M3982" filter="10,11" id="M39827" spec="FilteredAlignment">
+                <data data="@M3982" filter="10,11" id="M39827" spec="beast.base.spec.evolution.alignment.FilteredAlignment">
                     <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M39827" nrOfStates="7" spec="StandardData"/>
                 </data>
                 <siteModel id="morphSiteModel.s:M39827"
@@ -185,7 +185,7 @@ id="M3982">
 
             <distribution branchRateModel="@StrictClockModel.c:M3982" id="morphTreeLikelihood.M398210"
                          spec="beast.base.spec.evolution.likelihood.TreeLikelihood" tree="@Tree.t:M3982">
-                <data data="@M3982" filter="13" id="M398210" spec="FilteredAlignment">
+                <data data="@M3982" filter="13" id="M398210" spec="beast.base.spec.evolution.alignment.FilteredAlignment">
                     <userDataType ambiguities="34 56 12 45 23 0123" id="morphDataType.M398210" nrOfStates="10" spec="StandardData"/>
                 </data>
                 <siteModel id="morphSiteModel.s:M398210"
