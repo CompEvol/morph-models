@@ -34,11 +34,11 @@
     </dependencySets>
 
     <fileSets>
-        <!-- fxtemplates/ -->
-        <fileSet>
-            <directory>${project.basedir}/src/main/resources/morph.models/fxtemplates</directory>
-            <outputDirectory>/fxtemplates</outputDirectory>
-        </fileSet>
+        <!-- fxtemplates/ inside jar -->
+<!--        <fileSet>-->
+<!--            <directory>${project.basedir}/src/main/resources/morph.models/fxtemplates</directory>-->
+<!--            <outputDirectory>/fxtemplates</outputDirectory>-->
+<!--        </fileSet>-->
         <!-- examples/ -->
         <fileSet>
             <directory>${project.basedir}/examples</directory>
