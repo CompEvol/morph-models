@@ -50,8 +50,8 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/v')
         run: |
           mvn deploy -Prelease -DskipTests
-          echo "=== Reviewing Files in Staging Directory ==="
-          find target/central-staging/ -maxdepth 6
+#          echo "=== Reviewing Files in Staging Directory ==="
+#          find target/central-staging/ -maxdepth 6
         env:
           CENTRAL_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
           CENTRAL_TOKEN: ${{ secrets.CENTRAL_TOKEN }}
